@@ -1,29 +1,25 @@
----
-{}
----
+## part 25 - Hacking boolean змінні
 
-__Placeholder_13__ Частина 25 - Зламати булеві змінні
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_12__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте переглянемо наш код.
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520191957701.jpg"/></div>
 
-Давайте хакемо!
+Давайте hack!
 
-__Placeholder_3____placeholder_4____placeholder_5__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520210981189.jpg"/></div>
 
-Давайте розірвемося в Main, запускаємо __placeholder_16__ диски на додаток до чотирьох разів. & NBSP;
+Давайте розірвемося на main, запускаємо диски and на додаток до кроку в чотири рази.&nbsp;
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520146846926.jpg"/></div>
 
-Ми бачимо, що __0__ __placeholder_14__ __false__ переміщується в __R3__ на Main+12.
+Ми бачимо, що __0__ or __false__ переміщується в __r3__ на main+12.
 
-__Placeholder_9____Placeholder_10____Placeholder_11__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520218746699.jpg"/></div>
 
-Дуже просто ми встановлюємо __r3__ на __1__ __placeholder_15__ __true__ __placeholder_17__ Продовжуйте виконання, до якого ми помічаємо, що булева змінна __ishacked__ зараз __true__.
+Дуже просто ми встановили __r3__ на __1__ or __true__ and продовжуйте виконання, до якого ми помічаємо, що булева змінна __ishacked__ зараз __true__.
 
-Це прості люди! & NBSP; Ці елементарні приклади допоможуть побудувати вашу психічну бібліотеку прикладів, як підійти до всього в коді __placeholder_18__ Розуміння, як взяти під контроль виконання коду, незалежно від того, що!
+Це прості люди! &nbsp;
 
 Наступного тижня ми зануримось у цілі змінні.

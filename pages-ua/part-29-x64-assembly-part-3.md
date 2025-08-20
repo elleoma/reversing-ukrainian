@@ -1,29 +1,25 @@
----
-{}
----
+## part 29 - x64 Асамблея \ [Частина 3 \]
 
-__Placeholder_16__ Частина 29 - __placeholder_23__ Асамблея \ [Частина 3 \]
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_15__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Сьогодні ми продовжуємо наш підручник з простим прикладом віднімання. Давайте вивчимо вихідний код:
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1551437589689.jpg"/></div>
 
-Давайте складемо __placeholder_19__ запускаємо налагоджувач:
+Давайте складемо and запустити налагоджувач:
 
-__Placeholder_3____placeholder_4____placeholder_5__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1551437628625.jpg"/></div>
 
-Давайте запустимо __placeholder_20__ розібратися:
+Давайте запустимо and disassemble:
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1551437662831.jpg"/></div>
 
-Як ми бачимо, дуже ми завантажуємо __16__ __placeholder_17__ __0x10__ hex в __eax__ __placeholder_21__, а потім відніміть __5__ з нього в наступній інструкції.
+Як ми бачимо, дуже ми завантажуємо __16__ or __0x10__ hex в __eax__ and, а потім відняти __5__ з нього в наступній інструкції.
 
-__Placeholder_9____Placeholder_10____Placeholder_11__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1551437723578.jpg"/></div>
 
-Ми крок двічі __placeholder_22__, а потім подивимось на отримане значення в __rax__.
+Ми стукаємо двічі and, а потім подивимось на отримане значення в __rax__.
 
-__Placeholder_12____Placeholder_13____placeholder_14__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1551437759416.jpg"/></div>
 
-Як ми бачимо, результат - 0xB Hex __placeholder_18__ 11 десятковий, як очікувалося. Важливо, щоб ви спробували ці прості приклади, щоб зрозуміти, що відбувається, коли ми починаємо налагодити код C ++ у майбутніх підручниках.
+Як ми бачимо, результат 0xb hex or 11 десятковий, як очікувалося. Важливо, щоб ви спробували ці прості приклади, щоб зрозуміти, що відбувається, коли ми починаємо налагодити код C ++ у майбутніх підручниках.

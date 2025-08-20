@@ -1,46 +1,42 @@
----
-{}
----
+## part 43-Hacking після інкрементального оператора
 
-__Placeholder_15__ Частина 43-Злом оператора після інвентації
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_14__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте переглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_17__ main (void) {
-& nbsp; & nbsp; & nbsp; __ ploadholder_18__ mynumber = 16;
-& nbsp; & nbsp; & nbsp; __ ploadholder_19__ mynewnumber = ++ mynumber;
+int main(void) {
+&nbsp;&nbsp; &nbsp;int myNumber = 16;
+&nbsp;&nbsp; &nbsp;int myNewNumber = ++myNumber;
 
-& nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynewnumber & lt; & lt; std :: endl;
+&nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
 
-& nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp; &nbsp;return 0;
 }
-__Placeholder_1__
+</pre>
 
-Ми створюємо змінну & nbsp; __ mynumber = 16 & nbsp; __, до якої ми створюємо ще одну змінну & nbsp; __ mynewnumber__, що після інкрементів. & nbsp; __ mynewnumber __ & nbsp; __ ploadholder_20 __ & nbsp; __ 17 __ & nbsp; як значення & nbsp; __ mynumber & nbsp; __ as & nbsp; __ mynewnumber __ & nbsp; робить __placeholder_25__ Тільки & nbsp; __ mynumber __ & nbsp; збільшуватися, оскільки це пост -оператор.
+Ми створюємо Variable&nbsp;__mynumber = 16&nbsp;__to, який ми створюємо ще одну зміннукси9plh87zuk8__mynewnumber__. show&nbsp;__16__&nbsp;as value of&nbsp;__mynewnumber__&nbsp;and&nbsp;__17__&nbsp;as of&nbsp;__mynumber&nbsp;__as&nbsp;__mynewnumber__&nbsp;does not збільшується як ony&nbsp;__mynumber__&nbsp; intoraped.
 
-Коли ми після запровадження значення змінної збільшується після призначення її іншій змінній. & Nbsp; наприклад & nbsp; __ mynumber __ & nbsp; is & nbsp; __ 16 __ & nbsp;
+Коли ми після запровадження значення змінної збільшується після призначення її іншій змінній.&nbsp; для приклад&nbsp;__mymber__&nbsp;is&nbsp;__16__&nbsp;so, це збільшується після того, як він призначається після того, як він призначається після того, як він прискорюється після того, як він прискорюється після того, як він прискорюється після того, як він прискорюється після того, як це прискорюється після того, як це прискорюється після пристосування після відступу після пристосування to&nbsp;__mynewnumber__&nbsp;so, тому ми get&nbsp;__17__.
 
 Давайте налагоджуємо.
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529062708632.jpg"/></div>
 
-Давайте розірвемося на & nbsp; __ \*main+28 __ & nbsp; __ ploadholder_21__ Продовжити.
+Давайте розірвемо On&nbsp; __ \*main+28__&nbsp;and.
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529062741325.jpg"/></div>
 
-Як ми бачимо цінність у & nbsp; __ r3 __ & nbsp; є __16__ __placeholder_222 значення в & nbsp; __ r2 __ & nbsp; є __17__. Ми можемо бачити, що, як вони завантажуються з пам'яті в регістри в & nbsp; __ \*main+12 __ & nbsp; безпосередньо за допомогою & nbsp; __ mov __ & nbsp; інструкція __placeholder_23 __ & nbsp; __ \*main+24 __ & nbsp; ми __placeholder_16__ ________________ __ & nbsp; в & nbsp; __ r3 __ & nbsp; __ ploadholder_24__ тоді вкладіть це значення в & nbsp; __ r2__.
+Як ми можемо побачити значення in&nbsp;__r3__&nbsp;is __16__ and значення in&nbsp;__r2__&nbsp;is __17__. Ми можемо бачити, що, як вони завантажені з пам'яті в регістри in&nbsp; __ \*main+12__&nbsp;dectly шляхом the&nbsp;__mov__&nbsp;інструкція and&nbsp; __ \*main+24__&nbsp;we add __1__ of&nbsp;__r3__&nbsp;and value812 OF&nbsp;__R2__.
 
-Давайте зламаємо цю дитину!
+Давайте hack ця дитина!
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529062819877.jpg"/></div>
 
 Ми знаємо, що тепер можемо встановити цінність __R3__ на бажання нашого серця!
 
-__Placeholder_11____Placeholder_12____Placeholder_13__________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529062853544.jpg"/></div>
 
 Коли ми продовжуємо, ми бачимо функцію C ++ __Cout__, перегукується з нашим новим зламаним значенням на екрані!
 

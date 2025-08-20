@@ -1,51 +1,47 @@
----
-{}
----
+## part 23 - булеві змінні
 
-__Placeholder_11__ Частина 23 - Буєві змінні
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;nbsp
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_10__
+Наступним етапом нашої подорожі є Boolean змінні.&nbsp; Назва повертається до великого Джорджа Була, до якого поводиться вся сучасна інформатика.&nbsp;
 
-Наступний етап нашої подорожі - це булеві змінні. & NBSP; Назва повертається до великого Джорджа Була, до якого походить усі сучасні комп'ютерні науки. & NBSP;
-
-На найнижчому рівні значення становить або 0 __placeholder_12__ 1, false __placeholder_13__ true, + & lt; 5 вольт __placeholder_14__ +5 вольт тощо.
+На найнижчому рівні значення становить або 0 or 1, false or true, + &lt; 5 вольт or +5 вольт тощо.
 
 Давайте розглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_18__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; bool ishacked = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bool isHacked = false;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; ishacked & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; isHacked &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520192758105.jpg"/></div>
 
 Щоб скласти це, ми просто вводимо:
 
-__Placeholder_5__g ++ example4__placeholder_17__ -o example4
+<pre spellcheck="false">g++ example4.cpp -o example4
 
 ./example4
-__Placeholder_6__
+</pre>
 
-__Placeholder_7____Placeholder_8____Placeholder_9__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520196655358.jpg"/></div>
 
-Успіх! & Nbsp; ми бачимо __0__ надруковано до стандартного виводу __placeholder_15__ термінал!
+Успіх! &nbsp;we дивись __0__ надруковано до стандартного виводу or термінал!
 
 Давайте розберемо його:
 
-Ми створюємо булеву змінну під назвою __ishacked __ до того, що ми присвоюємо значення __false__ __placeholder_16__ __0 __.
+Ми створюємо булеву змінну під назвою __ishacked __ до того, що ми присвоюємо значення __false__ or __0 __. &nbsp;, що ми запускаємо двійкове, ми чітко бачимо значення __0__, яке успішно було відгукано до стандартного виходу.
 
 Наступного тижня ми зануримося в налагодження булевих змінних.

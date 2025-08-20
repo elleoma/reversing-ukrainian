@@ -1,49 +1,45 @@
----
-{}
----
+## part 26 - цілі змінні
 
-__Placeholder_9__ Частина 26 - цілі змінні
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;nbsp
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_8__
+Наступний етап нашої подорожі - це цілі змінні.nbsp
 
-Наступний етап нашої подорожі - це цілі змінні. & NBSP;
-
-32-бітний реєстр може зберігати 2^32 різні значення. Діапазон цілих значень, які можна зберігати в 32 бітах, залежить від використання цілого представлення. З двома найпоширенішими уявленнями, діапазон становить від 0 до 4,294,967,295 (2^32 - 1) для представництва як (неподписаного) двійкового числа, __placeholder_14__ - 2,147,483,648 (−2^31) через 2,147,483,647 (2^31 - 1) для представлення.
+32-бітний реєстр може зберігати 2^32 різні значення. Діапазон цілих значень, які можна зберігати в 32 бітах, залежить від використання цілого представлення. З двома найпоширенішими уявленнями, діапазон становить від 0 до 4,294,967,295 (2^32 - 1) для представлення як (неподписаного) двійкового числа, and −2,147,483,648 (−2^31) через 2,147,483,647 (2^31 - 1) для представлення 2,483,647.
 
 Майте на увазі 32-бітні адреси пам'яті, ви можете безпосередньо отримати доступ до максимуму 4 ГБ пам'яті, що відповідає байтом.
 
 Давайте розглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_12__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; __Placeholder_13__ mynumber = 777;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNumber = 777;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520215369999.jpg"/></div>
 
 Щоб скласти це, ми просто вводимо:
 
-g ++ example5__placeholder_11__ -o example5
+g ++ example5.cpp -o example5
 
 ./example5
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520195285687.jpg"/></div>
 
-Успіх! & NBSP; ми бачимо __777__ надруковано до стандартного виводу __placeholder_10__ термінал!
+Успіх! &nbsp;WE бачимо __777__ Надруковано до стандартного виводу or Термінал!
 
 Давайте розберемо його:
 

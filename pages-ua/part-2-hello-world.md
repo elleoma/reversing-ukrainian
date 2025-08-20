@@ -1,84 +1,117 @@
----
-{}
----
+## part 2 - Hello World
 
-__Placeholder_27__ Частина 2 - Привіт світ
+Сьогодні ми будемо висвітлювати основну установку для створення власних проектів на Raspberry Pi Pico.
 
-Сьогодні ми будемо висвітлювати основну установку для створення власних проектів на Raspberry Pi Pico. Всередині нашої папки __pico__ дозволяє створити __0x02 \ _pico \ _hello \ _world__ папка поряд із __pico-sdk__ __placeholder_42__ __pico-example__ папки. __Placeholder_0__mkdir 0x02_pico_hello_world
-CD 0x02_PICO_HELLO_WORLD
-__Placeholder_1__
+Всередині нашої папки __pico__ дозволяє створити __0x02 \ _pico \ _hello \ _world__ папка поряд з __pico-sdk__ and __pico-example__ папки.
 
-Давайте створимо наш VIM __0x02 \ _Hello \ _world.c__ __placeholder_29__. __Placeholder_2__vim 0x02_hello_world__placeholder_55__
-__Placeholder_3__
+<pre spellcheck="false">mkdir 0x02_pico_hello_world
+cd 0x02_pico_hello_world
+</pre>
 
-Давайте __placeholder_35__ наступне. __Placeholder_4 __#включити & lt; stdio__placeholder_38 __ & gt;
-__Placeholder_28__ включити "pico/stdlib__placeholder_39__"
+Давайте створимо наш VIM __0x02 \ _Hello \ _world.c__ file.
 
-__Placeholder_36__ main () & nbsp;
+<pre spellcheck="false">vim 0x02_hello_world.c
+</pre>
+
+Давайте add наступне.
+
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
+
+int main()&nbsp;
 {	
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp;   __Placeholder_53 __ ("Привіт світ! \ N");
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp;   printf("Hello world!\n");
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
     
-  повернення 0;
+  return 0;
 }
-__Placeholder_5__
+</pre>
 
-Ми спочатку обробляємо логіку, щоб ініціювати всі стандартні введення __placeholder_43__. __Placeholder_6 __ & nbsp; & nbsp; stdio_init_all ();
-__Placeholder_7__
+Ми спочатку обробляємо логіку, щоб ініціювати всі стандартні вхідні and вихід.
 
-Нарешті ми друкуємо _ "Привіт світ!" _ Кожні секунди до стандартного виходу в нескінченній петлі. __Placeholder_8 __ & nbsp; & nbsp; в той час як (1) & nbsp;
-& nbsp; & nbsp; {
-& nbsp; & nbsp;   __Placeholder_54 __ ("привіт світ! \ N");
+<pre spellcheck="false">&nbsp; &nbsp; stdio_init_all();
+</pre>
 
-& nbsp; & nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; & nbsp; }
-__Placeholder_9__
+Нарешті, ми друкуємо _ "Hello world!" _ Кожні 1 секунди до стандартного виходу в нескінченній петлі.
 
-Тоді ми після успіху _Return 0_, щоб вказати на успіх, оскільки наша функція _Main_ - це __placeholder_37__. Це технічно необхідна __placeholder_57__, але хороша практика. __Placeholder_10__ повернення 0;
-__Placeholder_11__
+<pre spellcheck="false">&nbsp; &nbsp; while(1)&nbsp;
+&nbsp; &nbsp; {
+&nbsp; &nbsp;   printf("Hello world!\n");
 
-Робота з __cmake__ значно допомагає в процесі побудови для наших проектів. Спочатку нам потрібно зробити __cmakelists.txt__ __placeholder_30__. __Placeholder_12__cmake_minimum_required (версія 3.13)
+&nbsp; &nbsp; &nbsp; sleep_ms(1000);
+&nbsp; &nbsp; }
+</pre>
 
-включити (pico_sdk_import.cmake)
+Тоді ми після успіху _Return 0_, щоб вказати на успіх, оскільки наша функція _Main_ - це int. Це not технічно необхідна, але хороша практика.
 
-Проект (test_project c cxx asm)
-SET (CMAKE_C_STANDARD 11)
-set (cmake_cxx_standard 17)
-pico_sdk_init ()
+<pre spellcheck="false">    return 0;
+</pre>
 
-add_executable (0x02_hello_world
-  0x02_hello_world__placeholder_56__________________
+Робота з __cmake__ значно допомагає в процесі побудови для наших проектів. Спочатку нам потрібно зробити __cmakelist.txt__ file.
+
+<pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
+
+include(pico_sdk_import.cmake)
+
+project(test_project C CXX ASM)
+встановити(CMAKE_C_STANDARD 11)
+встановити(CMAKE_CXX_STANDARD 17)
+pico_sdk_init()
+
+add_executable(0x02_hello_world
+  0x02_hello_world.c
 )
 
-pico_enable_stdio_usb (0x02_hello_world 1)
+pico_enable_stdio_usb(0x02_hello_world 1)
 
-pico_add_extra_outputs (0x02_hello_world)
+pico_add_extra_outputs(0x02_hello_world)
 
-Target_Link_Libraries (0x02_hello_world pico_stdlib)
-__Placeholder_13__
+target_link_libraries(0x02_hello_world pico_stdlib)
+</pre>
 
-Далі нам потрібно скопіювати __pico \ _sdk \ _import.cmake__ __placeholder_31__ із зовнішньої папки у встановленні __pico-sdk__ до __0x02 \ _hello \ _world__ проект. __Placeholder_14__cp ../pico-sdk/external/pico_sdk_import.cmake. __Placeholder_15__
+Далі нам потрібно скопіювати __pico \ _sdk \ _import.cmake__ file із зовнішньої папки у встановленні __pico-sdk__ у __0x02 \ _hello \ _world__ poper Poper.
 
-Нарешті ми готові до будівництва. __Placeholder_16__mkdir
-Комплект компакт -дисків
-Експорт PICO_SDK_PATH = ../../PICO-SDK
-cmake .. зробити
-__Placeholder_17__
+<pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
+</pre>
 
-Це створить ряд файлів __placeholder_44__ ті, на яких ми будемо зосереджуватися, - це __. Elf__ __placeholder_32__, коли мова йде про налагодження __placeholder_45__ хакерство, що є повним результатом програми, можливо, включаючи інформацію про налагодження __placeholder_46__ __. Форма, яку ви можете перетягнути -__ ploadholder_48 __- потрапляйте на плату RP2040, коли вона встановлена як USB-накопичувач. Я знайшов час, щоб підключити кнопку скидання на PICO, щоб я робив __placeholder_58__, довелося продовжувати відключення в USB __placeholder_49__, натискаючи на завантаження кожного разу, коли мені потрібно повторно переробити, тому ось схема такого. __Placeholder_18____Placeholder_19____Placeholder_20__
+Нарешті ми готові до будівництва.
 
-Щоб спалахнути натисканням зовнішньої кнопки __placeholder_50__, поки вона ще натиснута, натисніть Bootsel на платі, а потім відпустіть Bootsel __placeholder_51__, нарешті, відпустіть зовнішню кнопку. Потім просто скопіюйте __. UF2__ __Placeholder_34__ на диск. __Placeholder_21__cp 0x02_hello_world.uf2 /volumes /rpi-rp2
-__Placeholder_22__
+<pre spellcheck="false">mkdir build
+cd build
+export PICO_SDK_PATH=../../pico-sdk
+cmake ..
+make
+</pre>
 
-Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне. __Placeholder_23__ls /__ ploadholder_40 __ /tty. __Placeholder_24__
+Це створить ряд файлів and тих, на яких ми будемо зосереджуватися, - це __. Elf__ file, коли справа доходить до налагодження and hacking, що є повним виводом програми, можливо, включаючи інформацію про налагодження and this ____. Програмний код and Дані у формі UF2, яку ви можете перетягувати-and-Drop на плату RP2040, коли він встановлений як USB-накопичувач.
 
-Натисніть вкладку, щоб знайти накопичувач __placeholder_52__, тоді в моєму випадку я буду використовувати __screen__ для підключення. __Placeholder_25__screen /__placeholder_41__/tty.usbmodem00000000001
-__Placeholder_26__
+Я знайшов час, щоб підключити кнопку скидання на PICO, щоб я робив not, щоб тримати відпустку в USB and, натискаючи на завантаження кожного разу, коли мені потрібно повторно розгортати, так ось схема такого.
 
-Ура! Ви повинні бачити: "Привіт світ!" до стандартного виходу щосекунди. На нашому наступному уроці ми будемо налагодити __. Elf__ бінарний у __radare2__.
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616317867358.jpg"/></div>
+
+Щоб натиснути флеш натиснути зовнішню кнопку and, поки вона ще натиснута, натисніть Bootse на платі, а потім відпустіть Bootsel and, нарешті, відпустіть зовнішню кнопку.
+
+Потім просто скопіюйте __. UF2__ file на привід.
+
+<pre spellcheck="false">cp 0x02_hello_world.uf2 /Volumes/RPI-RP2
+</pre>
+
+Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
+
+<pre spellcheck="false">ls /dev/tty.
+</pre>
+
+Натисніть вкладку, щоб знайти привід and, тоді в моєму випадку я буду використовувати __screen__ для підключення.
+
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
+
+Ура! Ви повинні побачити: "Hello world!" до стандартного виходу щосекунди.
+
+На нашому наступному уроці ми будемо налагодити __. Elf__ бінарний у __radare2__.

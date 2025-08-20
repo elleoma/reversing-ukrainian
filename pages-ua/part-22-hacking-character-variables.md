@@ -1,31 +1,27 @@
----
-{}
----
+## part 22 - Hacking змінні символи
 
-__Placeholder_16__ Частина 22 - Зламані змінні символів
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_15__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте розглянемо наш код.
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520232430320.jpg"/></div>
 
-Давайте хакемо!
+Давайте hack!
 
-__Placeholder_3____placeholder_4____placeholder_5__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520194771044.jpg"/></div>
 
 Ми знову бачимо, що пряме значення __0x6e__ перемістилося в __r3__ на __main+12__, що є нашим "__n__".
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520195499705.jpg"/></div>
 
-Після вступу в 4 рази __placeholder_17__ Перевірте значення в __R3__, яке ми чітко бачимо як "__n__".
+Після вступу в 4 рази and перевірте значення в __r3__, яке ми чітко бачимо як "__n__".
 
-__Placeholder_9____Placeholder_10____Placeholder_11__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520233196032.jpg"/></div>
 
-Давайте зламаємо значення в __R3__ до "__Y__" __placeholder_18__, а потім переглянути значення в __r3 __.
+Давайте hack Значення в __R3__ до "__Y__" and, а потім переглянути значення в __R3 __. &nbsp;WE тепер чітко бачимо, що він змінився на "__Y__".
 
-__Placeholder_12____Placeholder_13____placeholder_14__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520232999022.jpg"/></div>
 
-Коли ми продовжуємо, ми успішно бачимо, як наш хак працював! & NBSP; ми бачимо значення друку "__y__" до стандартного виходу.
+Коли ми продовжуємо, ми успішно бачимо, що наш hack працював! &nbsp;WE бачимо значення друку "__Y__" до стандартного виходу.
 
 Наступного тижня ми зануримося в булеві змінні.

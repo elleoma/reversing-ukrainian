@@ -1,89 +1,84 @@
----
-{}
----
+## part 8 - int
 
-__Placeholder_16__ Частина 8 - __placeholder_23__________________________
-
-Сьогодні ми будемо працювати з типом даних __placeholder_24__, який є не що інше, як цілі цифри. Вони можуть бути підписані __placeholder_18__ також без підписання.
+Сьогодні ми будемо працювати з типом даних int, який є не що інше, як цілі цифри. Їх можна підписати і or, який не підписується.
 
 Давайте попрацюємо з простим прикладом. __0x04 \ _int.c__ наступним чином.
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_28 __ & gt;
-__Placeholder_17__ включити "pico/stdlib__placeholder_29__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_25__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; __Placeholder_26__ x = 40; & nbsp;
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; int x = 40;&nbsp;
 
-& nbsp; & nbsp; __Placeholder_36 __ ("%d \ n", x); & nbsp;
+&nbsp; &nbsp; printf("%d\n", x);&nbsp;
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
 
-& nbsp; повернення 0;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Тут ми просто маємо нашу стандартну функцію IO, а потім наша нескінченна петля. Ми просто присвоюємо _40_ на тип даних __placeholder_27__ _x_ __placeholder_32__ надрукувати його за допомогою модифікатора формату _%d_ __placeholder_33__ сон для _1_ секунди.
+Тут ми просто маємо нашу стандартну функцію IO, а потім наша нескінченна петля. Ми просто призначаємо _40_ int типу даних _x_ and надрукувати його за допомогою модифікатора формату _%d_ and для _1_ секунди.
 
-Давайте зробимо новий DIR & nbsp; __ 0x04 \ _int __ & nbsp; __ ploadholder_34__ __placeholder_22__ Наші & nbsp; __ cmakelists.txt __ & nbsp; __ ploadholder_19__ в ньому.
+Давайте зробимо новий dir&nbsp;__20x04 \ _int__nbspand add ur&nbsp;__cmakelists.txt__&nbsp;file.
 
-__Placeholder_2__cmake_minimum_required (версія 3.13)
+<pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
-включити (pico_sdk_import.cmake)
+include(pico_sdk_import.cmake)
 
-Проект (test_project c cxx asm)
-set (cmake_c_standard 11) & nbsp;
-set (cmake_cxx_standard 17) & nbsp;
-pico_sdk_init ()
+project(test_project C CXX ASM)
+встановити(CMAKE_C_STANDARD 11)&nbsp;
+встановити(CMAKE_CXX_STANDARD 17)&nbsp;
+pico_sdk_init()
 
-add_executable (0x04_int
-& nbsp; 0x04_int__placeholder_37__
+add_executable(0x04_int
+&nbsp; 0x04_int.c
 )
 
-pico_enable_stdio_usb (0x04_int 1)
+pico_enable_stdio_usb(0x04_int 1)
 
-pico_add_extra_outputs (0x04_int)
+pico_add_extra_outputs(0x04_int)
 
-Target_Link_Libraries (0x04_int pico_stdlib)
-__Placeholder_3__
+target_link_libraries(0x04_int pico_stdlib)
+</pre>
 
-Далі нам потрібно скопіювати & nbsp; __ pico \ _sdk \ _import.cmake __ & nbsp; __ ploadholder_20__ із зовнішньої папки в & nbsp; __ pico-sdk __ & nbsp; інсталяція до & nbsp; __ 0x04 \ _int __ & nbsp;
+Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;Installation to the&nbsp;__0x04 \ _int__&nbsp;project.
 
-__Placeholder_4__cp ../pico-sdk/external/pico_sdk_import.cmake.
-__Placeholder_5__
+<pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
+</pre>
 
 Нарешті ми готові до будівництва.
 
-__Placeholder_6__mkdir
-Комплект компакт -дисків
-Експорт PICO_SDK_PATH = ../../PICO-SDK
+<pre spellcheck="false">mkdir build
+cd build
+export PICO_SDK_PATH=../../pico-sdk
 cmake ..
-робити
-__Placeholder_7__
+make
+</pre>
 
-Потім просто скопіюйте & nbsp; __. Uf2 __ & nbsp; __ ploadholder_21__ на диск.
+Потім просто скопіюйте the&nbsp; __. Uf2__&nbsp;file на привід.
 
-__Placeholder_8__cp 0x04_int.uf2 /томи /rpi-rp2
-__Placeholder_9__
+nbsp
 
 Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
 
-__Placeholder_10__ls /__ ploadholder_30 __ /tty.
-__Placeholder_11__
+<pre spellcheck="false">ls /dev/tty.
+</pre>
 
-Натисніть вкладку, щоб знайти накопичувач __placeholder_35__, тоді в моєму випадку я буду використовувати & nbsp; __ екран __ & nbsp; для підключення.
+Натисніть вкладку, щоб знайти привід and, а потім у моєму випадку я буду use&nbsp;__screen__&nbsp;to connect.
 
-__Placeholder_12__screen /__placeholder_31__/tty.usbmodem00000000001
-__Placeholder_13__
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
 Ви повинні бачити, як _40_ надрукується щосекунди.
 
-__Placeholder_14__40
+<pre spellcheck="false">40
 40
 40
 40
@@ -95,6 +90,6 @@ __Placeholder_14__40
 40
 40
 40
-__Placeholder_15__
+</pre>
 
 На нашому наступному уроці ми будемо налагодити.

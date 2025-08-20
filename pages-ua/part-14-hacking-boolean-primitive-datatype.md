@@ -1,56 +1,52 @@
----
-{}
----
+## part 14 - Hacking булева примітивна тип даних
 
-__Placeholder_19__ Частина 14 - Зламати булевий примітивний тип даних
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_18__
+Сьогодні ми hack булева з останнього уроку.
 
-Сьогодні ми зламаємо булеву з останнього уроку.
+Давайте розберемо radare2 в режимі запису.
 
-Давайте розберемо __placeholder_21__ у режимі запису.
-
-__Placeholder_0__radare2 -w ./0x04_asm64_boolean_primive_datatypeype
-__Placeholder_1__
+<pre spellcheck="false">radare2 -w ./0x04_asm64_boolean_primitive_datatype
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_2__AAA
-__Placeholder_3__
+<pre spellcheck="false">aaa
+</pre>
 
-Прагнути до головного.
+Прагнути до main.
 
-__Placeholder_4__s main
-__Placeholder_5__
+<pre spellcheck="false">s main
+</pre>
 
-Переглянути демонстрацію.
+Переглянути disassembly.
 
-__Placeholder_6__v
-__Placeholder_7__
+<pre spellcheck="false">v
+</pre>
 
 Давайте повернемося до подання терміналу.
 
-__Placeholder_8__q
-__Placeholder_9__
+<pre spellcheck="false">q
+</pre>
 
-Все, що нам потрібно зробити, - це записати збірку на _0x00000009bc_ __placeholder_222 вкажіть _0x0_.
+Все, що нам потрібно зробити, - це записувати на _0x00000009bc_ and вкажіть _0x0_.
 
-__Placeholder_10 __ [0x000009b4] & gt; WA MOVZ W0, 0x0 @ 0x00000009BC
-Написано 4 байти (S) (Movz W0, 0x0) = WX 00008052
-__Placeholder_11__
+<pre spellcheck="false">[0x000009b4]&gt; wa movz w0, 0x0 @ 0x00000009bc
+Written 4 byte(s) (movz w0, 0x0) = wx 00008052
+</pre>
 
-__Placeholder_12 __ [0x000009b4] & gt;
-__Placeholder_13__
+<pre spellcheck="false">[0x000009b4]&gt;
+</pre>
 
-Давайте кинемо __placeholder_23__ запускаємо новий двійковий з терміналу.
+Давайте кинемо and запускаємо новий двійковий з терміналу.
 
-__Placeholder_14 __ [0x000009b4] & gt; Q
-kali@kali: ~/documents/0x04_asm64_boolean_primivive_datatype $ ./0x04_asm64_boolean_primive_datatypeypy
-__Placeholder_15__
+<pre spellcheck="false">[0x000009b4]&gt; q
+kali@kali:~/Documents/0x04_asm64_boolean_primitive_datatype$ ./0x04_asm64_boolean_primitive_datatype
+</pre>
 
-__Placeholder_16__0
-__Placeholder_17__
+<pre spellcheck="false">0
+</pre>
 
-Як ви бачите, ми успішно __placeholder_24__ постійно зламали двійкові! Що спочатку було _true_ __placeholder_20__ _1_ тепер _false _or _0_.
+Як ви бачите, ми успішно and постійно зламали двійкову! Що спочатку було _true_ or _1_ тепер _false _or _0_.
 
 На нашому наступному уроці ми будемо працювати з цілим примітивним типом даних.

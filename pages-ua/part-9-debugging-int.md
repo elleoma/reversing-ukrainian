@@ -1,124 +1,106 @@
----
-{}
----
+## part 9 - налагодження int
 
-__Placeholder_35__ Частина 9 - Налагодження __placeholder_52__
-
-Сьогодні ми збираємось налагодити нашу дуже просту програму __placeholder_53__. Давайте розглянемо код.
+Сьогодні ми збираємось налагодити нашу дуже просту програму int. Давайте розглянемо код.
 
 __0x04 \ _int.c__
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_57 __ & gt;
-__Placeholder_36__ включити "pico/stdlib__placeholder_58__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_54__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; __Placeholder_55__ x = 40; & nbsp;
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; int x = 40;&nbsp;
 
-& nbsp; & nbsp; __Placeholder_61 __ ("%d \ n", x); & nbsp;
+&nbsp; &nbsp; printf("%d\n", x);&nbsp;
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
 
-& nbsp; повернення 0;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Давайте розберемося в нашому налагоджувачі.
+Давайте розберемося в нашому налагоджувач.
 
-__Placeholder_2__radare2 -w __placeholder_63__ -b 16 0x04_int .__ ploadholder_37__
-__Placeholder_3__
+<pre spellcheck="false">radare2 -w arm -b 16 0x04_int.elf
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_4__aaaa
-__Placeholder_5__
+<pre spellcheck="false">aaaa
+</pre>
 
-Давайте прагнемо до головного.
+Давайте прагнемо main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+<pre spellcheck="false">s main
+</pre>
 
-Перейдемо у візуальний режим, ввівши & nbsp; __ v __ & nbsp; __ ploadholder_59__ тоді & nbsp; __ p __ & nbsp; двічі, щоб дістатися до хорошого подання налагоджувача.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач виду.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1617350497179.jpg"/></div>
 
-Ми починаємо з налаштування нашого основного значення повернення.
+Ми починаємо з налаштування значення повернення main.
 
-__Placeholder_11__push {__placeholder_49__, __placeholder_41__}
-__Placeholder_12__
+nbsp
 
-Ми __placeholder_46__ стандартний I/O INIT.
+Ми call стандартний init init.
 
-__Placeholder_13__bl sym.stdio_init_all
-__Placeholder_14__
+<pre spellcheck="false">bl sym.stdio_init_all
+</pre>
 
-Потім ми завантажуємо наш модифікатор формату %d в & nbsp; _r4_.
+Потім ми завантажуємо наш формат модифікатор %d OFOSS9PLH90ZUK8_R4_.
 
-__Placeholder_15__ldr __placeholder_50__, [0x0000033c]
-__Placeholder_16__
-
-Ми можемо це довести.
-
-__Placeholder_17 __: & gt; PSZ @ [0x0000033c]
-%D
-__Placeholder_18__
-
-Потім ми завантажуємо наш __placeholder_56 __ & nbsp; _ '40' _ & nbsp;
-
-__Placeholder_19__movs __placeholder_38__, 0x28
-__Placeholder_20__
+<pre spellcheck="false">ldr r4, [0x0000033c]
+</pre>
 
 Ми можемо це довести.
 
-__Placeholder_21 __: & gt; ? 0x28
-int32 & nbsp; 40
-UINT32 & NBSP; 40
-Hex & nbsp; & nbsp; 0x28
-восьминог; 050
-одиниця & nbsp; & nbsp; 40
-сегмент 0000: 0028
-рядок & nbsp; "("
-FVALUE: 40.0
-Float: & nbsp; 0,000000f
-Подвійний: 0,000000
-Бінарне & nbsp; 0B00101000
-Тринарі 0T1111
-__Placeholder_22__
+<pre spellcheck="false">:&gt; psz @ [0x0000033c]
+%d
+</pre>
 
-Потім ми переміщуємо модифікатор формату в & nbsp; _r0_.
+Потім ми завантажуємо наш int&nbsp;_'40'_&nbsp;INTO&nbsp;_R1 _ Чим _0x28_ hex.
 
-__Placeholder_23__movs __placeholder_42__, __placeholder_51 __ & nbsp;
-__Placeholder_24__
+<pre spellcheck="false">movs r1, 0x28
+</pre>
 
-Потім ми розгалужуємось довго до __placeholder_62__ обгортка __placeholder_60__ __placeholder_47__ it.
+Ми можемо це довести.
 
-__Placeholder_25__bl sym .__ rap_printf
+nbsp
 
-__Placeholder_26__
+Потім ми переміщуємо модифікатор формату Of&nbsp;_r0_.
 
-Потім ми переміщуємо 250 десятків __placeholder_39__ 0xfa Hex в & nbsp; _r0_.
+<pre spellcheck="false">movs r0, r4&nbsp;
+</pre>
 
-__Placeholder_27__movs __placeholder_43__, 0xfa
-__Placeholder_28__
+Потім ми розгалужуємось довго до обгортки printf and call it.
 
-Потім ми переміщуємо 250 десятків, що знаємо, коли логічний зсув двічі буде 1000 десяткових __placeholder_40__ 0xfa Hex в & nbsp; _r0_.
+<pre spellcheck="false">bl sym.__wrap_printf
 
-__Placeholder_29__lsls __placeholder_44__, __placeholder_45__, 2
-__Placeholder_30__
+</pre>
 
-Тоді ми __placeholder_48__ Функція Sleep \ _MS.
+Потім ми переміщуємо 250 десятків or 0xfa hex of&nbsp;_r0_.
 
-__Placeholder_31__bl sym.sleep_ms
-__Placeholder_32__
+<pre spellcheck="false">movs r0, 0xfa
+</pre>
+
+Потім ми переміщуємо 250 десятків, що знаємо, коли логічний зсув двічі буде 1000 десяткових десятків or 0xfa hex th&nbsp;_r0_.
+
+<pre spellcheck="false">lsls r0, r0, 2
+</pre>
+
+Тоді ми call Функція Sleep \ _MS.
+
+<pre spellcheck="false">bl sym.sleep_ms
+</pre>
 
 Потім ми продовжуємо весь петлю нескінченно.
 
-__Placeholder_33__b 0x328
-__Placeholder_34__
+<pre spellcheck="false">b 0x328
+</pre>
 
-На нашому наступному уроці ми зламаємо цей дуже простий двійковий.
+На нашому наступному уроці ми будемо hack цей дуже простий двійковий.

@@ -1,80 +1,76 @@
----
-{}
----
+## part 37 - Hacking sizeof оператор
 
-__Placeholder_36__ Частина 37 - Злом оператора Sizeof
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_35__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте переглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_40__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; __Placeholder_41__ mynumber = 16;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNumber = 16;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; __Placeholder_42__ mynumbersize = sizeof (mynumber);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNumberSize = sizeof(myNumber);
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumbersize & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumberSize &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429032559.jpg"/></div>
 
-Пам'ятайте, що ми створюємо змінну __mynumber = 16__, до якої ми створюємо ще одну змінну __mynumbersize__, яка містить значення розміру __mynumber __. & NBSP; ми бачимо, що коли ми виконуємо наш код, він показує 4, тому ми бачимо, що оператор розмірівофів вказує на ціле чисельність, має 4 байт.
+Пам'ятайте, що ми створюємо змінну __mynumber = 16__, до якої ми створюємо ще одну змінну __mynumbersize__, яка містить значення розміру __mynumber __. &nbsp;we бачимо, що коли ми виконуємо наш код, він показує 4, тому ми бачимо, що оператор Sizeof вказує на ціле байдужне 4 байт.
 
-Давайте переглянемо код минулого тижня, коли ми починаємо з налагодження __placeholder_43__, що розбивається на Main.
+Давайте переглянемо код минулого тижня, коли ми починаємо з налагодження and, що розбивається на main.
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429072643.jpg"/></div>
 
 Давайте розірвемося на __main+20__, як ми бачимо, що значення __4__ переміщується в __r3__.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429109049.jpg"/></div>
 
-Давайте розглянемо, що відбувається в __main+16__, оскільки ми можемо побачити, що ми зберігаємо вартість __ $ __ procesholder_37 __- 8__, що існує в __r3__, що в нашому випадку __16 __. Всередині __ $ __ Ploadholder_38 __- 8__.
+Давайте розглянемо, що відбувається в __main+16__, як ми бачимо, що ми зберігаємо значення __ $ r11-8__ того, що існує в __r3__, що в нашому випадку __16 __. &nbsp;this має сенс, коли ми вивчаємо наш оригінальний код. __16 __. &nbsp;WE бачимо це тут, коли ми вивчаємо значення всередині __ $ r11-8__.
 
-__Placeholder_11____Placeholder_12____Placeholder_13__________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429200465.jpg"/></div>
 
-Як ми бачимо вище значення всередині __ $ __ procesholder_39 __- 12__ IS__ 4__, оскільки це являє собою значення, яке __SizeOf__ повертається як ціле число __16 __, насправді 4 байти широко.
+Як ми бачимо вище значення всередині __ $ r11-12__ IS__ 4__, оскільки це представляє значення, яке __SizeOf__ повертається як ціле число __16 __, насправді 4 байти шириною.
 
-__Placeholder_14____Placeholder_15____Placeholder_16__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429249458.jpg"/></div>
 
 Нарешті, коли ми продовжуємо виконання, ми насправді бачимо значення __4__ перегукується з терміналом.
 
-Давайте хакемо!
+Давайте hack!
 
-__Placeholder_17____Placeholder_18____Placeholder_19__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429287002.jpg"/></div>
 
-Ми запускаємо __placeholder_44__ перерва на __main+28__.
+Ми запускаємо and перерви на __main+28__.
 
-__Placeholder_20____Placeholder_21____Placeholder_22______
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429310244.jpg"/></div>
 
 Ми бачимо, що цінність у __R3__ - __4__, що очікується.
 
-__Placeholder_23____placeholder_24____placeholder_25__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429336631.jpg"/></div>
 
 Ми ламаємося на __main+36__.
 
-__Placeholder_26____Placeholder_27____Placeholder_28__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429367083.jpg"/></div>
 
-Ми бачимо, що значення в __R1__ є __4__, що повинно мати логічний сенс, оскільки значення зберігалося з __R3__ в __R11-12__ __placeholder_45__, а потім назад до __R1__.
+Ми бачимо, що значення в __R1__ є __4__, що повинно мати логічний сенс, оскільки значення зберігалося з __R3__ в __R11-12__ and, а потім назад до __R1__.
 
-__Placeholder_29____Placeholder_30____Placeholder_31__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429391206.jpg"/></div>
 
-Давайте зламаємо значення в __R1__!
+Давайте hack значення в __r1__!
 
-__Placeholder_32____Placeholder_33____Placeholder_34__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429414806.jpg"/></div>
 
-Успіх! & Nbsp; ми зламали машину!
+Успіх! &nbsp;we зламали машину!
 
 Наступного тижня ми зануримося в оператор попереднього інкрементації.

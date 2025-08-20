@@ -1,139 +1,135 @@
----
-{}
----
+## part 10 - Hacking int
 
-__Placeholder_31__ Частина 10 - Злом __placeholder_46__
-
-Сьогодні ми зламаємо нашу просту програму __placeholder_47__. Давайте розглянемо код.
+Сьогодні ми hack Проста програма int. Давайте розглянемо код.
 
 __0x04 \ _int.c__
 
-__Placeholder_0 __#включає & lt; stdio__placeholder_51 __ & gt;
-__Placeholder_32__ включити "pico/stdlib__placeholder_52__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_48__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; __Placeholder_49__ x = 40; & nbsp;
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; int x = 40;&nbsp;
 
-& nbsp; & nbsp; __Placeholder_61 __ ("%d \ n", x); & nbsp;
+&nbsp; &nbsp; printf("%d\n", x);&nbsp;
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
 
-& nbsp; повернення 0;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Давайте розберемося в нашому налагоджувачі.
+Давайте розберемося в нашому налагоджувач.
 
-__Placeholder_2__radare2 -w __placeholder_63__ -b 16 0x04_int .__ ploadholder_33__
-__Placeholder_3__
+<pre spellcheck="false">radare2 -w arm -b 16 0x04_int.elf
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_4__aaaa
-__Placeholder_5__
+<pre spellcheck="false">aaaa
+</pre>
 
-Давайте прагнемо до головного.
+Давайте прагнемо main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+<pre spellcheck="false">s main
+</pre>
 
-Перейдемо у візуальний режим, ввівши & nbsp; __ v __ & nbsp; __ ploadholder_54__ тоді & nbsp; __ p __ & nbsp; двічі, щоб дістатися до хорошого подання налагоджувача.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач виду.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1617616216893.jpg"/></div>
 
-Ми збираємось спочатку зламати значення __placeholder_50__, яке ми знаємо, це _40_ десятковий __placeholder_38__ _28_ hex.
+Ми збираємось спочатку hack int, яке ми знаємо, це _40_ десятковий or _28_ hex.
 
-__Placeholder_11 __: & gt; wa movs __placeholder_36__, 0x30 @ 0x00000328
-Написано 2 байти (S) (MOVS __placeholder_37__, 0x30) = WX 3021
-__Placeholder_12__
+<pre spellcheck="false">:&gt; wa movs r1, 0x30 @ 0x00000328
+Written 2 byte(s) (movs r1, 0x30) = wx 3021
+</pre>
 
 Тут ми бачимо _0x30_ IS _48_ десятковий.
 
-__Placeholder_13 __: & gt; ? 0x30
-int32 & nbsp; 48
-UINT32 & NBSP; 48
-Hex & nbsp; & nbsp; 0x30
-восьминог; 060
-одиниця & nbsp; & nbsp; 48
-Сегмент 0000: 0030
-рядок & nbsp; "0"
-Fvalue: 48.0
-Float: & nbsp; 0,000000f
-Подвійний: 0,000000
-Бінарне & nbsp; 0B00110000
-Тринар 0T1210
-__Placeholder_14__
+<pre spellcheck="false">:&gt; ? 0x30
+int32 &nbsp; 48
+uint32&nbsp; 48
+hex &nbsp; &nbsp; 0x30
+octal &nbsp; 060
+unit&nbsp; &nbsp; 48
+segment 0000:0030
+string&nbsp; "0"
+fvalue: 48.0
+float:&nbsp; 0.000000f
+double: 0.000000
+binary&nbsp; 0b00110000
+ternary 0t1210
+</pre>
 
-Ми також бачимо, що _0xfa_, який ми знаємо, це _250_ десятковий - це наша 1/4 мілісекундна затримка, що, коли зміщена ліворуч, множиться, __placeholder_55__ стає _1000_ десяткове протягом 1 секунди затримки.
+Ми також бачимо, що _0xfa_, який ми знаємо, це _250_ десятковий - це наша 1/4 мілісекундна затримка, що, коли зміщується ліворуч, множиться, and стає _1000_ десятковим на 1 секунду.
 
-__Placeholder_15 __: & gt; ? 0xfa
-int32 & nbsp; 250
-UINT32 & NBSP; 250
-Hex & nbsp; & nbsp; 0xfa
-восьминог; 0372
-одиниця & nbsp; & nbsp; 250
-сегмент 0000: 00FA
-рядок & nbsp; "\ xfa"
-FVALUE: 250.0
-Float: & nbsp; 0,000000f
-Подвійний: 0,000000
-Бінарне & nbsp; 0B11111010
-Тринарі 0T100021
-__Placeholder_16__
+<pre spellcheck="false">:&gt; ? 0xfa
+int32 &nbsp; 250
+uint32&nbsp; 250
+hex &nbsp; &nbsp; 0xfa
+octal &nbsp; 0372
+unit&nbsp; &nbsp; 250
+segment 0000:00fa
+string&nbsp; "\xfa"
+fvalue: 250.0
+float:&nbsp; 0.000000f
+double: 0.000000
+binary&nbsp; 0b11111010
+ternary 0t100021
+</pre>
 
-Давайте зламаємо це на _50_ десятковий.
+Давайте hack, що до _50_ десяткового.
 
-__Placeholder_17 __: & gt; wa movs __placeholder_40__, 0x32 @ 0x00000330
-Написано 2 байти (и) (MOVS __placeholder_41__, 0x32) = WX 3220
-__Placeholder_18__
+<pre spellcheck="false">:&gt; wa movs r0, 0x32 @ 0x00000330
+Written 2 byte(s) (movs r0, 0x32) = wx 3220
+</pre>
 
 Ми можемо бачити, що це насправді _50_ десятковий.
 
-__Placeholder_19 __: & gt; ? 0x32
-int32 & nbsp; 50
-UINT32 & NBSP; 50
-Hex & nbsp; & nbsp; 0x32
-восьминог; 062
-одиниця & nbsp; & nbsp; 50
-сегмент 0000: 0032
-рядок & nbsp; "2"
+<pre spellcheck="false">:&gt; ? 0x32
+int32 &nbsp; 50
+uint32&nbsp; 50
+hex &nbsp; &nbsp; 0x32
+octal &nbsp; 062
+unit&nbsp; &nbsp; 50
+segment 0000:0032
+string&nbsp; "2"
 fvalue: 50.0
-Float: & nbsp; 0,000000f
-Подвійний: 0,000000
-Бінарне & nbsp; 0B00110010
-Тринарі 0T1212
-__Placeholder_20__
+float:&nbsp; 0.000000f
+double: 0.000000
+binary&nbsp; 0b00110010
+ternary 0t1212
+</pre>
 
-Давайте також змінимо його лише один раз таким, що він знадобиться _50_ десятковий __placeholder_56__, перетворивши його на _100_, коли він зміщує ліворуч лише один раз.
+Давайте також змістимо його лише один раз таким, що він займе _50_ десятковий and, перетворивши його на _100_, коли він зміщує ліворуч лише один раз.
 
-__Placeholder_21 __: & gt; wa lsls __placeholder_42__, __placeholder_43__, 1 @ 0x00000332
-Написано 2 байти (lsls __placeholder_44__, __placeholder_45__, 1) = WX 4000
-__Placeholder_22__
+<pre spellcheck="false">:&gt; wa lsls r0, r0, 1 @ 0x00000332
+Written 2 byte(s) (lsls r0, r0, 1) = wx 4000
+</pre>
 
-Все, що нам потрібно зробити зараз, - це вихід __placeholder_57__ перетворіть нашу & nbsp; __.__ ploadholder_34 __ & nbsp; __ до & nbsp; __. Uf2__!
+Все, що нам потрібно зробити зараз, це exit and перетворити ur&nbsp; __. elf&nbsp;__to&nbsp; __. Uf2__!
 
-__Placeholder_23__./elf2uf2/elf2uf2 0x04_int .__ ploadholder_35__ 0x04_int.uf2
-__Placeholder_24__
+<pre spellcheck="false">./elf2uf2/elf2uf2 0x04_int.elf 0x04_int.uf2
+</pre>
 
-Підключіть Pico __placeholder_58__ Переконайтесь, що ви тримаєте завантаження __placeholder_39__ Використовуйте налаштування, яку я надав у частині 2.
+Підключіть Pico and, переконайтеся, що ви тримаєте Bootsel or Використовуйте налаштування, яку я надав у частині 2.
 
-__Placeholder_25__cp 0x04_int.uf2 /томи /rpi-rp2
-__Placeholder_26__
+<pre spellcheck="false">cp 0x04_int.uf2 /Volumes/RPI-RP2
+</pre>
 
 Давайте екранимо це!
 
-__Placeholder_27__screen /__placeholder_53__/tty.usbmodem00000000001
-__Placeholder_28__
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
 Ага так!
 
-__Placeholder_29__48
+<pre spellcheck="false">48
 48
 48
 48
@@ -153,8 +149,8 @@ __Placeholder_29__48
 48
 48
 48
-__Placeholder_30__
+</pre>
 
-Тут ми бачимо, що ми зламали його до 48 десяткових __placeholder_59__ Він друкує кожні 100 мілісекунд!
+Тут ми бачимо, що ми зламали його до 48 десяткових and Він друкує кожні 100 мілісекунд!
 
-На нашому наступному уроці ми будемо мати справу з поплавками __placeholder_60__ унікальний спосіб, яким Піко обробляє їх, як це робить __placeholder_62__, має співпроцесор.
+На нашому наступному уроці ми будемо мати справу з Floats and Унікальним способом, яким Піко обробляє їх, як це робить not.

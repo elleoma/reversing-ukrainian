@@ -1,109 +1,105 @@
----
-{}
----
-
-__Placeholder_34__ Частина 6 - Налагодження Чар
+## part 6 - налагодження char
 
 Сьогодні ми налагоджуємо програму CHAR. Давайте розглянемо код.
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_52 __ & gt;
-__Placeholder_35__ включають "pico/stdlib__placeholder_53__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_51__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; char x = 'x';
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp;
-& nbsp; & nbsp; __Placeholder_56 __ ("%c \ n", x);
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; char x = 'x';
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; printf("%c\n", x);
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp;
-& nbsp; повернення 0;
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
 Давайте розберемо наш налагоджувач.
 
-__Placeholder_2__radare2 -w __placeholder_58__ -b 16 0x03_char .__ ploadholder_36__
-__Placeholder_3__
+<pre spellcheck="false">radare2 -w arm -b 16 0x03_char.elf
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_4__aaaa
-__Placeholder_5__
+<pre spellcheck="false">aaaa
+</pre>
 
-Давайте прагнемо до головного.
+Давайте прагнемо main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+<pre spellcheck="false">s main
+</pre>
 
-Перейдемо у візуальний режим, ввівши & nbsp; __ v __ & nbsp; __ ploadholder_54__ тоді & nbsp; __ p __ & nbsp; двічі, щоб дістатися до хорошого подання налагоджувача.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and thennbsp__p__nbsptwice, щоб дістатися до хорошого налагоджувач виду.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616704139039.jpg"/></div>
 
-Ми починаємо з налаштування нашого основного значення повернення.
+Ми починаємо з встановлення нашого значення повернення main.
 
-__Placeholder_11__push {__placeholder_48__, __placeholder_40__}
-__Placeholder_12__
+<pre spellcheck="false">push {r4, lr}
+</pre>
 
-Ми __placeholder_45__ стандартний I/O INIT.
+Ми call стандартний init init.
 
-__Placeholder_13__bl sym.stdio_init_all
-__Placeholder_14__
+<pre spellcheck="false">bl sym.stdio_init_all
+</pre>
 
 Потім ми завантажуємо наш модифікатор формату %C в _R4_.
 
-__Placeholder_15__ldr __placeholder_49__, [0x0000033c]
-__Placeholder_16__
+<pre spellcheck="false">ldr r4, [0x0000033c]
+</pre>
 
 Ми можемо це довести.
 
-__Placeholder_17 __: & gt; PSZ @ [0x0000033c]
+<pre spellcheck="false">:&gt; psz @ [0x0000033c]
 %c
-__Placeholder_18__
+</pre>
 
 Потім ми завантажуємо наш char _'x'_ в _r1_.
 
-__Placeholder_19__movs __placeholder_37__, 0x78
-__Placeholder_20__
+<pre spellcheck="false">movs r1, 0x78
+</pre>
 
-__Placeholder_33__
+https://www.asciitable.com
 
-Ви можете перевірити вище, що 0x78 Hex - _'x'_.
+Ви можете перевірити вище, що 0x78 HEX - це _'x'_.
 
 Потім ми переміщуємо модифікатор формату в _R0_.
 
-__Placeholder_21__movs __placeholder_41__, __placeholder_50 __ & nbsp;
-__Placeholder_22__
+<pre spellcheck="false">movs r0, r4&nbsp;
+</pre>
 
-Потім ми розгалужуємось довго до __placeholder_57__ обгортка __placeholder_55__ __placeholder_46__ it.
+Потім ми розгалужуємось довго до обгортки printf and call it.
 
-__Placeholder_23__bl sym .__ wrap_printf
+<pre spellcheck="false">bl sym.__wrap_printf
 
-__Placeholder_24__
+</pre>
 
-Потім ми переміщуємо 250 десятків __placeholder_38__ 0xfa HEX в _R0_.
+Потім ми переміщуємо 250 десятків or 0xfa hex в _r0_.
 
-__Placeholder_25__movs __placeholder_42__, 0xfa
-__Placeholder_26__
+<pre spellcheck="false">movs r0, 0xfa
+</pre>
 
-Потім ми переміщуємо 250 десяткових знаків, що ми знаємо, коли логічний зсув двічі буде 1000 десятків __placeholder_39__ 0xfa Hex в _R0_.
+Потім ми переміщуємо 250 десяткових знаків, що знаємо, коли логічний зсув двічі буде 1000 десяткових знаків or 0xfa HEX в _R0_.
 
-__Placeholder_27__lsls __placeholder_43__, __placeholder_44__, 2
-__Placeholder_28__
+<pre spellcheck="false">lsls r0, r0, 2
+</pre>
 
-Тоді ми __placeholder_47__ Функція Sleep \ _MS.
+Тоді ми call функція sleep \ _ms.
 
-__Placeholder_29__bl sym.sleep_ms
-__Placeholder_30__
+<pre spellcheck="false">bl sym.sleep_ms
+</pre>
 
 Потім ми продовжуємо весь петлю нескінченно.
 
-__Placeholder_31__b 0x328
-__Placeholder_32__
+<pre spellcheck="false">b 0x328
+</pre>
 
-На нашому наступному уроці ми зламаємо тип даних CHAR.
+На нашому наступному уроці ми будемо hack тип даних char.

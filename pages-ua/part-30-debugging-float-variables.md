@@ -1,64 +1,60 @@
----
-{}
----
+## part 30 - Змінні налагодження поплавців
 
-__Placeholder_30__ Частина 30 - Змінні налагодження поплавців
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_29__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте переглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_33__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; float mynumber = 1337.1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float myNumber = 1337.1;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196070985.jpg"/></div>
 
 Давайте налагоджуємо!
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196099167.jpg"/></div>
 
-Давайте розірвемося на __ -мейн+20__ __placeholder_34__ продовжуйте до цього моменту.
+Давайте розійдемося на __ -мейн+20__ and, продовжуйте до цього моменту.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+nbsp
 
-Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. вперед. & nbsp;
+Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;WE чітко бачимо, що це __13337.09998__, що наближає наше значення в нашому первісному C ++ код.&nbsp;keep __1337.1__ Тому, будь ласка, пам’ятайте, що ми рухаємось вперед.&nbsp;
 
-__Placeholder_11____Placeholder_12____Placeholder_13__________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196151522.jpg"/></div>
 
 Ми також можемо побачити це значення у високій пам'яті.
 
-__Placeholder_14____Placeholder_15____Placeholder_16__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196178255.jpg"/></div>
 
-Давайте розійдемося на __ -мейн+28__ __placeholder_36__ Продовжуйте.
+Давайте розірвемося на __main+28__ and.
 
-__Placeholder_17____Placeholder_18____Placeholder_19__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196203419.jpg"/></div>
 
-Ми бачимо нову інструкцію. & NBSP; ми бачимо __vldr__ __placeholder_37__ значення в межах __r11, \#8__ переміщується на __ s0 __. & Nbsp; так що __s0 __? Приклад такого, до якого значення __1337.09998 __ є переміщеним у __S0 __.
+We see a strange new інструкція.&nbsp;We see __vldr__ and the value within __r11, \#8__ being moved into__ s0__.&nbsp;So what is __s0__?&nbsp;We have a math co-processor which has a series of additional registers that work with decimal or з плаваючою коімом &nbsp;here ми бачимо приклад такого, до якого значення __1337.09998 __is переміщується в __s0 __. &nbsp; __vldr__ regindric reginism reginisc8 AS__ S0__.
 
-__Placeholder_20____Placeholder_21____Placeholder_22______
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196373197.jpg"/></div>
 
 Ми можемо бачити ці спеціальні регістри лише в тому випадку, якщо ми робимо інформацію про те, як ми виконуємо всі, як ми робимо нижче.
 
-__Placeholder_23____placeholder_24____placeholder_25__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196414932.jpg"/></div>
 
 Нижче ми бачимо, що значення зараз переміщується в __S0__.
 
-__Placeholder_26____Placeholder_27____Placeholder_28__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196439893.jpg"/></div>
 
-Наступного тижня ми зануримось у зламати змінні поплавця.
+На наступному тижні ми зануримось у змінні FLOAT Hacking.

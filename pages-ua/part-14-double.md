@@ -1,89 +1,85 @@
----
-{}
----
-
-__Placeholder_16__ Частина 14 - Подвійний
+## part 14 - подвійний
 
 Сьогодні ми збираємось обробляти подвійний тип даних. Як ми обговорювали, у Піко не існує коопроцесор, який би обробляв числа з плаваючою комою, оскільки це обробляється через ряд функціональних можливостей за допомогою програмного забезпечення в API. Це те ж саме з подвійною точністю.
 
-Давайте попрацюємо з простим прикладом. & Nbsp; __ 0x06 \ _double.c __ & nbsp; наступним чином.
+Давайте попрацюємо з простим прикладом.&nbsp;__0x06 \ _double.c__&nbsp;as.
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_23 __ & gt;
-__Placeholder_17__ включити "pico/stdlib__placeholder_24__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_222__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; подвійний x = 40,5;
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; double x = 40.5;
 
-& nbsp; & nbsp; __Placeholder_31 __ ("%f \ n", x); & nbsp;
+&nbsp; &nbsp; printf("%f\n", x);&nbsp;
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
 
-& nbsp; повернення 0;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Дуже просто ми призначаємо поплавок & nbsp; _40.5_ & nbsp; в & nbsp; _x_ & nbsp; __ ploadholder_27__ надрукувати його за допомогою модифікатора & nbsp; _%f & nbsp; _format __placeholder_28__, а потім спите для & nbsp; _1_ & nbsp;
+Дуже просто ми призначаємо поплавок of&nbsp;_40.5_&nbsp;into&nbsp;_x_&nbsp;and друкувати його за допомогою the&nbsp;_%f&nbsp;_formatiifior modifior and потім сплять for&nbsp;_1_&nbsp;second.
 
-Давайте зробимо новий dir & nbsp; __ 0x06 \ _double __ & nbsp; __ ploadholder_29 р.
+Давайте зробимо новий dir&nbsp;__0x06 \ _double__&nbsp;and add ur&nbsp;__cmakelists.txt__&nbsp;file.
 
-__Placeholder_2__cmake_minimum_required (версія 3.13)
+<pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
-включити (pico_sdk_import.cmake)
+include(pico_sdk_import.cmake)
 
-Проект (test_project c cxx asm)
-set (cmake_c_standard 11) & nbsp;
-set (cmake_cxx_standard 17) & nbsp;
-pico_sdk_init ()
+project(test_project C CXX ASM)
+встановити(CMAKE_C_STANDARD 11)&nbsp;
+встановити(CMAKE_CXX_STANDARD 17)&nbsp;
+pico_sdk_init()
 
-add_executable (0x06_double
-& nbsp; 0x06_double__placeholder_32__
+add_executable(0x06_double
+&nbsp; 0x06_double.c
 )
 
-pico_enable_stdio_usb (0x06_double 1)
+pico_enable_stdio_usb(0x06_double 1)
 
-pico_add_extra_outputs (0x056_double)
+pico_add_extra_outputs(0x056_double)
 
-Target_Link_Libraries (0x06_double pico_stdlib)
-__Placeholder_3__
+target_link_libraries(0x06_double pico_stdlib)
+</pre>
 
-Далі нам потрібно скопіювати & nbsp; __ pico \ _sdk \ _import.cmake __ & nbsp; __ ploadholder_19__ із зовнішньої папки у & nbsp; __ pico-sdk __ & nbsp;
+Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__nbspfile із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;Installation to the&nbsp;__0x06 \ _double__&nbsp;project.
 
-__Placeholder_4__cp ../pico-sdk/external/pico_sdk_import.cmake.
-__Placeholder_5__
+<pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
+</pre>
 
 Нарешті ми готові до будівництва.
 
-__Placeholder_6__mkdir
-Комплект компакт -дисків
-Експорт PICO_SDK_PATH = ../../PICO-SDK
+<pre spellcheck="false">mkdir build
+cd build
+export PICO_SDK_PATH=../../pico-sdk
 cmake ..
-робити
-__Placeholder_7__
+make
+</pre>
 
-Потім просто скопіюйте & nbsp; __. Uf2 __ & nbsp; __ ploadholder_20__ на диск.
+Потім просто скопіюйте the&nbsp; __. Uf2__&nbsp;file на привід.
 
-__Placeholder_8__cp 0x06_double.uf2 /томи /rpi-rp2
-__Placeholder_9__
+<pre spellcheck="false">cp 0x06_double.uf2 /Volumes/RPI-RP2
+</pre>
 
 Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
 
-__Placeholder_10__ls /__ ploadholder_25 __ /tty.
-__Placeholder_11__
+<pre spellcheck="false">ls /dev/tty.
+</pre>
 
-Натисніть вкладку, щоб знайти накопичувач __placeholder_30__, тоді в моєму випадку я буду використовувати & nbsp; __ екран __ & nbsp; для підключення.
+Натисніть вкладку, щоб знайти привід and, а потім у моєму випадку я буду use&nbsp;__screen__&nbsp;to connect.
 
-__Placeholder_12__screen /__placeholder_26__/tty.usbmodem00000000001
-__Placeholder_13__
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
-Ви повинні побачити AN & nbsp; _40.5_ & nbsp; надруковано щосекунди.
+Ви повинні побачити Anchyz9plh86zuk8_40.5_&nbsp;being надруковано щосекунди.
 
-__Placeholder_14__40.500000
+<pre spellcheck="false">40.500000
 40.500000
 40.500000
 40.500000
@@ -106,6 +102,6 @@ __Placeholder_14__40.500000
 40.500000
 40.500000
 40.500000
-__Placeholder_15__
+</pre>
 
 На нашому наступному уроці ми будемо налагодити.

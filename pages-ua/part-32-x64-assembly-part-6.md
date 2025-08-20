@@ -1,26 +1,22 @@
----
-{}
----
+## part 32 - x64 Асамблея \ [Частина 6 \]
 
-__Placeholder_13__ Частина 32 - __placeholder_14__ Асамблея \ [Частина 6 \]
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_12__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте розглянемо наш код.
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248751760.jpg"/></div>
 
 Компілювати ...
 
-__Placeholder_3____placeholder_4____placeholder_5__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248766003.jpg"/></div>
 
 Налагодження ...
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248783477.jpg"/></div>
 
 Давайте оцінимо, що знаходиться всередині адреси пам'яті 0x6000d8.
 
-__Placeholder_9____Placeholder_10____Placeholder_11__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248844375.jpg"/></div>
 
 Як ми бачимо, "__Hello World__" з персонажем повернення потім буде переведено в наш реєстр __RSI__.
 

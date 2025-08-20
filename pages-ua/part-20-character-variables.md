@@ -1,60 +1,56 @@
----
-{}
----
+## part 20 - змінні символи
 
-__Placeholder_9__ Частина 20 - Змінні символів
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_8__
-
-Наступним етапом нашої подорожі є змінні символів.
+Наступний етап нашої подорожі - це змінні символів.&nbsp;unly strings, з яким ми мали справу, персонаж займає лише один байт даних.
 
 Майте на увазі, коли ми маємо справу з будь -якими даними персонажів, ми маємо справу з буквально двома шестигранними цифрами, які є кодом ASCII, який представляє фактичний персонаж, який ми бачимо у наших відповідних терміналах.
 
-Пам'ятайте, що кожна шестигранна цифра довжиною 4 біти. & NBSP; тому дві шістнадцяткові цифри мають 8 біти довжиною __placeholder_10__ байт довгий. & Nbsp;
+Пам'ятайте, що кожна шістнадцяткова цифра довжиною 4 біти.&nbsp;. Дві шестигранні цифри мають 8 біт довжиною or byte long.nbsp
 
-Для резюме, кожен персонаж перекладається на код ASCII у HEX, який процесор розуміє.
+Для резюме, кожен персонаж перекладається на код ASCII у HEX, який процесор розуміє.&nbsp; Вартість __n__ становить __0x6e__ hex or __110__ decimal.&nbsp;youous переглянути будь -яку таблицю ASCII, щоб побачити, коли ми отримали цю цінність.xyz9yum75 зручно на наступному уроці.
 
-Ми починаємо з нашою третьою програмою в C ++, яка є нашою програмою "Змінна символів". & NBSP; Давайте зануримось у __placeholder_20__ розірвемо кожен рядок вниз поетапно __placeholder_21__ дивись, як працює ця мова.
+Ми починаємо з нашої третьої програми в C ++, яка є нашою програмою "Змінна символів ".&nbsp;let's Dive в and розірвати кожен рядок вниз поетапно and див., Як працює ця мова.nbspwe call to iteakpppppps53 пристрій.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_19__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; char yes_no = 'n';
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char yes_no = ‘n’;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; Yes_no & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; yes_no &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520190636660.jpg"/></div>
 
 Щоб скласти це, ми просто вводимо:
 
-g ++ example3__placeholder_16__ -o example3
+g ++ example3.cpp -o example3
 
 Ми просто тоді вводимо:
 
 ./example3
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520211586776.jpg"/></div>
 
-Успіх! & Nbsp; ми бачимо "__n__", надруковані на стандартному виводі __placeholder_12__ термінал!
+Успіх! &nbsp;WE див. "__N__", надрукований до стандартного виводу or термінал!
 
 Давайте розберемо його:
 
 Ми використовуємо __CHAR __KeyWord, щоб вказати змінну символу, до якої ми присвоюємо це значення __N__.
 
-Потім ми використовуємо __cout __function, щоб надрукувати її до стандартного виводу __placeholder_13__ terminal __placeholder_23__ __placeholder_17__ Новий рядок з функцією __endl__.
+Потім ми використовуємо __cout __function, щоб надрукувати її до стандартного виводу or термінал nbsp nbsp нова лінія з функцією __endl__.
 
-Це все! & Nbsp; дуже просто.
+Це все! &nbsp;very просто.
 
 Наступного тижня ми зануримося у налагодження змінних символів.

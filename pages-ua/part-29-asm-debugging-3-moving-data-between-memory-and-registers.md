@@ -1,27 +1,23 @@
----
-{}
----
+## PART 29 - ASM Налагодження 3 \ [Переміщення даних між пам'яттю And регістри \]
 
-__Placeholder_13__ Частина 29 - налагодження ASM 3 \ [Переміщення даних між пам'яттю __placeholder_17__ реєстри \]
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_12__
+Давайте налагоджуємо! &nbsp;
 
-Давайте налагоджуємо! & NBSP;
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520241537282.jpg"/></div>
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+Зокрема, ми перемістимо значення всередині постійного цілого числа 10 десятків у ECX.
 
-Зокрема, ми перемістимо значення всередині постійного цілого числа 10 десятків у __placeholder_14__.
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520590508110.jpg"/></div>
 
-__Placeholder_3____placeholder_4____placeholder_5__
+Ми відкриваємо GDB у тихому режимі and break on \ _start and запустити, слідуючи за командами вище.
 
-Ми відкриваємо __placeholder_20__ в тихому режимі __placeholder_18__ розривається на \ _start __placeholder_19__ запуску, слідуючи за командами вище.
+<div class="slate-resizable-image-embed slate-image-embed__resize-middle"><img src="/imgs/1520193652626.jpg"/></div>
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+Як ми бачимо, коли ми реєструємо інформацію, значення ECX дорівнює 0.
 
-Як ми бачимо, коли ми реєструємо інформацію, значення __placeholder_15__ становить 0.
+<div class="slate-resizable-image-embed slate-image-embed__resize-middle"><img src="/imgs/1520590507589.jpg"/></div>
 
-__Placeholder_9____Placeholder_10____Placeholder_11__
+Після того, як ми вступаємо двічі, тепер ми бачимо значення ECX як 10 десятків 0xa HEX.
 
-Після того, як ми вступаємо двічі, тепер ми бачимо значення __placeholder_16__ як 10 десятків 0xa HEX.
-
-Я з нетерпінням чекаю побачити вас на весь наступний тиждень, коли ми занурюємось у зламу нашої третьої програми Асамблеї!
+Я з нетерпінням чекаю побачити вас на весь наступний тиждень, коли ми занурюємось у hacking нашу третю програму Асамблеї!

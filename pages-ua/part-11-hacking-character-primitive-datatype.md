@@ -1,52 +1,48 @@
----
-{}
----
+## part 11 - Hacking первісний тип даних даних
 
-__Placeholder_15__ Частина 11 - Хакерство примітивного типу даних
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_14__
+Сьогодні ми hack char з останнього уроку.
 
-Сьогодні ми зламаємо чар з останнього уроку.
+Давайте розберемо radare2 в режимі запису.
 
-Давайте розберемо __placeholder_16__ в режимі запису.
-
-__Placeholder_0__radare2 -w ./0x03_asm64_char_primive_datatypepy
-__Placeholder_1__
+<pre spellcheck="false">radare2 -w ./0x03_asm64_char_primitive_datatype
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_2__AAA
-__Placeholder_3__
+<pre spellcheck="false">aaa
+</pre>
 
-Прагнути до головного.
+Прагнути до main.
 
-__Placeholder_4__s main
-__Placeholder_5__
+<pre spellcheck="false">s main
+</pre>
 
-Переглянути демонстрацію.
+Переглянути disassembly.
 
-__Placeholder_6__v
-__Placeholder_7__
+<pre spellcheck="false">v
+</pre>
 
 Давайте повернемося до подання терміналу.
 
-__Placeholder_8__q
-__Placeholder_9__
+<pre spellcheck="false">q
+</pre>
 
-Все, що нам потрібно зробити, - це записати збірку на _0x000009ec_ __placeholder_17__ Вкажіть новий чар нашого вибору.
+Все, що нам потрібно зробити, - це записати збірку на _0x000009ec_ and, вкажіть новий чар нашого вибору.
 
-__Placeholder_10 __ [0x000009e4] & gt; wa movz w0, 0x66 @ 0x000009ec
-Написано 4 байти (S) (Movz W0, 0x66) = WX C00C8052
-[0x000009e4] & gt;
-__Placeholder_11__
+<pre spellcheck="false">[0x000009e4]&gt; wa movz w0, 0x66 @ 0x000009ec
+Written 4 byte(s) (movz w0, 0x66) = wx c00c8052
+[0x000009e4]&gt;
+</pre>
 
-Давайте кинемо __placeholder_18__ запускаємо новий двійковий з терміналу.
+Давайте кинемо and запускаємо новий двійковий з терміналу.
 
-__Placeholder_12 __ [0x000009e4] & gt; Q
-kali@kali: ~/documents/0x03_asm64_char_primive_datatype $ ./0x03_asm64_char_primive_datatypey
+<pre spellcheck="false">[0x000009e4]&gt; q
+kali@kali:~/Documents/0x03_asm64_char_primitive_datatype$ ./0x03_asm64_char_primitive_datatype
 f
-__Placeholder_13__
+</pre>
 
-Як ви бачите, ми успішно __placeholder_19__ назавжди зламали двійкові! Це дуже тривіально, але коли ви берете останню серію уроків разом з кожним новим послідовним уроком, ви створюєте справжній набір навичок!
+Як ви бачите, ми успішно and постійно зламали двійкову! Це дуже тривіально, але коли ви берете останню серію уроків разом з кожним новим послідовним уроком, ви створюєте справжній набір навичок!
 
 На нашому наступному уроці ми будемо працювати з булевим примітивним типом даних.

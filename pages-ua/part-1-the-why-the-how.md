@@ -1,74 +1,70 @@
----
-{}
----
+## part 1 - чому, як ...
 
-__Placeholder_15__ Частина 1 - чому, як ...
+Це 2021 and Тут ми знову висвітлюємо новий курс інженера -зворотного інженера. Цей курс буде зосереджено на мові програмування C, до якої ми будемо статично змінювати складений бінар ARM 32 elf, використовуючи microcontroller налагоджувач Radare2 налагоджувач.
 
-Це 2021 р. __Placeholder_27__ Тут ми знову висвітлюємо новий курс інженера -зворотного інженера. Цей курс буде зосереджено на мові програмування C, на яку ми будемо статично змінювати складений __placeholder_33__ 32 __placeholder_18__ Бінарне використання налагодження __placeholder_23__ на мікроконтролері Raspberry Pi Pico.
+Що таке мікроконтролери? Ми можемо знайти їх у транспортних засобах, роботах, офісних машинах, медичних пристроях, мобільних радіоприймачах, торгових автоматах and Домашня техніка, серед інших пристроїв. Вони є цілеспрямованими машинами, розробленими для управління невеликими ознаками більшого компонента, без складної передової операційної системи.
 
-Що таке мікроконтролери? Ми можемо знайти їх у транспортних засобах, роботах, офісних машинах, медичних пристроях, мобільних радіоприймачах, торгових автоматах __placeholder_28__, серед інших пристроїв. Вони є цілеспрямованими машинами, розробленими для управління невеликими ознаками більшого компонента, без складної передової операційної системи.
+Ми будемо писати дуже основні програми C and, а потім змінити їх по одному в ARM 32 Асамблеї.
 
-Ми будемо писати дуже основні програми C __placeholder_29__, а потім повернути їх по черзі в __placeholder_34__ 32 Асамблеї.
-
-Я припускаю, що ви працюєте з Ubuntu __placeholder_16__ Distro ...
+Я припускаю, що ви працюєте з дистрибуцією Ubuntu Linux ...
 
 Спочатку вам знадобиться Raspberry Pi Pico.
 
-Вам знадобиться __placeholder_24__ repo.
+Вам знадобиться Radare2 repo.
 
-__Placeholder_0__git клон __placeholder_12__
-CD __placeholder_25__
-cd __placeholder_26 __ & nbsp; __ ploadholder_19 __/встановити .__ ploadholder_21__
-__Placeholder_1__
+<pre spellcheck="false">git clone https://github.com/radareorg/radare2.git
+cd radare2
+cd radare2&nbsp;sys/install.sh
+</pre>
 
-Вам потрібно побудувати з джерела! Версії, які упаковуються в Ubuntu __placeholder_30__ Kali __placeholder_17__ старші __placeholder_31__ do __placeholder_32__ мають необхідні функції для нашого рівня реверсування.
+Вам потрібно побудувати з джерела! Версії, які упаковуються в Ubuntu and KALI LINUX, є старішими and DO not, мають необхідні для нашого рівня реверсування.
 
 Вам знадобиться Вім.
 
-__Placeholder_2__sudo apt Установіть vim
-__Placeholder_3__
+<pre spellcheck="false">sudo apt install vim
+</pre>
 
-Вам потрібно буде оновити .vimrc __placeholder_22__.
+Вам потрібно буде оновити .VIMRC file.
 
-__Placeholder_4__vim ~/.vimrc
-__Placeholder_5__
+<pre spellcheck="false">vim ~/.vimrc
+</pre>
 
 Тоді ...
 
-__Placeholder_6__set Номер
-Встановити tabstop = 2 & nbsp; & nbsp;
-Встановити ширину Shift = 2
-Встановити розширення & nbsp;
-синтаксис
-встановити синтаксис = c & nbsp;
-__Placeholder_7__
+<pre spellcheck="false">встановити number
+встановити tabstop=2 &nbsp; &nbsp;
+встановити shiftwidth=2
+встановити expandtab&nbsp;
+syntax on
+встановити syntax=c&nbsp;
+</pre>
 
 Вам знадобиться Raspberry Pi Pico Repo.
 
-__Placeholder_8__mkdir pico
-CD Pico
-git clone -b master __placeholder_13__
-CD PICO-SDK
-Оновлення підмодуль Git - -init
-CD ..
-git clone -b master __placeholder_14__
-Оновлення Sudo Apt
-sudo apt встановити cmake gcc -__ ploadholder_35 __- none-eabi libnewlib -__ ploadholder_36 __- none-eabi build-ensential & nbsp;
-__Placeholder_9__
+<pre spellcheck="false">mkdir pico
+cd pico
+git clone -b master https://github.com/raspberrypi/pico-sdk.git
+cd pico-sdk
+git submodule update --init
+cd ..
+git clone -b master https://github.com/raspberrypi/pico-examples.git
+sudo apt update
+sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential&nbsp;
+</pre>
 
 Давайте побудуємо програму Blink.
 
-__Placeholder_10__cd pico-examples
-Mkdir Build
-Комплект компакт -дисків
-Експорт PICO_SDK_PATH = ../../PICO-SDK
+<pre spellcheck="false">cd pico-examples
+mkdir build
+cd build
+export PICO_SDK_PATH=../../pico-sdk
 cmake ..
-CD моргнути
-робити
-__Placeholder_11__
+cd blink
+make
+</pre>
 
 Скопіюйте __blink.uf2 __file у свій піко.
 
-Вітаємо вас __placeholder_20__ миготлива програма C!
+Вітаю вас got, миготлива програма C!
 
 На нашому наступному уроці ми створимо просту програму "Привіт, Світ".

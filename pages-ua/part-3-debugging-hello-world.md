@@ -1,83 +1,128 @@
----
-{}
----
+debuggerpart 3 - налагодження Hello World
 
-__Placeholder_41__ Частина 3 - Налагодження Hello World
+Сьогодні ми зануримося в налагодження нашої дуже простої "Hello world!", Програма.
 
-Сьогодні ми зануримося в налагодження нашого дуже простого "Привіт Світ!", Програма. Давайте розглянемо наш код. __Placeholder_0 __#включити & lt; stdio__placeholder_59 __ & gt;
-__Placeholder_42__ включити "pico/stdlib__placeholder_60__"
+Давайте розглянемо наш код.
 
-__Placeholder_58__ main () & nbsp;
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
+
+int main()&nbsp;
 {	
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp;   __Placeholder_71 __ ("привіт світ! \ N");
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp;   printf("Hello world!\n");
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
     
-  повернення 0;
+  return 0;
 }
-__Placeholder_1__
+</pre>
 
-Будь ласка, переконайтеся, що ви будуєте __placeholder_53__ з джерела. Перед кожним уроком, будь ласка, заповніть наступне. __Placeholder_2__git Taul
-__Placeholder_54__ __placeholder_44 __/встановити .__ ploadholder_52__
-__Placeholder_3__
+Будь ласка, переконайтеся, що ви будуєте Radare2 з джерела. Перед кожним уроком, будь ласка, заповніть наступне.
 
-Ви можете перевірити, що версія актуальна. __Placeholder_4__radare2 -v
+<pre spellcheck="false">git pull
+radare2 sys/install.sh
+</pre>
 
-__Placeholder_5__
+Ви можете перевірити, що версія актуальна.
 
-У моєму випадку, оскільки для вас буде інакше. __Placeholder_6__radare2 5.2.0-git 25988 @ darwin -__ ploadholder_50 __- 64 git.5.1.1
-Комітет: 510DDAB0E523BED173B3954E5F61ABF395812F7D БУДІТЬ: 2021-03-21__05: 40: 51
-__Placeholder_7__
+<pre spellcheck="false">radare2 -v
 
-Тепер повернемося до нашого проекту репо. Давайте розберемо наш налагоджувач. __Placeholder_8__radare2 -w __placeholder_73__ -b 16 0x02_hello_world .__ ploadholder_43__
-__Placeholder_9__
+</pre>
 
-Давайте автоматично проаналізуємо. __Placeholder_10__aaaa
-__Placeholder_11__
+У моєму випадку, оскільки для вас буде інакше.
 
-Давайте прагнемо до головного. __Placeholder_12__s main
-__Placeholder_13__
+<pre spellcheck="false">radare2 5.2.0-git 25988 @ darwin-x86-64 git.5.1.1
+commit: 510ddab0e523bed173b3954e5f61abf395812f7d build: 2021-03-21__05:40:51
+</pre>
 
-Перейдемо у візуальний режим, ввівши __v__ __placeholder_61__, а потім __p__ двічі, щоб дістатися до хорошого подання налагоджувача. __Placeholder_14____Placeholder_15____Placeholder_16__
+Тепер повернемося до нашого проекту репо. Давайте розберемо наш налагоджувач.
 
-Давайте розберемо цю дуже просту програму. __Placeholder_17__push {__placeholder_55__, __placeholder_45__}
-__Placeholder_18__
+<pre spellcheck="false">radare2 -w arm -b 16 0x02_hello_world.elf
+</pre>
 
-Ми просто налаштовуємо наші аргументи функції, де ми натискаємо на значення _r4_ __placeholder_62__ _lr_ (посилання посилання) на стек. Потім ми __placeholder_51__ (гілка довгий) до _sym.stdio \ _init \ _all_ функція, який стандартний вхід __placeholder_63__. __Placeholder_19__bl sym.stdio_init_all
-__Placeholder_20__
+Давайте автоматично проаналізуємо.
 
-Потім ми завантажуємо значення в розташуванні _0x00000338_ в регістр _r4_. Ось де живе, __ "Привіт світ!" __Placeholder_21__ldr __placeholder_56__, [0x00000338]
-__Placeholder_22__
+<pre spellcheck="false">aaaa
+</pre>
 
-Щоб довести це, ми можемо зробити наступне, натиснувши: всередині поточного візуального режиму __placeholder_64__, а потім ввівши наступне. __Placeholder_23 __: & gt; PSZ @ [0x00000338]
-Привіт світ! : & gt; PSZ @ 0x00004CF8
-Привіт світ! __Placeholder_24__
+Давайте прагнемо main.
 
-Як ви чітко бачите значення всередині _0x00000338 _ є значенням на _0x0004cf8_. Потім ми переміщуємо __placeholder_65__ встановимо прапори (це _s_ в _movs_) вміст _r4_ в _r0_. __Placeholder_25__movs __placeholder_46__, __placeholder_57__
-__Placeholder_26__
+<pre spellcheck="false">s main
+</pre>
 
-Потім ми розгалужуємось довго до обгортки. Налагоджувач перетворив нашу _printf _function у нашому коді на цю функцію обгортки. __Placeholder_27__bl sym .__ wrap_puts
-__Placeholder_28__
+Перейдемо у візуальний режим, ввівши __v__ and, потім __P__ Двічі, щоб дістатися до хорошого виду налагоджувач.
 
-Тоді ми _movs _250 десятковий, 0xfa hex, що становить 1/4 наш 1000 мілісекундного сну в _r0_. __Placeholder_29__movs __placeholder_47__, 0xfa
-__Placeholder_30__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616343654275.jpg"/></div>
 
-Потім ми логічно переміщаємо ліворуч, 2, __placeholder_66__ встановили прапори. Це, звичайно, помножує наше 250 значення на 2 __placeholder_67__, а потім знову на 2, що займає 250 десяткових до 1000 десяткових знаків, що є нашою мілісекундною затримкою __placeholder_68__ розміщує, що 1000 десяткове значення в _r0_. __Placeholder_31__lsls __placeholder_48__, __placeholder_49__, 2
-__Placeholder_32__
+Давайте розберемо цю дуже просту програму.
 
-Якщо ви __placeholder_72__ знайомий з __placeholder_74__ 32 Інструкції збору, зверніться до цієї чудової таблиці, наданої Keil. __Placeholder_40__
+<pre spellcheck="false">push {r4, lr}
+</pre>
 
-Потім ми розгалужуємось довго до нашої функції _sleep \ _ms_. __Placeholder_33__bl sym.sleep_ms
-__Placeholder_34__
+Ми просто налаштовуємо наші аргументи функції, де ми натискаємо на значення _r4_ and _lr_ (регістр посилання) на стек.
 
-Потім ми розгалужуємо безумовну назад до _0x328_, що є нашим циклом. __Placeholder_35__b 0x328
-__Placeholder_36__
+Потім ми bl (гілка довгою) до _sym.stdio \ _init \ _all_ функція, яка виводить стандартний вхід and.
 
-Ви також можете побачити перегляд графіка, натиснувши __v__ знову у поточному вікні. __Placeholder_37____Placeholder_38____Placeholder_39__
+<pre spellcheck="false">bl sym.stdio_init_all
+</pre>
 
-Це прекрасний спосіб простежити більш досконалий код. Я хотів показати вам все це, оскільки ви можете використовувати цей рух вперед, коли ви робите більший аналіз. На нашому наступному уроці ми зламаємо нашу просту програму __placeholder_69__ перетворить її назад у __. UF2__ __Placeholder_70__ Повторно переробляти до піко.
+Потім ми завантажуємо значення в розташуванні _0x00000338_ в регістр _r4_. Ось де живе __ "Hello world!" __ живе.
+
+<pre spellcheck="false">ldr r4, [0x00000338]
+</pre>
+
+Щоб довести це, ми можемо зробити наступне, натиснувши: всередині поточного візуального режиму and, а потім ввівши наступне.
+
+<pre spellcheck="false">:&gt; psz @ [0x00000338]
+Hello world!
+:&gt; psz @ 0x00004cf8
+Hello world!
+</pre>
+
+Як ви чітко бачите значення всередині _0x00000338 _ є значенням на _0x0004cf8_.
+
+Потім ми переміщуємо and, встановивши прапори (це _s_ в _movs_) вміст _r4_ в _r0_.
+
+<pre spellcheck="false">movs r0, r4
+</pre>
+
+Потім ми розгалужуємось довго до обгортки. налагоджувач перетворив нашу _printf _function у нашому коді на цю функцію обгортки.
+
+<pre spellcheck="false">bl sym.__wrap_puts
+</pre>
+
+Тоді ми _movs _250 десятковий, 0xfa hex, що становить 1/4 наш 1000 мілісекундного сну в _r0_.
+
+<pre spellcheck="false">movs r0, 0xfa
+</pre>
+
+Потім ми логічно змикаємо ліворуч, 2, and встановили прапори. Це, звичайно, помножує наше 250 значення на 2 and, а потім знову на 2, що займає 250 десяткових до 1000 десятків, що є нашим мілісекундним затримкою and, що 1000 десяткове значення в _r0_.
+
+<pre spellcheck="false">lsls r0, r0, 2
+</pre>
+
+Якщо ви not, знайомий з ARM 32 Інструкції з монтажу, зверніться до цієї чудової таблиці, наданої Keil.
+
+https://developer.arm.com/documentation/ddi0210/c/Introduction/інструкція-встановити-summary/ARM-інструкція-summary?lang=en
+
+Потім ми розгалужуємось довго до нашої функції _sleep \ _ms_.
+
+налагоджувач
+
+Потім ми розгалужуємо безумовну назад до _0x328_, що є нашим циклом.
+
+<pre spellcheck="false">b 0x328
+</pre>
+
+Ви також можете побачити перегляд графіка, натиснувши __v__ знову у поточному вікні.
+
+<div class="slate-resizable-image-embed slate-image-embed__resize-middle"><img src="/imgs/1616345144033.jpg"/></div>
+
+Це прекрасний спосіб простежити більш досконалий код. Я хотів показати вам все це, оскільки ви можете використовувати цей рух вперед, коли ви робите більший аналіз.
+
+На нашому наступному уроці ми будемо hack наша проста програма and перетворює її назад у __. Uf2__ and re-flash до піко.

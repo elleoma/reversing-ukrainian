@@ -1,105 +1,100 @@
----
-{}
----
+## part 13 - Hacking float
 
-__Placeholder_29__ Частина 13 - Злом поплавця
+Давайте розглянемо наш приклад.&nbsp;__0x05 \ _float.c__&nbsp;as.
 
-Давайте розглянемо наш приклад. & Nbsp; __ 0x05 \ _float.c __ & nbsp; наступним чином.
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_36 __ & gt;
-__Placeholder_30__ включити "pico/stdlib__placeholder_37__"
-
-__Placeholder_35__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; float x = 40,5;
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; float x = 40.5;
 
-& nbsp; & nbsp; __Placeholder_43 __ ("%f \ n", x); & nbsp;
+&nbsp; &nbsp; printf("%f\n", x);&nbsp;
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
 
-& nbsp; повернення 0;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Давайте розберемося в нашому налагоджувачі.
+Давайте розберемося в нашому налагоджувач.
 
-__Placeholder_2__radare2 -w __placeholder_46__ -b 16 0x05_float .__ ploadholder_31__
-__Placeholder_3__
+<pre spellcheck="false">radare2 -w arm -b 16 0x05_float.elf
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_4__aaaa
-__Placeholder_5__
+<pre spellcheck="false">aaaa
+</pre>
 
-Давайте прагнемо до головного.
+Давайте прагнемо main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+nbsp
 
-Перейдемо у візуальний режим, ввівши & nbsp; __ v __ & nbsp; __ ploadholder_39__ тоді & nbsp; __ p __ & nbsp; двічі, щоб дістатися до хорошого подання налагоджувача.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач виду.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1618389543453.jpg"/></div>
 
-Поплавок AT & nbsp; _ \ [0x00000340 \] _.
+Float - at&nbsp; _ \ [0x00000340 \] _.
 
-__Placeholder_11 __: & gt; pff @ [0x00000340]
-0x00004000 = 9.32830524E-09
-__Placeholder_12__
+<pre spellcheck="false">:&gt; pff @ [0x00000340]
+0x00004000 = 9.32830524e-09
+</pre>
 
-Як ми обговорювали на останньому уроці, зробіть __placeholder_45__ хвилюйтеся, що поплавок є неточним, оскільки ця машина __placeholder_44__. Що важливо побачити значення & nbsp; _0x00004000_.
+Як ми обговорювали на останньому уроці, зробіть not, що поплавок є неточним, оскільки ця машина x64. Що важливо побачити, що це valuenbsp_0x00004000_.
 
 На нашому останньому уроці ми також пояснили те, як Піко обробляє плавання. Давайте розглянемо деякі основи.
 
-__Placeholder_13__0x3ff00000 = 1.000000
-0x3ff00001 = 1,000001
-0x3ff00002 = 1,000002
+<pre spellcheck="false">0x3ff00000 = 1.000000
+0x3ff00001 = 1.000001
+0x3ff00002 = 1.000002
 ...
 0x3ff0000f = 1.000015
 0x3ff00010 = 1.000016
 0x3ff00011 = 1.000017
-тощо ...
-__Placeholder_14__
+etc...
+</pre>
 
-Давайте зламаємо до 1.000000 наступним чином.
+Давайте hack до 1.000000 наступним чином.
 
-Наш мікроконтролер - це маленька ендіанська архітектура, тому, якщо ми збираємось змінити наше 40,5 до 1,0, нам потрібно поставити це значення у зворотному порядку байтів ...
+Наш мікроконтролер - це маленька ендіанська архітектура, тому, якщо ми збираємось змінити наше 40,5 до 1,0, нам потрібно поставити це значення у зворотному порядку байтів, тому ...
 
-__Placeholder_15__0x3ff00000
-__Placeholder_16__
+<pre spellcheck="false">0x3ff00000
+</pre>
 
 Потрібно бути ...
 
-__Placeholder_17__0x0000f03f
-__Placeholder_18__
+<pre spellcheck="false">0x0000f03f
+</pre>
 
 Тому нам потрібно змінити значення на наступному.
 
-__Placeholder_19__wx 0x0000f03f @ 0x00000340
-__Placeholder_20__
+<pre spellcheck="false">wx 0x0000f03f @ 0x00000340
+</pre>
 
-Все, що нам потрібно зробити зараз, - це вихід __placeholder_40__ перетворіть нашу & nbsp; __.__ ploadholder_32 __ & nbsp; __ до & nbsp; __. Uf2__!
+Все, що нам потрібно зробити зараз, це exit and перетворити ur&nbsp; __. elf&nbsp;__to&nbsp; __. Uf2__!
 
-__Placeholder_21__./elf2uf2/elf2uf2 0x05_float .__ ploadholder_33__ 0x05_float.uf2
-__Placeholder_22__
+<pre spellcheck="false">./elf2uf2/elf2uf2 0x05_float.elf 0x05_float.uf2
+</pre>
 
-Підключіть Pico __placeholder_41__ Переконайтесь, що ви тримаєте завантаження __placeholder_34__ Використовуйте налаштування, яку я надав у частині 2.
+Підключіть Pico and, переконайтеся, що ви тримаєте завантажувальний or, використовуйте налаштування, яку я надав у частині 2.
 
-__Placeholder_23__cp 0x05_float.uf2 /томи /rpi-rp2
-__Placeholder_24__
+<pre spellcheck="false">cp 0x05_float.uf2 /Volumes/RPI-RP2
+</pre>
 
 Давайте екранимо це!
 
-__Placeholder_25__screen /__placeholder_38__/tty.usbmodem00000000001
-__Placeholder_26__
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
 Ага так!
 
-__Placeholder_27__1.000000
+<pre spellcheck="false">1.000000
 1.000000
 1.000000
 1.000000
@@ -111,8 +106,8 @@ __Placeholder_27__1.000000
 1.000000
 1.000000
 1.000000
-__Placeholder_28__
+</pre>
 
-Тут ми зламали цінність до 1.000000 __placeholder_42__, ми дозволили зберегти 1 секунду.
+Тут ми зламали значення до 1.000000 and, ми дозволили зберегти 1 секунду.
 
 На нашому наступному уроці ми обговоримо подвійний тип даних.

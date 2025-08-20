@@ -1,47 +1,43 @@
----
-{}
----
+## part 32 - подвійні змінні
 
-__Placeholder_9__ Частина 32 - Подвійні змінні
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_8__
+Наступний етап нашої подорожі-це змінні з плаваючою точкою з подвійною точністю.&nbsp;
 
-Наступний етап нашої подорожі-це змінні з плаваючою точкою з подвійною точністю. & NBSP;
-
-Змінна з плаваючою комою з двома точними відрізняється від змінної з плаваючою комою, оскільки вона шириною 64-бітами __placeholder_13__ 15-17 Значні цифри точності.
+Змінна з плаваючою комою з двома точними відрізняється від змінної з плаваючою комою, оскільки вона має 64-бітну ширину and 15-17 Значні цифри точності.
 
 Давайте розглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_12__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; подвійний mynumber = 1337,77;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double myNumber = 1337.77;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403579256.jpg"/></div>
 
 Щоб скласти це, ми просто вводимо:
 
-g ++ example7__placeholder_11__ -o example7
+G ++ example7.cpp -o example7
 
 ./example7
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403604790.jpg"/></div>
 
-Успіх! & Nbsp; ми бачимо 1337.77 надруковано на стандартному виводі __placeholder_10__ термінал!
+Успіх! &nbsp;WE див.
 
 Давайте розберемо його:
 

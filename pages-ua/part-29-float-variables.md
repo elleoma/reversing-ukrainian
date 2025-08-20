@@ -1,50 +1,46 @@
----
-{}
----
+## part 29 - float змінні
 
-__Placeholder_6__ Частина 29 - Змінні плавання
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_5__
-
-Наступний етап нашої подорожі-це змінні з плаваючою комою. & NBSP;
+Наступний етап нашої подорожі-це змінні з плаваючою комою.&nbsp;
 
 Змінна з плаваючою комою відрізняється від цілого числа, оскільки вона має дробове значення, яке ми позначаємо з періодом.
 
 Давайте розглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-float main (void) {
+float main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; __Placeholder_10__ mynumber = 1337.1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNumber = 1337.1;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520592872663.jpg"/></div>
 
 Щоб скласти це, ми просто вводимо:
 
-g ++ example6__placeholder_9__ -o example6
+g ++ example6.cpp -o example6
 
 ./example6
 
-Успіх! & Nbsp; ми бачимо 1337.1 надруковано на стандартному виводі __placeholder_7__ термінал!
+Успіх! &nbsp;WE див.
 
 Давайте розберемо його:
 
 Ми присвоюємо змінну з плаваючою комою __ __ безпосередньо у змінну __mynumber __ і потім роздрукуємо її до терміналу за допомогою функції C ++ __cout__.
 
-Поки що ми добре розуміємо регістри __placeholder_12__, однак на наступному тижні ми запровадимо регістри в коопроцесорі математики, які працюють з змінними з плаваючою комою.
+Поки що ми добре розуміємо регістри ARM, однак на наступному тижні ми запровадимо регістри в коопроцесорі математики, які працюють з змінними з плаваючою комою.&nbsp;. Маніпульований через регістри математики математики.
 
 Наступного тижня ми зануримося в налагодження змінних поплавків.

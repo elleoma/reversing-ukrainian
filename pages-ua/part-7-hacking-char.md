@@ -1,106 +1,102 @@
----
-{}
----
+## part 7 - Hacking char
 
-__Placeholder_27__ Частина 7 - Хакерський шар
-
-Сьогодні ми зламаємо просту програму CHAR.
+Сьогодні ми hack проста програма char.
 
 Давайте розглянемо наш код.
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_45 __ & gt;
-__Placeholder_28__ включити "pico/stdlib__placeholder_46__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_43__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; char x = 'x';
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp;
-& nbsp; & nbsp; __Placeholder_52 __ ("%c \ n", x);
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; char x = 'x';
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; printf("%c\n", x);
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp;
-& nbsp; повернення 0;
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
 Давайте розберемо наш налагоджувач.
 
-__Placeholder_2__radare2 -w __placeholder_53__ -b 16 0x03_char .__ ploadholder_29__
-__Placeholder_3__
+<pre spellcheck="false">radare2 -w arm -b 16 0x03_char.elf
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_4__aaaa
-__Placeholder_5__
+<pre spellcheck="false">aaaa
+</pre>
 
-Давайте прагнемо до головного.
+Давайте прагнемо main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+<pre spellcheck="false">s main
+</pre>
 
-Давайте перейдемо у візуальний режим, ввівши & nbsp; __ v __ & nbsp; __ ploadholder_48__ тоді & nbsp; __ p __ & nbsp; двічі, щоб дістатися до хорошого подання налагоджувача.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач виду.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616750858178.jpg"/></div>
 
-На нашому останньому уроці ми зламали кожен рядок. Тут ми, очевидно, зацікавлені у зламанні значення 0x78 __placeholder_49__, змінюючи це на все, що ми хочемо. Спробуємо 0x79. Цей простий хак перетворить char _'x'_ в _'y'_.
+На нашому останньому уроці ми зламали кожен рядок. Тут нас, очевидно, цікавить hacking Значення 0x78 and, змінюючи це на все, що ми хочемо. Спробуємо 0x79. Цей простий hack перетворить char _'x'_ в _'y'_.
 
-__Placeholder_11 __: & gt; wa movs __placeholder_32__, 0x79 @ 0x00000328
-Написано 2 байти (и) (Movs __placeholder_33__, 0x79) = WX 7921
-__Placeholder_12__
+<pre spellcheck="false">:&gt; wa movs r1, 0x79 @ 0x00000328
+Written 2 byte(s) (movs r1, 0x79) = wx 7921
+</pre>
 
 Давайте перевіримо зміни.
 
-__Placeholder_13 __: & gt; PD 1 @ 0x00000328
-│ & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; ; Код XREF від Main @ 0x338
-│ & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; 0x00000328 & NBSP; & nbsp; & nbsp; 7921 & NBSP; & nbsp; & nbsp; & nbsp; & nbsp; movs __placeholder_34__, 0x79 & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; ; 'y'; arg1
-__Placeholder_14__
+<pre spellcheck="false">:&gt; pd 1 @ 0x00000328
+│ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; код XREF from main @ 0x338
+│ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0x00000328&nbsp; &nbsp; &nbsp; 7921 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; movs r1, 0x79 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; 'y' ; arg1
+</pre>
 
-У цьому випадку наш налагоджувач навіть говорить нам, що це насправді _'y'_, крім того, зараз ми переміщуємо значення шестигранного ASCII в 0x79 в _R1_.
+У цьому випадку наш налагоджувач навіть говорить нам, що це насправді _'y'_ Крім того, зараз ми переміщуємо значення шестигранного ASCII у 0x79 в _R1_.
 
-Давайте також зламаємо час сну до 2000 MS __placeholder_35__ 2 секунди.
+Давайте також hack час сну до 2000 мс or 2 секунди.
 
-__Placeholder_15 __: & gt; wa lsls __placeholder_37__, __placeholder_38__, 3 @ 0x00000332
-Написано 2 байти (и) (lsls __placeholder_39__, __placeholder_40__, 3) = WX C000
-__Placeholder_16__
+<pre spellcheck="false">:&gt; wa lsls r0, r0, 3 @ 0x00000332
+Written 2 byte(s) (lsls r0, r0, 3) = wx c000
+</pre>
 
 Тут ми просто логічний зсув ліворуч 3 рази, тому 250 x 2 = 500, 500 x 2 = 1000, 1000 x 2 = 2000.
 
 Давайте перевіримо.
 
-__Placeholder_17 __: & gt; PD 1 @ 0x00000332
-│ & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; 0x00000332 & NBSP; & nbsp; & nbsp; C000 & NBSP; & nbsp; & nbsp; & nbsp; & nbsp; lsls __placeholder_41__, __placeholder_42__, 3
-__Placeholder_18__
+<pre spellcheck="false">:&gt; pd 1 @ 0x00000332
+│ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0x00000332&nbsp; &nbsp; &nbsp; c000 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lsls r0, r0, 3
+</pre>
 
-Все, що нам потрібно зробити зараз, - це вихід __placeholder_50__ перетворити наш & nbsp; __.__ ploadholder_30 __ & nbsp; __ до & nbsp; __. Uf2__!
+Все, що нам потрібно зробити зараз, це exit and перетворити ur&nbsp; __. elf&nbsp;__to&nbsp; __. Uf2__!
 
-__Placeholder_19__./elf2uf2/elf2uf2 0x03_char .__ ploadholder_31__ 0x03_char.uf2
-__Placeholder_20__
+<pre spellcheck="false">./elf2uf2/elf2uf2 0x03_char.elf 0x03_char.uf2
+</pre>
 
-Підключіть Pico __placeholder_51__ Переконайтеся, що ви тримаєте завантаження __placeholder_36__ Використовуйте налаштування, яку я надав у частині 2.
+Підключіть Pico and, переконайтеся, що ви тримаєте завантаження or, використовуйте налаштування, яку я надав у частині 2.
 
-__Placeholder_21__cp 0x03_char.uf2 /volumes /rpi-rp2
-__Placeholder_22__
+<pre spellcheck="false">cp 0x03_char.uf2 /Volumes/RPI-RP2
+</pre>
 
 Давайте екранимо це!
 
-__Placeholder_23__screen /__placeholder_47__/tty.usbmodem00000000001
-__Placeholder_24__
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
 Ага так!
 
-__Placeholder_25__y
-у
-у
-у
-у
-у
-__Placeholder_26__
+<pre spellcheck="false">y
+y
+y
+y
+y
+y
+</pre>
 
 Ми бачимо, як "Y" надруковано кожні 2 секунди!
 
-На нашому наступному уроці ми обговоримо тип даних __placeholder_44__.
+На нашому наступному уроці ми обговоримо тип даних int.

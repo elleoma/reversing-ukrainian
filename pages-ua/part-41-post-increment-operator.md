@@ -1,41 +1,37 @@
----
-{}
----
+## PART 41-Оператор після інвентації
 
-__Placeholder_9__ Частина 41-Оператор після інтекцій
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_8__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте зануримось у наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_11__ main (void) {
-& nbsp; & nbsp; & nbsp; __ ploadholder_12__ mynumber = 16;
-& nbsp; & nbsp; & nbsp; __ ploadholder_13__ mynewnumber = ++ mynumber;
+int main(void) {
+&nbsp;&nbsp; &nbsp;int myNumber = 16;
+&nbsp;&nbsp; &nbsp;int myNewNumber = ++myNumber;
 
-& nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynewnumber & lt; & lt; std :: endl;
+&nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
 
-& nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp; &nbsp;return 0;
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1527849027049.jpg"/></div>
 
 Щоб скласти це, ми просто вводимо:
 
-g ++ example10__placeholder_10__ -o example10
+g ++ example10.cpp -o example10
 
 ./example10
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1527849063244.jpg"/></div>
 
-Ми бачимо 16 __placeholder_14__ 17 надруковано на екран.
+Ми бачимо 16 and 17 надруковано на екран.
 
 Давайте розберемо його:
 
-Ми створюємо змінну __mynumber = 16__, на яку ми створюємо ще одну змінну __mynewnumber__, що післяінкрементів значення __mymumber __. & Nbsp; ми бачимо, що коли ми виконуємо наш код, він показує __16__ як значення __mynewnumber__ __placeholder_15__ __17__ як цінність __mynumber __as __mynumbumbumbumbumbumbrewnumbumber __ __Placeholder_16__ збільшується, оскільки лише __mynumber__ збільшується, оскільки це пост -оператор.
+We create a variable __myNumber = 16__ to which we create another variable __myNewNumber__ which post-increments the value of __myNumber__.&nbsp;We see that when we виконувати our код it shows __16__ as the value of __myNewNumber__ and __17__ as the value of __myNumber __as __mynewnumber__ чи not збільшується, оскільки лише __mynumber__ збільшується, оскільки це поштовий оператор.
 
-Коли ми після запровадження значення змінної збільшується після призначення її іншій змінній. & NBSP; наприклад, __Mynumber__ є __16__, тому вона збільшується після призначення до __mynewnumbum__, тому ми отримуємо __17__.
+Коли ми після запровадження значення змінної збільшується після призначення її іншій змінній.&nbsp; для прикладу __mynumber__ __16__, тому він збільшується після того, як його призначають __mynewnumbum__, тому ми отримуємо __17__.
 
 Наступного тижня ми зануримося в налагодження оператора після інвентації.

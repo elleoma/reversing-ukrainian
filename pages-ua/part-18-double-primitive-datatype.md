@@ -1,42 +1,38 @@
----
-{}
----
+## part 18 - подвійний примітивний тип даних
 
-__Placeholder_9__ Частина 18 - подвійний примітивний тип даних
-
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_8__
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
 Сьогодні ми поговоримо про C ++ _Double_ Datatype, який зберігає подвійні значення плаваючої точки.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_11__ main ()
+int main()
 {
-& nbsp; & nbsp; подвійний my_double = 10.1;
+&nbsp; &nbsp; double my_double = 10.1;
 
-& nbsp; & nbsp; std :: cout & lt; & lt; my_double & lt; & lt; std :: endl;
+&nbsp; &nbsp; std::cout &lt;&lt; my_double &lt;&lt; std::endl;
 
-& nbsp; & nbsp; повернення 0;
+&nbsp; &nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Дуже просто ми створюємо поплавок __placeholder_12__ призначте йому просте значення __placeholder_13__ надрукувати його.
+Дуже просто ми створюємо Float and призначте йому просте значення and надрукувати його.
 
-Давайте складемо __placeholder_14__ посилання.
+Давайте складемо and посилання.
 
-__Placeholder_2__g ++ -o 0x06_double_primivive_datatype 0x05_double_primive_datatype__placeholder_10__
-__Placeholder_3__
+<pre spellcheck="false">g++ -o 0x06_double_primitive_datatype 0x05_double_primitive_datatype.cpp
+</pre>
 
 Давайте біжимо.
 
-__Placeholder_4__./0x06_double_primitive_datatypepy
-__Placeholder_5__
+<pre spellcheck="false">./0x06_double_primitive_datatype
+</pre>
 
 Ми просто бачимо наступне.
 
-__Placeholder_6__10.1
-__Placeholder_7__
+<pre spellcheck="false">10.1
+</pre>
 
-Він успішно перегукується з & nbsp; _10.1_ & nbsp; до терміналу stdout. Дуже просто.
+Він успішно Echoed&nbsp;_10.1_&nbsp; до терміналу stdout. Дуже просто.
 
 Наступного тижня ми налагоджуємо цей дуже простий приклад.

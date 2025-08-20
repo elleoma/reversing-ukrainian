@@ -1,71 +1,67 @@
----
-{}
----
+## PART 2 - Налаштування розвитку
 
-__Placeholder_19__ Частина 2 - Налаштування розвитку
-
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_9__
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
 Сьогодні ми збираємося створити своє середовище розвитку. Нам знадобиться наступне:
 
-__Placeholder_0__Raspberry Pi 4
-64 Гб карта MicroSD
-Зчитувач/письменник Micro SD
-Завантажити 64-бітний Kali __placeholder_20__ __placeholder_35__ зображення
-Завантажте Баленетччер
-Flash kali __placeholder_21__ __placeholder_36__ зображення
-Необов’язково: відео [Завантажити Kali RPI 4]
-Як встановити Vim
-Git Clone & amp; Побудувати __placeholder_26__ програмне забезпечення
-__Placeholder_1__
+<pre spellcheck="false">Raspberry Pi 4
+64GB MicroSD Card
+Micro SD Card Reader/Writer
+Download 64-bit Kali Linux ARM Image
+Download balenaEtcher
+Flash Kali Linux ARM Image
+OPTIONAL: Video [Load Kali RPI 4]
+How To Install VIM
+Git Clone &amp; Build Radare2 Software
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1606060809296.jpg"/></div>
 
 __Raspberry Pi 4__
 
-__Placeholder_10__
+https://www.adafruit.com/product/4292
 
 __64 Гб microSD chard__
 
-__Placeholder_11__
+https://www.sparkfun.com/products/16498
 
 __Micro SD -зчитувач карт/письменник__
 
-__Placeholder_12__
+https://www.walmart.com/ip/Iogear-GFR204SD-SD-MicroSD-MMC-Card-Reader-and-Writer/15522266
 
-__Download 64-бітний Kali __placeholder_22__ __placeholder_37__ Image__
+__Download 64-бітний Kali Linux ARM Image__
 
-Kali __placeholder_23__ raspberrypi 2 (v1.2), 3 __placeholder_29__ 4 (64-біт) (img.xz) __ __ __
+Kali Linux RaspberryPi 2 (v1.2), 3 and 4 (64-біт) (img.xz) __ __
 
-__Placeholder_13__
+https://www.offensive-security.com/kali-linux-arm-images
 
 __Load Balenaetcher__
 
-__Placeholder_14__
+https://www.balena.io/etcher
 
-__Flash kali __placeholder_38__ image__
+__Flash kali ARM image__
 
 __Optional: Video \ [Завантажити kali rpi 4 \] __
 
-__Placeholder_5____Placeholder_15__
+<a href="https://youtu.be/Jquf9BDm4iU" rel="nofollow noopener" target="_blank">https://youtu.be/Jquf9BDm4iU</a>
 
 __ Як встановити vim__
 
-__Placeholder_16__ 
+https://www.simplified.guide/ubuntu/install-vim 
 
-Отримавши всі необхідні пристрої __placeholder_30__ Програмне забезпечення, перегляньте відео про те, як налаштувати своє середовище, оскільки Null Byte зробив дивовижну роботу з покроковим підручником, який отримає налаштування за лічені хвилини.
+Отримавши всі необхідні пристрої and Програмне забезпечення, перегляньте відео про те, як налаштувати своє середовище, оскільки Null Byte зробив дивовижну роботу з покроковою підручник, яка отримає вас налаштування за лічені хвилини.
 
-Наступним кроком є те, щоб git clone __placeholder_31__ створити програмне забезпечення __placeholder_27__, оскільки це ми хочете, щоб остання версія, оскільки стандартна версія, вбудована в Kali, буде __placeholder_34__ буде достатньою для наших потреб.
+Наступним кроком є те, що клон and побудувати програмне забезпечення Radare2, оскільки це ми хочемо, щоб остання версія, оскільки стандартна версія, вбудована в Kali, буде not достатньою для наших потреб.
 
-__Git Clone & amp; Побудувати __placeholder_28__ програмне забезпечення__
+__Git клон &amp; побудувати Radare2 програмне забезпечення__ __
 
-__Placeholder_17__
+https://github.com/radareorg/radare2
 
-__Placeholder_7__cd Документи
-git клон __placeholder_18__
-__Placeholder_24 __/встановити .__ ploadholder_25__
-__Placeholder_8__
+<pre spellcheck="false">cd Documents
+git clone https://github.com/radareorg/radare2.git
+sys/install.sh
+</pre>
 
-Нарешті ми будемо використовувати текстовий редактор для створення нашого коду. Kali має вбудовані редактори тексту Nano Vim __placeholder_32__. Ми будемо використовувати vim, але ви __placeholder_33__, щоб використовувати все, що вам зручно.
+Нарешті ми будемо використовувати текстовий редактор для створення нашого коду. У Kali вбудовано обидва редактори тексту Vim and. Ми будемо використовувати vim, але ви free, щоб використовувати будь -який вам зручний.
 
 На нашому наступному уроці ми напишемо нашу першу програму C ++, яка буде "Hello World!".

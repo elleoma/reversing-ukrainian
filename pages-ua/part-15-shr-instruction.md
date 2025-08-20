@@ -1,24 +1,20 @@
----
-{}
----
+## part 15 - SHR інструкція
 
-__Placeholder_10__ Частина 15 - __placeholder_12__ Інструкція
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_9__
+Команда SHR означає праворуч.
 
-Команда __placeholder_13__ означає праворуч.
+Припустимо, що реєстр __al__ має 00010100b, що є 8-бітовим двійковим значенням.&nbsp;let, що інструкція-__shr al, 2 __. &nbsp;below-це те, що виносили, як ми бачимо, що значення рухають два біти ліворуч.
 
-Припустимо, що реєстр __al__ має 00010100b, що є 8-бітовим двійковим значенням. & NBSP; припустимо, що інструкція __SHR __placeholder_11__, 2 __.
+&nbsp;00010100
 
-& nbsp; 00010100
+&nbsp;&nbsp;&nbsp;00010100
 
-& nbsp; & nbsp; & nbsp; 00010100
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1542995744073.jpg"/></div>
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1542995747116.jpg"/></div>
 
-__Placeholder_3____placeholder_4____placeholder_5__
-
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1542995744391.jpg"/></div>
 
 00000101
 

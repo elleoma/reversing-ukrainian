@@ -1,79 +1,75 @@
----
-{}
----
+## part 31 - Hacking float змінні
 
-__Placeholder_42__ Частина 31 - Зламані змінні FLOAT
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_41__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;xyz9plh9cuk8
 
 Давайте переглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-& nbsp;
+&nbsp;
 
-__Placeholder_45__ main (void) {
+int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; __Placeholder_46__ mynumber = 1337.1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNumber = 1337.1;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799049547.jpg"/></div>
 
 Давайте розглянемо підручник минулого тижня.
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799097861.jpg"/></div>
 
-Давайте розійдемося на __ -мейн+20__ __placeholder_47__ продовжуйте до цього моменту.
+Давайте розірвемося на __ -мейн+20__ and, продовжуйте до цього моменту.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799125882.jpg"/></div>
 
-Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __.
+Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;we чітко бачимо, що це __1337.09998__, що наближає наше значення в нашому первісному C ++ код.&nbsp;Keep __1337.1__ Тому, будь ласка, пам’ятайте про це, коли ми йдемо вперед.
 
-__Placeholder_11____Placeholder_12____Placeholder_13__________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799166328.jpg"/></div>
 
 Ми також можемо побачити це значення у високій пам'яті.
 
-__Placeholder_14____Placeholder_15____Placeholder_16__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799204709.jpg"/></div>
 
-Давайте розірвемося на __ -мейн+28__ __placeholder_49__ Продовжуйте.
+Давайте розірвемося на __ -мейн+28__ and Продовжуйте.
 
-__Placeholder_17____Placeholder_18____Placeholder_19__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799242840.jpg"/></div>
 
-Ми бачимо нову інструкцію. & NBSP; ми бачимо __vldr__ __placeholder_50__ значення в межах __r11, \#8__ переміщується в __ s0 __. Приклад такого, до якого значення __1337.09998 __ є переміщеним у __S0 __.
+Ми бачимо нову інструкцію.&nbsp;we див. __Vldr__ and значення в межах __r11, \#8__ переміщується в __ s0 __. &nbsp;so, що таке __s0 __? &nbsp;we має математику. or плаваючі числа.&nbsp;here. AS__ S0__.
 
-__Placeholder_20____Placeholder_21____Placeholder_22______
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799279756.jpg"/></div>
 
 Ми можемо бачити ці спеціальні регістри лише в тому випадку, якщо ми робимо інформацію про те, як ми виконуємо всі, як ми робимо нижче.
 
-__Placeholder_23____placeholder_24____placeholder_25__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799307421.jpg"/></div>
 
 Нижче ми бачимо, що значення зараз переміщується в __S0__.
 
-__Placeholder_26____Placeholder_27____Placeholder_28__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799331767.jpg"/></div>
 
-Давайте хакемо!
+Давайте hack!
 
-__Placeholder_29____Placeholder_30____Placeholder_31__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799362535.jpg"/></div>
 
-Давайте зараз розглянемо регістри __placeholder_51__ дивись, що сталося.
+Давайте тепер подивимось на реєстри and подивіться, що сталося.
 
-__Placeholder_32____Placeholder_33____Placeholder_34__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799386349.jpg"/></div>
 
-__Placeholder_35____Placeholder_36____Placeholder_37__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799407513.jpg"/></div>
 
 Як ви бачите, ми зламали значення (менше точній проблемі змінної Float точні до 6 десяткових місць)!
 
-__Placeholder_38____Placeholder_39____Placeholder_40__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799441419.jpg"/></div>
 
 Нарешті, коли ми продовжуємо, ми бачимо, що наше зламане значення перегукується з терміналом, коли виконується C ++ __cout __function.
 

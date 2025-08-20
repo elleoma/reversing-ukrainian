@@ -1,29 +1,25 @@
----
-{}
----
+## part 28 - Hacking цілі змінні
 
-__Placeholder_13__ Частина 28 - Зламати цілі змінні
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_12__
+Давайте розглянемо наш код.&nbsp;&nbsp;
 
-Давайте розглянемо наш код. & NBSP; & NBSP;
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1519988583160.jpg"/></div>
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
+Давайте hack!
 
-Давайте хакемо!
-
-__Placeholder_3____placeholder_4____placeholder_5__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1519988510636.jpg"/></div>
 
 Давайте знову подивимось всередину місця пам'яті __0x10730__.
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1519988543593.jpg"/></div>
 
-Як ми чітко бачимо, що ціле значення __777__ з'являється __placeholder_14__, коли ми продовжуємо це перегукується з терміналом значення __777__, що відповідає нашій функції C ++ __cout__.
+Як ми чітко бачимо, що ціле значення __7772 з’являється and, коли ми продовжуємо це перегукується з терміналом значення __777__, що відповідає нашій функції C ++ __cout__.
 
-Давайте зламаємо значення всередині __0x10730__ __placeholder_15__ Встановіть значення __666____ __placeholder_16__, а потім переглянути значення всередині __0x10730__ __placeholder_17__ продовження.
+Давайте hack значення всередині __0x10730__ and встановить значення __6666__ and, а потім переглядати значення всередині __0x10730__ and.
 
-__Placeholder_9____Placeholder_10____Placeholder_11__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1519988571825.jpg"/></div>
 
-Успіх! & Nbsp; Як ми бачимо, ми зламали цінність __666____, коли ми продовжуємо, ми бачимо, що це перегукується з stdout.
+Успіх! &nbsp;as ми можемо побачити
 
 На наступному тижні ми зануримось у змінні поплавця.

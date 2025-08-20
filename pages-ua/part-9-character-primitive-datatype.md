@@ -1,45 +1,41 @@
----
-{}
----
+## part 9 - Первісний тип даних символів
 
-__Placeholder_9__ Частина 9 - Первісний тип даних символів
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_8__
-
-Сьогодні ми поговоримо про перший із примітивного C ++. _Char_ Dataype використовується для зберігання одного символу __placeholder_12__, повинен бути оточений одиночними цитатами.
+Сьогодні ми поговоримо про перший із примітивного C ++. _Char_ dataype використовується для зберігання одного символу and, повинен бути оточений одиночними цитатами.
 
 Давайте подивимось на наш основний приклад.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_11__ main ()
+int main()
 {
     char my_char = 'c';
 
-    std :: cout & lt; & lt; my_char & lt; & lt; std :: endl;
+    std::cout &lt;&lt; my_char &lt;&lt; std::endl;
 
-    повернення 0;
+    return 0;
 }
-__Placeholder_1__
+</pre>
 
 Надзвичайно простий. Ми просто створюємо змінну char під назвою _my \ _char _ і присвоюючи їй символ _c_.
 
-Потім ми друкуємо його на stdout __placeholder_13__ Більше.
+Потім ми друкуємо його на stdout and більше нічого.
 
-Давайте складемо __placeholder_14__ посилання.
+Давайте складемо and посилання.
 
-__Placeholder_2__g ++ -O 0x03_ASM64_CHAR_PRIMITIVE_DATATYPE 0x03_ASM64_CHAR_PRIMIVER_DATATYPE__PLADYHOLDER_10__
-__Placeholder_3__
+<pre spellcheck="false">g++ -o 0x03_asm64_char_primitive_datatype 0x03_asm64_char_primitive_datatype.cpp
+</pre>
 
 Давайте біжимо.
 
-__Placeholder_4__./0x03_ASM64_CHAR_PRIMIVER_DATATYPE
-__Placeholder_5__
+<pre spellcheck="false">./0x03_asm64_char_primitive_datatype
+</pre>
 
 Дуже просто ми бачимо наступне.
 
-__Placeholder_6__c
-__Placeholder_7__
+<pre spellcheck="false">c
+</pre>
 
 Він успішно перегукувався _c_ до терміналу stdout. Дуже просто.
 

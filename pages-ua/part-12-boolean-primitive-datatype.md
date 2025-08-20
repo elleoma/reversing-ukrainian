@@ -1,43 +1,39 @@
----
-{}
----
+## part 12 - булевий примітивний тип даних
 
-__Placeholder_9__ Частина 12 - булевий примітивний тип даних
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_8__
+Сьогодні ми поговоримо про C ++ _Boolean_ Datatype, який зберігає або _0_ or _1_, щоб представити _0_ для _false _and _1_ для всього _true_.
 
-Сьогодні ми поговоримо про C ++ _Boolean_ Datatype, який зберігає або _0_ __placeholder_10__ _1_, щоб представити _0_ для _false _and _1_ для всього _true_.
+Цей вид прапора широко використовується в програмуванні загалом and Ми розглянемо ще одну дуже базову програму, щоб зрозуміти її просте використання.
 
-Цей вид прапора широко використовується в програмуванні загалом __placeholder_14__ Ми розглянемо ще одну дуже базову програму, щоб зрозуміти її просте використання.
-
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 	
-	__Placeholder_13__ main ()
+	int main()
 	{
-	    bool my_bool = правда;
+	    bool my_bool = true;
 
-	    std :: cout & lt; & lt; my_bool & lt; & lt; std :: endl;
+	    std::cout &lt;&lt; my_bool &lt;&lt; std::endl;
 
-	    повернення 0;
+	    return 0;
 	}
-__Placeholder_1__
+</pre>
 
-Ми бачимо, що ми створюємо _bool_ __placeholder_15__, присвоюючи йому _true _value __placeholder_11__ _1 _Value __placeholder_16__ надрукувати його.
+Ми бачимо, що ми створюємо _bool_ and, присвоюючи йому _true _value or _1 _value and для друку.
 
-Давайте складемо __placeholder_17__ посилання.
+Давайте складемо and посилання.
 
-__Placeholder_2__g ++ -o 0x04_asm64_boolean_primivive_datatype 0x04_asm64_boolean_primive_datatype__placeholder_12__
-__Placeholder_3__
+<pre spellcheck="false">g++ -o 0x04_asm64_boolean_primitive_datatype 0x04_asm64_boolean_primitive_datatype.cpp
+</pre>
 
 Давайте біжимо.
 
-__Placeholder_4__./0x04_asm64_boolean_primive_datatype
-__Placeholder_5__
+<pre spellcheck="false">./0x04_asm64_boolean_primitive_datatype
+</pre>
 
 Ми просто бачимо наступне.
 
-__Placeholder_6__1
-__Placeholder_7__
+<pre spellcheck="false">1
+</pre>
 
 Він успішно перегукувався _1_ до терміналу stdout. Дуже просто.
 

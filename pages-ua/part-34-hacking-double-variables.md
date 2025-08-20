@@ -1,61 +1,57 @@
----
-{}
----
+## part 34 - Hacking подвійні змінні
 
-__Placeholder_30__ Частина 34 - Зламати подвійні змінні
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_29__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте розглянемо наш код.
 
-__Placeholder_0__int main (void) {
+<pre spellcheck="false">int main(void) {
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; подвійний mynumber = 1337,77;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double myNumber = 1337.77;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp;
+&nbsp;
 
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
 
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+nbsp
 
 Давайте налагоджуємо!
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615640968.jpg"/></div>
 
-Встановимо точку перерви в __ -мейн+24__ __placeholder_35__ Продовжуйте.
+Встановимо breakpoint на __Main+24__ and Продовжуйте.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615666432.jpg"/></div>
 
-Ми бачимо __Strd __placeholder_31__, \ [__ ploadholder_33__, \#-12 \] __ __placeholder_36__ Ми повинні повністю зрозуміти, що це означає, що ми зберігаємо цінність у зміщенні __- 12__ з реєстру __r11__ в __r2 __. & Nbsp;
+Ми бачимо __STRD r2, \ [r11, \#-12 \] __ and, ми повинні повністю зрозуміти, що це означає, що ми зберігаємо цінність у зміщенні __- 12__ з реєстру __r11__ в __r2 __. &nbsp;. там.&nbsp;&nbsp;
 
-__Placeholder_11____Placeholder_12____Placeholder_13__________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615689648.jpg"/></div>
 
-VOILA! & NBSP; ми бачимо __1337.77__ у цьому зміщеному місці __placeholder_32__ спеціально зберігається в __0x7efff230__ в пам'яті.
+VOILA! &nbsp;WE див. __1337.77__ у цьому офсетному місці or, спеціально зберігається в __0x7efff230__ в пам'яті.
 
-__Placeholder_14____Placeholder_15____Placeholder_16__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615716304.jpg"/></div>
 
-Давайте поступаємо двічі, який виконує __VLDR D0, \ [__ Ploadholder_34__, \#-12 \] __ Як ми розуміємо, що __1337.77__ тепер буде завантажений у подвійну точну математичну копроцесор __d0 __register. &
+Давайте вступаємо двічі, який виконує __VLDR D0, \ [r11, \#-12 \] __ Як ми розуміємо, що __1337.77__ тепер буде завантажено у подвійний точний математичний копроцесор __d0 __register.&nbsp;let, який зараз друкує значення в цьому місці нижче.
 
-__Placeholder_17____Placeholder_18____Placeholder_19__
+nbsp
 
-Давайте зламаємо реєстр __D0__!
+Давайте hack Реєстр __D0__!
 
-__Placeholder_20____Placeholder_21____Placeholder_22______
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615775560.jpg"/></div>
 
 Тепер давайте переглянемо значення всередині __d0__.
 
-__Placeholder_23____placeholder_24____placeholder_25__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615802811.jpg"/></div>
 
 Продовжуємо.
 
-__Placeholder_26____Placeholder_27____Placeholder_28__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1523615835964.jpg"/></div>
 
 Успішно зламано!
 

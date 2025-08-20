@@ -1,82 +1,78 @@
----
-{}
----
+## part 12 - налагодження поплавця
 
-__Placeholder_17__ Частина 12 - Налагодження поплавця
+Давайте розглянемо наш приклад.&nbsp;__0x05 \ _float.c__&nbsp;as.
 
-Давайте розглянемо наш приклад. & Nbsp; __ 0x05 \ _float.c __ & nbsp; наступним чином.
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_0 __#включити & lt; stdio__placeholder_21 __ & gt;
-__Placeholder_18__ включити "pico/stdlib__placeholder_22__"
-
-__Placeholder_20__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; float x = 40,5;
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; float x = 40.5;
 
-& nbsp; & nbsp; __Placeholder_26 __ ("%f \ n", x); & nbsp;
+&nbsp; &nbsp; printf("%f\n", x);&nbsp;
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
 
-& nbsp; повернення 0;
+&nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Давайте розберемося в нашому налагоджувачі.
+Давайте розберемося в нашому налагоджувач.
 
-__Placeholder_2__radare2 -w __placeholder_31__ -b 16 0x05_float .__ ploadholder_19__
-__Placeholder_3__
+<pre spellcheck="false">radare2 -w arm -b 16 0x05_float.elf
+</pre>
 
 Давайте автоматично проаналізуємо.
 
-__Placeholder_4__aaaa
-__Placeholder_5__
+<pre spellcheck="false">aaaa
+</pre>
 
-Давайте прагнемо до головного.
+Давайте прагнемо main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+<pre spellcheck="false">s main
+</pre>
 
-Давайте перейдемо у візуальний режим, ввівши & nbsp; __ v __ & nbsp; __ ploadholder_23__ тоді & nbsp; __ p __ & nbsp; двічі, щоб дістатися до хорошого подання налагоджувача.
+Перейдемо у візуальний режим, typingnbsp__v__&nbsp;and thennbsp__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач виду.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1618059343816.jpg"/></div>
 
 Ми бачимо специфікатор формату в _ \ [0x0000033c \] ._
 
-__Placeholder_11 __: & gt; PSZ @ [0x0000033c]
+<pre spellcheck="false">:&gt; psz @ [0x0000033c]
 %f
-__Placeholder_12__
+</pre>
 
 Поплавок знаходиться на _ \ [0x00000340 \] _.
 
-__Placeholder_13 __: & gt; pff @ [0x00000340]
-0x00004000 = 9.32830524E-09
-__Placeholder_14__
+<pre spellcheck="false">:&gt; pff @ [0x00000340]
+0x00004000 = 9.32830524e-09
+</pre>
 
-Зробіть __placeholder_28__, що поплавок є неточним, оскільки ця машина __placeholder_27__. Важливо побачити значення _0x00004000_. Потім ви запитуєте себе, ей, це __placeholder_29__ _40.5_! Яка угода?
+Зробіть not, що поплавок є неточним, оскільки ця машина x64. Важливо побачити значення _0x00004000_. Потім ви запитуєте себе, ей, це not _40.5_! Яка угода?
 
 Гаразд ...
 
-Pico робить __placeholder_30__ має власний математичний копроцесор, тому він обробляє поплавці __placeholder_24__ парні за допомогою програмного забезпечення. Тому _0x00004000_ буде представленням _40.5_ десяткового.
+Pico робить not, має власний математичний копроцесор, тому він обробляє поплавці and парні за допомогою програмного забезпечення. Тому _0x00004000_ буде представленням _40.5_ десяткового.
 
 Отже, якщо значення було _40.4_, наприклад, це було б _0x00003333_. Навпаки _40.6_ буде _0x00004ccc_.
 
 Погляньте на наступну таблицю, яка допоможе проілюструвати суть.
 
-__Placeholder_15__0x3ff00000 = 1.000000
-0x3ff00001 = 1,000001
-0x3ff00002 = 1,000002
+<pre spellcheck="false">0x3ff00000 = 1.000000
+0x3ff00001 = 1.000001
+0x3ff00002 = 1.000002
 ...
 0x3ff0000f = 1.000015
 0x3ff00010 = 1.000016
 0x3ff00011 = 1.000017
-тощо ...
-__Placeholder_16__
+etc...
+</pre>
 
 Зрештою, значення цих 4 байт (32-біт) визначатимуть значення поплавця.
 
-На нашому наступному уроці ми зламаємо Float __placeholder_25__ продемонструвати цю логіку.
+На нашому наступному уроці ми будемо hack float and продемонструвати цю логіку.

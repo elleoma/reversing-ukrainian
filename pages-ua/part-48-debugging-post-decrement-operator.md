@@ -1,38 +1,34 @@
----
-{}
----
+## PART 48-Налагодження оператора після декреції
 
-__Placeholder_12__ Частина 48-Налагодження оператора після декреції
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_11__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте переглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_13__ main (void) {
-& nbsp; & nbsp; & nbsp; __ ploadholder_14__ mynumber = 16;
-& nbsp; & nbsp; & nbsp; __ ploadholder_15__ mynewnumber = mynumber--;
+int main(void) {
+&nbsp;&nbsp; &nbsp;int myNumber = 16;
+&nbsp;&nbsp; &nbsp;int myNewNumber = myNumber--;
 
-& nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynewnumber & lt; & lt; std :: endl;
-    std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
+    std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp; &nbsp;return 0;
 }
-__Placeholder_1__
+</pre>
 
-Ми бачимо наш дуже простий код C ++ вище, до якого ми не робимо нічого іншого, як присвоювати число у змінну, на яку ми ініціюємо ще одну __placeholder_16__ змінну __placeholder_17__ Призначте вихідну змінну, до якої вона є після оцінки. Потім ми виводимо кожне значення до терміналу.
+Ми бачимо наш дуже простий код C ++ вище, до якого ми не робимо нічого іншого, як призначати число у змінну, на яку ми ініціюємо ще одну int змінну and, присвоєні початкову змінну, до якої вона є після декларації. Потім ми виводимо кожне значення до терміналу.
 
 Давайте налагоджуємо.
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1532085310684.jpg"/></div>
 
-Зрозуміло, що значення для оператора після декларації завантажується в __R1__ в __-мейн+68 __, тому давайте розірвемося на __-мейн+72__.
+Зрозуміло, що значення для оператора після декларації завантажується в __R1__ на __main+68 __Sо, давайте розірвемося на __Main+72__.
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1532085326445.jpg"/></div>
 
 Ми чітко бачимо, що __R1 __Does насправді має значення __15__, до якого було зменшено від нашої первісної цінності.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1532085443370.jpg"/></div>
 
-Наступного тижня ми занурюємось у злом оператора після декреції.
+Наступного тижня ми зануримось у оператор після декреції Hacking.

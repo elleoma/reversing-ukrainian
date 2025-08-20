@@ -1,42 +1,38 @@
----
-{}
----
+## part 15 - float primital dataType
 
-__Placeholder_9__ Частина 15 - Float Primitile DataType
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_8__
+Сьогодні ми будемо говорити про C ++ &nbsp;_FLOAT_&nbsp;DATATYPE, який зберігає значення плаваючої точки.
 
-Сьогодні ми будемо говорити про C ++ & nbsp; _float_ & nbsp; Datatype, який зберігає значення плаваючої точки.
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_0 __#включає & lt; iostream & gt;
-
-__Placeholder_11__ main ()
+int main()
 {
-& nbsp; & nbsp; float my_float = 10.1;
+&nbsp; &nbsp; float my_float = 10.1;
 
-& nbsp; & nbsp; std :: cout & lt; & lt; my_float & lt; & lt; std :: endl;
+&nbsp; &nbsp; std::cout &lt;&lt; my_float &lt;&lt; std::endl;
 
-& nbsp; & nbsp; повернення 0;
+&nbsp; &nbsp; return 0;
 }
-__Placeholder_1__
+</pre>
 
-Дуже просто ми створюємо поплавок __placeholder_12__ призначте йому просте значення __placeholder_13__ надрукувати його.
+Дуже просто ми створюємо Float and призначте йому просте значення and надрукувати його.
 
-Давайте складемо __placeholder_14__ посилання.
+Давайте складемо and посилання.
 
-__Placeholder_2__g ++ -o 0x05_float_primivive_datatype 0x05_float_primivive_datatype__placeholder_10__
-__Placeholder_3__
+<pre spellcheck="false">g++ -o 0x05_float_primitive_datatype 0x05_float_primitive_datatype.cpp
+</pre>
 
 Давайте біжимо.
 
-__Placeholder_4__./0x05_float_primive_datatype
-__Placeholder_5__
+<pre spellcheck="false">./0x05_float_primitive_datatype
+</pre>
 
 Ми просто бачимо наступне.
 
-__Placeholder_6__10.1
-__Placeholder_7__
+<pre spellcheck="false">10.1
+</pre>
 
-Він успішно перегукується з & nbsp; _10.1_ & nbsp; до терміналу stdout. Дуже просто.
+Він успішно перевищує ехоедкси9plh23zuk8_10.1_&nbsp; до терміналу stdout. Дуже просто.
 
 Наступного тижня ми налагоджуємо цей дуже простий приклад.

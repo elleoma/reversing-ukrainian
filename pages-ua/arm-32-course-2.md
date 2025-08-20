@@ -1,10 +1,6 @@
----
-{}
----
-
-__Placeholder_0__
-    32-бітний __placeholder_4__ архітектура (частина 2)
-__Placeholder_1__
-__Placeholder_2__
-    Давайте зануримось управляю!
-__Placeholder_3__
+<h2 align="center">
+    The 32-bit ARM архітектура (Part 2)
+</h2>
+<p align="center">
+    Let's dive in rightaway!
+</p>

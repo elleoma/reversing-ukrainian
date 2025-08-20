@@ -1,66 +1,62 @@
----
-{}
----
+## part 16 - налагодження поплавкового примітивного типу даних
 
-__Placeholder_17__ Частина 16 - Налагодження поплавкового примітивного типу даних
-
-Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. __Placeholder_16__
+Для повного змісту всіх уроків, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. https://github.com/mytechnotalent/hacking\_c-\_arm64
 
 Сьогодні ми збираємось налагодити наш дуже простий поплавковий примітивний тип даних.
 
-Для початку давайте відкриємо наш двійковий у __placeholder_19__.
+Для початку давайте відкриємо наш двійковий у Radare2.
 
-__Placeholder_0__radare2 ./0x05_asm64_float_primive_datatype
-__Placeholder_1__
+<pre spellcheck="false">radare2 ./0x05_asm64_float_primitive_datatype
+</pre>
 
-Давайте скористаємось функцією автоматичного аналізу __placeholder_20 __.
+Давайте скористаємось функцією автоматичного аналізу Radare2.
 
-__Placeholder_2__AAA
-__Placeholder_3__
+<pre spellcheck="false">aaa
+</pre>
 
 Наступне, що ми хочемо зробити логічно, - це розпалювати програму в режимі налагодження, щоб вона відображала сирий машинний код від диска до запущеного процесу.
 
-__Placeholder_4__ood
-__Placeholder_5__
+<pre spellcheck="false">ood
+</pre>
 
-Тепер, коли у нас є екземпляр запуску, ми можемо прагнути до основної точки входу двійкового.
+Тепер, коли у нас є екземпляр запуску, ми можемо прагнути до точки входу main.
 
-__Placeholder_6__s main
-__Placeholder_7__
+<pre spellcheck="false">s main
+</pre>
 
 Давайте пройдемо початкову експертизу, зробивши наступне.
 
-__Placeholder_8__v
-__Placeholder_9__
+<pre spellcheck="false">v
+</pre>
 
-Служивши з номерами плаваючої точки в __placeholder_22__, ми повинні розуміти, що ми хочемо знайти там, де відбувається інструкція _fmov_, де ми беремо значення з нашого _w0_ реєстр __placeholder_23__, переміщуємо його в регістр плаваючої точки _s0_. Ось де відбувається вся магія!
+Служивши з номерами плаваючої точки в ARM64, ми повинні розуміти, що ми хочемо знайти, де відбувається інструкція _FMOV_, де ми беремо значення з нашого _W0_ Реєстр and, переміщує його в плавучу точку _s0_ регістр. Ось де відбувається вся магія!
 
-Давайте визначимо точку перерви прямо під інструкцією _fmov_. Пам'ятайте з __placeholder_18__ Ваші адреси будуть різними, ніж цей приклад.
+Давайте визначимо точку перерви прямо під інструкцією _fmov_. Пам'ятайте з ASLR, ваші адреси будуть різними, ніж цей приклад.
 
-__Placeholder_10 __ [0x557931c9b4] & gt; db 0x557931c9c8
-[0x557931c9b4] & gt; DC
-[0x557931c9b4] & gt; Популяція перерви: 0x557931c9c8
-[0x557931c9c8] & gt; __Placeholder_21__
-[0x557931c9c8] & gt; Д -р W0
+<pre spellcheck="false">[0x557931c9b4]&gt; db 0x557931c9c8
+[0x557931c9b4]&gt; dc
+[0x557931c9b4]&gt; hit breakpoint at: 0x557931c9c8
+[0x557931c9c8]&gt; ds
+[0x557931c9c8]&gt; dr w0
 0x4121999a
-[0x557931c9c8] & gt;
-__Placeholder_11__
+[0x557931c9c8]&gt;
+</pre>
 
-OK so we see this strange value which if you look at the code below, the _lsl_ which is logical shift left, is moving the byte order of which we are using the _movz_ and _movk_ instructions which _movz_ will move _0x999a_ into _w0_ and then the _movk_ will move _0x4121,_ _lsl 16_ in_ w0_, тому розміщуючи 4121 у місцях байтів вищого порядку __placeholder_26__ 999a у місцях байтів нижчого порядку.
+OK so we see this strange value which if you look at the код below, the _lsl_ which is logical shift left, is moving the byte order of which we are using the _movz_ and _movk_ instructions which _movz_ will move _0x999a_ into _w0_ and then the _movk_ will move _0x4121, _ _lsl 16_ in_ w0_, тому розміщуючи 4121 у місцях байтів вищого порядку and 999a у місцях байтів нижчого порядку.
 
-__Placeholder_12__movz W0, 0x999a
-Movek W0, 0x4121, LSL 16
-FMOV S0, W0
-__Placeholder_13__
+<pre spellcheck="false">movz w0, 0x999a
+movk w0, 0x4121, lsl 16
+fmov s0, w0
+</pre>
 
-Ми переміщуємо наш реєстр _W0_ в _S0_, тому ми повинні змінити ці значення тут, перш ніж дозволити йому потрапити в _S0_, інакше буде значно важче зламати на наступному уроці.
+Ми переміщуємо наш _W0_ Реєстр у _S0_, тому ми повинні змінити ці значення тут, перш ніж дозволити йому потрапити в _S0_, інакше на наступному уроці буде значно важче hack.
 
 Давайте продовжувати показувати нашу цінність.
 
-__Placeholder_14 __ [0x557931c9c8] & gt; DC
+<pre spellcheck="false">[0x557931c9c8]&gt; dc
 10.1
-(237691) Процес, що вийшов зі статусом = 0x0
-[0x7FB948407C] & gt;
-__Placeholder_15__
+(237691) Process exited with status=0x0
+[0x7fb948407c]&gt;
+</pre>
 
-На нашому наступному уроці ми зламаємо цю цінність!
+На нашому наступному уроці ми будемо hack це значення!

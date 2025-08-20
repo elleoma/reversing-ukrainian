@@ -1,44 +1,40 @@
----
-{}
----
+## PART 45-Налагодження оператора попереднього декреції
 
-__Placeholder_15__ Частина 45-Налагодження оператора попереднього декларації
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_14__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте переглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_16__ main (void) {
-& nbsp; & nbsp; & nbsp; __ ploadholder_17__ mynumber = 16;
-& nbsp; & nbsp; & nbsp; __ ploadholder_18__ mynewnumber = -mynumber;
+int main(void) {
+&nbsp;&nbsp; &nbsp;int myNumber = 16;
+&nbsp;&nbsp; &nbsp;int myNewNumber = --myNumber;
 
-& nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynewnumber & lt; & lt; std :: endl;
-    std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
+    std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp; &nbsp;return 0;
 }
-__Placeholder_1__
+</pre>
 
 Ми пам’ятаємо, коли компілюємо, отримуємо 15.
 
 Давайте налагоджуємо.
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530270075261.jpg"/></div>
 
 Давайте розірвемося.
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530270088297.jpg"/></div>
 
-Як ми бачимо __R3 __ODS 15. Майте на увазі, що зламати цю цінність може __placeholder_20__ бути остаточним місцем, яке воно може бути зберігається. Пам'ятайте це на наступному тижні __placeholder_19__ Перегляньте код налагодження вище, щоб побачити, чи зможете ви це зрозуміти.
+Як ми бачимо __R3 __ODS 15. Майте на увазі hacking Це значення може not бути остаточним місцем, яке воно може зберігатися. Пам'ятайте це на наступному тижні and Перегляньте код налагодження вище, щоб побачити, чи зможете ви це зрозуміти.
 
-__Placeholder_8____Placeholder_9____Placeholder_10__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530270183626.jpg"/></div>
 
 Як ми бачимо, __R1__ також має 15. Майте на увазі вищезазначене твердження.
 
-__Placeholder_11____Placeholder_12____Placeholder_13__________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530270209438.jpg"/></div>
 
 Під час продовження ми бачимо, що наша __cout __function переживає 15 для обох областей, як очікувалося.
 
-Наступного тижня ми занурюємось у хакерський оператор попереднього декларації.
+На наступному тижні ми зануримось у оператор попереднього декреції Hacking.

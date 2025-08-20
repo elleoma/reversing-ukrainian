@@ -1,23 +1,19 @@
----
-{}
----
+## PART 28 - Програма ASM 3 \ [Переміщення даних між пам'яттю And Регістри \]
 
-__Placeholder_4__ Частина 28 - Програма ASM 3 \ [Переміщення даних між пам'яттю __placeholder_10__ Реєстри \]
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_3__
+У нашій третій програмі ми продемонструємо, як ми можемо переміщувати дані між пам'яттю and regicsters.&nbsp;
 
-У нашій третій програмі ми продемонструємо, як ми можемо переміщувати дані між пам'яттю __placeholder_11__ регістри. & NBSP;
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520175192505.jpg"/></div>
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
-
-Зокрема, ми перемістимо значення всередині постійного цілого числа 10 десятків у __placeholder_6__.
+Зокрема, ми перемістимо значення всередині постійного цілого числа 10 -десяткових у ECX.
 
 Майте на увазі, щоб зібрати ми вводимо:
 
-__AS –32 -O Переміщення \ _data \ _between \ _memory \ _and \ _registers__placeholder_8__ переміщення \ _data \ _between \ _memory \ _and \ _registers.s__
+__AS –32 -O Переміщення \ _data \ _between \ _memory \ _and \ _регістери
 
-Щоб зв’язати об'єкт __placeholder_7__, ми вводимо:
+Щоб зв’язати об’єкт file, ми вводимо:
 
-__ld -m __placeholder_5 __ \ _ i386 -O MENTH \ _Data \ _between \ _memory \ _and \ _registers Move \ _data \ _between \ _memory \ _and \ _regisers__placehold_9__ __ __
+__ld -m elf \ _i386 -o menkt \ _data \ _between \ _memory \ _and \ _registers, що переміщуються \ _data \ _between \ _memory \ _and \ _regisers.o __
 
 Я з нетерпінням чекаю побачити вас на весь наступний тиждень, коли ми занурюємось у налагодження нашої програми третьої асамблеї!

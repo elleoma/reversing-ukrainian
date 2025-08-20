@@ -1,92 +1,83 @@
----
-{}
----
+## part 5 - char
 
-__Placeholder_16__ Частина 5 - Чар
+Сьогодні ми розпочнемо наше висвітлення типів даних С. Ми почнемо з Чар. ЧАР - це найменший адресний блок машини, яка може містити базовий набір символів. Це цілий тип and може бути або може бути підписаним or без підписання.
 
-Сьогодні ми розпочнемо наше висвітлення типів даних С. Ми почнемо з Чар. ЧАР - це найменший адресний блок машини, яка може містити базовий набір символів. Це цілий тип __placeholder_29__ може бути або може бути підписаним __placeholder_18__ без підписання.
+Давайте зробимо новий DIR __0x03 \ _char__ and add наші __cmakelists.txt__ file в ньому.
 
-Давайте зробимо новий DIR __0x03 \ _char__ __placeholder_30__ __placeholder_23__ Наші __cmakelists.txt__ __placeholder_19__ в ньому.
+<pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
-__Placeholder_0__cmake_minimum_required (версія 3.13)
+include(pico_sdk_import.cmake)
 
-включити (pico_sdk_import.cmake)
+project(test_project C CXX ASM)
+встановити(CMAKE_C_STANDARD 11)&nbsp;
+встановити(CMAKE_CXX_STANDARD 17)&nbsp;
+pico_sdk_init()
 
-Проект (test_project c cxx asm)
-set (cmake_c_standard 11) & nbsp;
-set (cmake_cxx_standard 17) & nbsp;
-pico_sdk_init ()
-
-add_executable (0x03_char
-& nbsp; 0x03_char__placeholder_34__
+add_executable(0x03_char
+&nbsp; 0x03_char.c
 )
 
-pico_enable_stdio_usb (0x03_char 1)
+pico_enable_stdio_usb(0x03_char 1)
 
-pico_add_extra_outputs (0x03_char)
+pico_add_extra_outputs(0x03_char)
 
-Target_Link_Libraries (0x03_char Pico_stdlib)
-__Placeholder_1__
+target_link_libraries(0x03_char pico_stdlib)
+</pre>
 
-Далі нам потрібно скопіювати & nbsp; __ pico \ _sdk \ _import.cmake __ & nbsp; __ ploadholder_20__ із зовнішньої папки в & nbsp; __ pico-sdk __ & nbsp; інсталяція до & nbsp; __ 0x03 \ _char __ & nbsp;
+Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;Installation to to The&nbsp;__0x03 \ _char__&nbsp;project.
 
-__Placeholder_2__cp ../pico-sdk/external/pico_sdk_import.cmake.
-__Placeholder_3__
+<pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
+</pre>
 
-Давайте створимо наш c __placeholder_21__ __0x03 \ _char.c__ __placeholder_31__ roll ...
+Давайте створимо наш C file __0X03 \ _Char.C__ and Roll ...
 
-__Placeholder_4 __#включити & lt; stdio__placeholder_25 __ & gt;
-__Placeholder_17__ включити "pico/stdlib__placeholder_26__"
+<pre spellcheck="false">#include &lt;stdio.h&gt;
+#include "pico/stdlib.h"
 
-__Placeholder_24__ main () & nbsp;
+int main()&nbsp;
 {
-& nbsp; stdio_init_all ();
+&nbsp; stdio_init_all();
 
-& nbsp; в той час як (1) & nbsp;
-& nbsp; {
-& nbsp; & nbsp; char x = 'x';
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp;
-& nbsp; & nbsp; __Placeholder_33 __ ("%c \ n", x);
+&nbsp; while(1)&nbsp;
+&nbsp; {
+&nbsp; &nbsp; char x = 'x';
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; printf("%c\n", x);
 
-& nbsp; & nbsp; Sleep_ms (1000);
-& nbsp; }
-& nbsp; & nbsp; & nbsp; & nbsp; & nbsp;
-& nbsp; повернення 0;
+&nbsp; &nbsp; sleep_ms(1000);
+&nbsp; }
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+&nbsp; return 0;
 }
-__Placeholder_5__
+</pre>
 
 Нарешті ми готові до будівництва.
 
-__Placeholder_6__mkdir
-Комплект компакт -дисків
-Експорт PICO_SDK_PATH = ../../PICO-SDK
-cmake ..
-робити
-__Placeholder_7__
+nbsp
 
-Потім просто скопіюйте & nbsp; __. Uf2 __ & nbsp; __ ploadholder_222 на диск.
+Потім просто скопіюйте the&nbsp; __. Uf2__&nbsp;file на привід.
 
-__Placeholder_8__cp 0x03_char.uf2 /томи /rpi-rp2
-__Placeholder_9__
+<pre spellcheck="false">cp 0x03_char.uf2 /Volumes/RPI-RP2
+</pre>
 
 Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
 
-__Placeholder_10__ls /__ ploadholder_27 __ /tty.
-__Placeholder_11__
+<pre spellcheck="false">ls /dev/tty.
+</pre>
 
-Натисніть вкладку, щоб знайти накопичувач __placeholder_32__, тоді в моєму випадку я буду використовувати & nbsp; __ екран __ & nbsp; для підключення.
+Натисніть вкладку, щоб знайти привід and, а потім у моєму випадку я буду use&nbsp;__screen__&nbsp;to connect.
 
-__Placeholder_12__screen /__placeholder_28__/tty.usbmodem00000000001
-__Placeholder_13__
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
 Ви повинні бачити, що "X" надрукується щосекунди.
 
-__Placeholder_14__x
-X
-X
-X
-X
-X
-__Placeholder_15__
+<pre spellcheck="false">x
+x
+x
+x
+x
+x
+</pre>
 
 Наступний урок ми будемо налагодити Чар.

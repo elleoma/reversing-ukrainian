@@ -1,10 +1,6 @@
----
-{}
----
-
-__Placeholder_0__
-    64-бітний __placeholder_4__ архітектура
-__Placeholder_1__
-__Placeholder_2__
-    Давайте зануримось управляю!
-__Placeholder_3__
+<h2 align="center">
+    The 64-bit ARM архітектура
+</h2>
+<p align="center">
+    Let's dive in rightaway!
+</p>

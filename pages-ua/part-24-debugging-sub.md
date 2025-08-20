@@ -1,29 +1,25 @@
----
-{}
----
+## part 24 - налагодження SUB
 
-__Placeholder_10__ Частина 24 - Налагодження __placeholder_21__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_9__
+Як було сказано, віднімання в ARM має чотири інструкції, які є SUB, sbc, rsb and rsc. Ми розпочнемо сьогодні з SUB.
 
-Як було сказано, віднімання в __placeholder_26__ має чотири інструкції, які є __placeholder_22__, SBC, RSB __placeholder_14__ rsc. Ми розпочнемо сьогодні з __placeholder_23__.
+Будь ласка, майте на увазі, коли ви add s суфікс s на кінці кожного, наприклад, підводки, sbcs, rsbs, rscs, це вплине на прапори. На попередніх уроках ми витратили достатньо часу на прапори, щоб ви зараз мали на увазі це.
 
-Будь ласка, майте на увазі, коли ви __placeholder_13__ Суфікс S на кінці кожного, наприклад, Subs, SBCS, RSB, RSC, це вплине на прапори. На попередніх уроках ми витратили достатньо часу на прапори, щоб ви зараз мали на увазі це.
+Давайте переглянемо наш приклад SUB:
 
-Давайте переглянемо наш приклад __placeholder_24__:
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520242319262.jpg"/></div>
 
-__Placeholder_0____Placeholder_1____Placeholder_2__
-
-Ми просто приймаємо __67 Decimal__ __placeholder_15__ переходимо до __r1__ __placeholder_16__ __53 decimal__ __placeholder_17__ переходити до __r2__ __placeholder_18__ підряд __placeholder_12__ - __placeholder_11__ __placehold_19__
+Ми просто приймаємо __67 Decimal__ and переміщено в __r1__ and __53 decimal__ and в __r2__ and r1 - nbsp and pute juclh23zuk8 and pute juct
 
 Давайте налагоджуємо.
 
-__Placeholder_3____placeholder_4____placeholder_5__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520211071860.jpg"/></div>
 
-Як ми бачимо, регістри зрозумілі. Давайте перейдемо через __placeholder_20__ подивимось, якою є значення __R0__.
+Як ми бачимо, регістри зрозумілі. Давайте перейдемо через and, подивимось, якою є значення __r0__.
 
-__Placeholder_6____Placeholder_7____Placeholder_8______________________
+<div class="slate-resizable-image-embed slate-image-embed__resize-middle"><img src="/imgs/1520241790816.jpg"/></div>
 
 Як ви бачите вище __R0__ тепер __Decimal__ __14__, який працює як очікувалося.
 
-Наступного тижня ми занурюємось у __placeholder_25__ злому.
+Наступного тижня ми зануримось у SUB hacking.

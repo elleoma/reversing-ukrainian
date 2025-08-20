@@ -1,33 +1,29 @@
----
-{}
----
+## PART 44-Оператор попередньої декреції
 
-__Placeholder_9__ Частина 44-Оператор попередньої декларації
-
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює. & NBSP; __ Ploadholder_8__
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
 
 Давайте подивимось на наш приклад попереднього оператора. Оператор попереднього декларації зменшує задане значення до призначення дії.
 
 Давайте розглянемо наш код.
 
-__Placeholder_0 __#включає & lt; iostream & gt;
+<pre spellcheck="false">#include &lt;iostream&gt;
 
-__Placeholder_10__ main (void) {
-& nbsp; & nbsp; & nbsp; __ ploadholder_11__ mynumber = 16;
-& nbsp; & nbsp; & nbsp; __ ploadholder_12__ mynewnumber = -mynumber;
+int main(void) {
+&nbsp;&nbsp; &nbsp;int myNumber = 16;
+&nbsp;&nbsp; &nbsp;int myNewNumber = --myNumber;
 
-& nbsp; & nbsp; & nbsp; std :: cout & lt; & lt; mynewnumber & lt; & lt; std :: endl;
-    std :: cout & lt; & lt; mynumber & lt; & lt; std :: endl;
+&nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
+    std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
 
-& nbsp; & nbsp; & nbsp; повернення 0;
+&nbsp;&nbsp; &nbsp;return 0;
 }
-__Placeholder_1__
+</pre>
 
-__Placeholder_2____placeholder_3____placeholder_4__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529666614196.jpg"/></div>
 
-Коли ми складаємо __placeholder_13__ запуск, ми бачимо, що 15 перегукуються до терміналу.
+Коли ми складаємо and запускати, ми бачимо, що 15 перегукуються до терміналу.
 
-__Placeholder_5____Placeholder_6____Placeholder_7__
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529666685691.jpg"/></div>
 
 Значення __mynumber __ було __16 __ та коли воно призначено оператору попередньої декларації, ми бачимо, що нове значення становить __15__, оскільки воно присвоюється __mynewnumber__.
 
