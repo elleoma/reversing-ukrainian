@@ -117,7 +117,7 @@ jobs:
         
     - name: Install GitBook CLI
       run: |
-        npm install -g gitbook-cli
+        npm install -g gitbook-cli@latest
         gitbook fetch 3.2.3
         
     - name: Install GitBook plugins

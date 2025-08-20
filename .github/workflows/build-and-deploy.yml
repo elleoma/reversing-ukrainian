@@ -18,19 +18,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16'
-        
-    - name: Install GitBook CLI
+
+    - name: Install dependencies
       run: |
-        npm install -g gitbook-cli
-        gitbook fetch 3.2.3
-        
+        npm ci
+
+    - name: Install GitBook CLI locally
+      run: |
+        npm install gitbook-cli@^2.3.2 gitbook@3.2.3
+
     - name: Install GitBook plugins
       run: |
-        gitbook install
-        
+        npx gitbook install
+
     - name: Build GitBook
       run: |
-        gitbook build . _book
+        npx gitbook build . _book
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
