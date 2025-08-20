@@ -260,114 +260,67 @@ class GitBookTranslator:
     
     def create_placeholder(self, content):
         """Create a unique placeholder for protected content"""
-        placeholder = f"__PLACEHOLDER_{self.placeholder_counter}__"
+        placeholder = f"⟦PH_{self.placeholder_counter}⟧"
         self.placeholders[placeholder] = content
         self.placeholder_counter += 1
         return placeholder
     
     def protect_markdown_elements(self, text):
         """Protect various markdown elements from translation"""
-        
+
+        # Protect YAML/JSON frontmatter
+        text = re.sub(r'^---[\s\S]*?---', lambda m: self.create_placeholder(m.group(0)), text, flags=re.MULTILINE)
+
+        # Protect Markdown links (both text and URL)
+        def protect_link(match):
+            link_text = match.group(1)
+            link_url = match.group(2)
+            return self.create_placeholder(f"[{link_text}]({link_url})")
+
+        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', protect_link, text)
+
         # Protect fenced code blocks
-        text = re.sub(
-            r'```[\s\S]*?```',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
+        text = re.sub(r'```[\s\S]*?```', lambda m: self.create_placeholder(m.group(0)), text)
+
         # Protect inline code
-        text = re.sub(
-            r'`[^`\n]+`',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
+        text = re.sub(r'`[^`\n]+`', lambda m: self.create_placeholder(m.group(0)), text)
+
         # Protect HTML tags
-        text = re.sub(
-            r'<[^>]+>',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
-        # Protect links [text](url)
-        text = re.sub(
-            r'\[[^\]]*\]\([^\)]+\)',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
-        # Protect images ![alt](url)
-        text = re.sub(
-            r'!\[[^\]]*\]\([^\)]+\)',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
-        # Protect URLs
-        text = re.sub(
-            r'https?://[^\s\)\]\}]+',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
+        text = re.sub(r'<[^>]+>', lambda m: self.create_placeholder(m.group(0)), text)
+
+        # Protect images (full syntax)
+        text = re.sub(r'!\[[^\]]*\]\([^\)]+\)', lambda m: self.create_placeholder(m.group(0)), text)
+
+        # Protect standalone URLs
+        text = re.sub(r'https?://[^\s\)\]\}]+', lambda m: self.create_placeholder(m.group(0)), text)
+
         # Protect email addresses
-        text = re.sub(
-            r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',
-            lambda m: self.create_placeholder(m.group(0)),
-            text
-        )
-        
-        # Protect markdown headers (don't translate the # symbols)
-        text = re.sub(
-            r'^(#{1,6})\s*',
-            lambda m: self.create_placeholder(m.group(1)) + ' ',
-            text,
-            flags=re.MULTILINE
-        )
-        
+        text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', lambda m: self.create_placeholder(m.group(0)), text)
+
+        # Protect markdown headers (# only)
+        text = re.sub(r'^(#{1,6})\s*', lambda m: self.create_placeholder(m.group(0)) + ' ', text, flags=re.MULTILINE)
+
         # Protect numbered lists
-        text = re.sub(
-            r'^(\d+\.)\s',
-            lambda m: self.create_placeholder(m.group(1)) + ' ',
-            text,
-            flags=re.MULTILINE
-        )
-        
+        text = re.sub(r'^(\d+\.)\s', lambda m: self.create_placeholder(m.group(1)) + ' ', text, flags=re.MULTILINE)
+
         # Protect bullet points
-        text = re.sub(
-            r'^([-*+])\s',
-            lambda m: self.create_placeholder(m.group(1)) + ' ',
-            text,
-            flags=re.MULTILINE
-        )
-        
+        text = re.sub(r'^([-*+])\s', lambda m: self.create_placeholder(m.group(1)) + ' ', text, flags=re.MULTILINE)
+
         # Protect blockquotes
-        text = re.sub(
-            r'^(>+)\s?',
-            lambda m: self.create_placeholder(m.group(1)) + ' ',
-            text,
-            flags=re.MULTILINE
-        )
-        
+        text = re.sub(r'^(>+)\s?', lambda m: self.create_placeholder(m.group(1)) + ' ', text, flags=re.MULTILINE)
+
         return text
     
     def protect_technical_terms(self, text):
         """Protect technical terms from translation"""
         for term in self.protected_terms:
-            # Use word boundaries to avoid partial matches
             pattern = r'\b' + re.escape(term) + r'\b'
-            text = re.sub(
-                pattern,
-                lambda m: self.create_placeholder(m.group(0)),
-                text,
-                flags=re.IGNORECASE
-            )
+            text = re.sub(pattern, lambda m: self.create_placeholder(m.group(0)), text, flags=re.IGNORECASE)
         return text
     
     def apply_terminology_mapping(self, text):
         """Apply custom Ukrainian terminology"""
         for english, ukrainian in self.terminology_map.items():
-            # Use word boundaries and case-insensitive matching
             pattern = r'\b' + re.escape(english) + r'\b'
             text = re.sub(pattern, ukrainian, text, flags=re.IGNORECASE)
         return text
@@ -421,36 +374,40 @@ class GitBookTranslator:
             return ' '.join(translated_chunks)
     
     def translate_content(self, text):
-        """Main translation function"""
+        """Main translation function with corrected order of operations."""
         if not text or not text.strip():
             return text
-        
+ 
         # Reset placeholders for each content piece
         self.placeholders = {}
         self.placeholder_counter = 0
-        
+ 
         try:
-            # Step 1: Apply custom terminology mapping first
-            text = self.apply_terminology_mapping(text)
-            
-            # Step 2: Protect markdown elements
-            text = self.protect_markdown_elements(text)
-            
-            # Step 3: Protect technical terms
-            text = self.protect_technical_terms(text)
-            
-            # Step 4: Translate the remaining text
-            translated_text = self.translate_text_chunk(text)
-            
-            # Step 5: Restore all protected content
-            translated_text = self.restore_placeholders(translated_text)
-            
-            return translated_text
-            
+            # Step 1: Protect all non-translatable Markdown elements and URLs first.
+            # This isolates the text that needs translation.
+            protected_structure_text = self.protect_markdown_elements(text)
+ 
+            # Step 2: NOW, protect the technical terms within the remaining text.
+            protected_final_text = self.protect_technical_terms(protected_structure_text)
+ 
+            # Step 3: Translate the text. The translation engine will not see
+            # any of our placeholders, preventing them from being corrupted.
+            translated_text = self.translate_text_chunk(protected_final_text)
+ 
+            # Step 4: Restore all placeholders. The order of restoration doesn't matter.
+            restored_text = self.restore_placeholders(translated_text)
+ 
+            # Step 5: Finally, apply the terminology map to the fully translated text.
+            # This ensures terms like "reverse engineering" are consistently translated.
+            final_text = self.apply_terminology_mapping(restored_text)
+ 
+            return final_text
+ 
         except Exception as e:
             print(f"Error translating content: {e}")
-            return text
-    
+            # On error, try to restore what we can to avoid losing content
+            return self.restore_placeholders(text)
+ 
     def process_markdown_file(self, file_path, backup=True):
         """Process a single markdown file"""
         print(f"Processing: {file_path}")
@@ -554,46 +511,16 @@ def main():
     parser = argparse.ArgumentParser(
         description="Translate GitBook markdown files to Ukrainian"
     )
-    parser.add_argument(
-        'directory',
-        nargs='?',
-        default='.',
-        help='Directory containing the GitBook (default: current directory)'
-    )
-    parser.add_argument(
-        '--use-google',
-        action='store_true',
-        help='Use Google Translate instead of Deepl'
-    )
-    parser.add_argument(
-        '--no-backup',
-        action='store_true',
-        help='Skip creating backup files'
-    )
-    parser.add_argument(
-        '--only',
-        nargs='+',
-        help='Only translate specified files (supports wildcards)'
-    )
-    parser.add_argument(
-        '--skip',
-        nargs='+',
-        default=[],
-        help='Skip files/directories containing these patterns'
-    )
+    parser.add_argument('directory', nargs='?', default='.', help='Directory containing the GitBook')
+    parser.add_argument('--use-google', action='store_true', help='Use Google Translate instead of Deepl')
+    parser.add_argument('--no-backup', action='store_true', help='Skip creating backup files')
+    parser.add_argument('--only', nargs='+', help='Only translate specified files (supports wildcards)')
+    parser.add_argument('--skip', nargs='+', default=[], help='Skip files/directories containing these patterns')
     
     args = parser.parse_args()
-    
-    # Initialize translator
     use_deepl = not args.use_google
     translator = GitBookTranslator(use_deepl=use_deepl)
-    
-    # Start translation
-    translator.translate_gitbook(
-        root_dir=args.directory,
-        skip_files=args.skip,
-        only_files=args.only
-    )
+    translator.translate_gitbook(root_dir=args.directory, skip_files=args.skip, only_files=args.only)
 
 if __name__ == "__main__":
     main()
