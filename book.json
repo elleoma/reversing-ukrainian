@@ -1,60 +1,34 @@
 {
-    "title": "Зворотна інженерія для всіх!",
-    "description": "Комплексний посібник з зворотної інженерії українською мовою",
-    "author": "Переклад українською - @elleoma",
-    "language": "uk",
-    "direction": "ltr",
-    "gitbook": "3.2.3",
-    "plugins": [
-        "search",
-        "sharing",
-        "fontsettings",
-        "theme-default",
-        "-lunr",
-        "search-plus",
-        "prism",
-        "-highlight",
-        "github",
-        "anchorjs",
-        "edit-link",
-        "copy-code-button"
-    ],
-    "pluginsConfig": {
-        "github": {
-            "url": "https://github.com/elleoma/reversing-ukrainian"
-        },
-        "edit-link": {
-            "base": "https://github.com/elleoma/reversing-ukrainian/edit/ukrainian-translation",
-            "label": "Редагувати цю сторінку"
-        },
-        "sharing": {
-            "facebook": true,
-            "twitter": true,
-            "google": false,
-            "weibo": false,
-            "instapaper": false,
-            "vk": true,
-            "all": ["facebook", "twitter", "linkedin", "telegram", "vk"]
-        },
-        "fontsettings": {
-            "theme": "white",
-            "family": "sans",
-            "size": 2
-        }
-    },
-    "pdf": {
-        "fontSize": 12,
-        "fontFamily": "DejaVu Sans",
-        "paperSize": "a4",
-        "margin": {
-            "right": 62,
-            "left": 62,
-            "top": 36,
-            "bottom": 36
-        }
-    },
-    "variables": {
-        "version": "1.0",
-        "language": "Українська"
+  "title": "Зворотна інженерія для всіх!",
+  "description": "Комплексний посібник з зворотної інженерії українською мовою",
+  "author": "Переклад українською - @elleoma",
+  "language": "uk",
+  "direction": "ltr",
+  "plugins": [
+    "fontsettings",
+    "-lunr",
+    "-highlight"
+  ],
+  "pluginsConfig": {
+    "fontsettings": {
+      "theme": "white",
+      "family": "sans",
+      "size": 2
     }
+  },
+  "pdf": {
+    "fontSize": 12,
+    "fontFamily": "DejaVu Sans",
+    "paperSize": "a4",
+    "margin": {
+      "right": 62,
+      "left": 62,
+      "top": 36,
+      "bottom": 36
+    }
+  },
+  "variables": {
+    "version": "1.0",
+    "language": "Українська"
+  }
 }

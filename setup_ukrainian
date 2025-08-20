@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # setup_ukrainian_gitbook.sh
-# Complete setup script for Ukrainian GitBook translation
+# Complete setup script for Ukrainian HonKit translation
 
 set -e
 
-echo "🇺🇦 Ukrainian GitBook Translation Setup"
+echo "🇺🇦 Ukrainian HonKit Translation Setup"
 echo "======================================"
 
 # Check if we're in the right directory
 if [ ! -f "book.json" ] && [ ! -f "README.md" ]; then
-    echo "❌ Error: This doesn't appear to be a GitBook directory"
-    echo "Please run this script in the root of your forked GitBook repository"
+    echo "❌ Error: This doesn't appear to be a HonKit directory"
+    echo "Please run this script in the root of your forked HonKit repository"
     exit 1
 fi
 
@@ -30,71 +30,45 @@ echo "📝 Creating configuration files..."
 # Create book.json for Ukrainian
 cat > book.json << 'EOF'
 {
-    "title": "Зворотна інженерія для всіх!",
-    "description": "Комплексний посібник з зворотної інженерії українською мовою",
-    "author": "Переклад українською - @your-username",
-    "language": "uk",
-    "direction": "ltr",
-    "gitbook": "3.2.3",
-    "plugins": [
-        "search",
-        "sharing",
-        "fontsettings",
-        "theme-default",
-        "-lunr",
-        "search-plus",
-        "prism",
-        "-highlight",
-        "github",
-        "anchorjs",
-        "edit-link",
-        "copy-code-button"
-    ],
-    "pluginsConfig": {
-        "github": {
-            "url": "https://github.com/YOUR-USERNAME/reversing-ukrainian"
-        },
-        "edit-link": {
-            "base": "https://github.com/YOUR-USERNAME/reversing-ukrainian/edit/ukrainian-translation",
-            "label": "Редагувати цю сторінку"
-        },
-        "sharing": {
-            "facebook": true,
-            "twitter": true,
-            "google": false,
-            "weibo": false,
-            "instapaper": false,
-            "vk": true,
-            "all": ["facebook", "twitter", "linkedin", "telegram", "vk"]
-        },
-        "fontsettings": {
-            "theme": "white",
-            "family": "sans",
-            "size": 2
-        }
-    },
-    "pdf": {
-        "fontSize": 12,
-        "fontFamily": "DejaVu Sans",
-        "paperSize": "a4",
-        "margin": {
-            "right": 62,
-            "left": 62,
-            "top": 36,
-            "bottom": 36
-        }
-    },
-    "variables": {
-        "version": "1.0",
-        "language": "Українська"
+  "title": "Зворотна інженерія для всіх!",
+  "description": "Комплексний посібник з зворотної інженерії українською мовою",
+  "author": "Переклад українською - @elleoma",
+  "language": "uk",
+  "direction": "ltr",
+  "plugins": [
+    "fontsettings",
+    "-lunr",
+    "-highlight"
+  ],
+  "pluginsConfig": {
+    "fontsettings": {
+      "theme": "white",
+      "family": "sans",
+      "size": 2
     }
+  },
+  "pdf": {
+    "fontSize": 12,
+    "fontFamily": "DejaVu Sans",
+    "paperSize": "a4",
+    "margin": {
+      "right": 62,
+      "left": 62,
+      "top": 36,
+      "bottom": 36
+    }
+  },
+  "variables": {
+    "version": "1.0",
+    "language": "Українська"
+  }
 }
 EOF
 
 # Create GitHub Actions workflow
 mkdir -p .github/workflows
 cat > .github/workflows/build-and-deploy.yml << 'EOF'
-name: Build and Deploy Ukrainian GitBook
+name: Build and Deploy HonKit Book
 
 on:
   push:
@@ -107,27 +81,27 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v3
       
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
-        
-    - name: Install GitBook CLI
+        node-version: '18'
+
+    - name: Install HonKit
       run: |
-        npm install -g gitbook-cli@latest
-        gitbook fetch 3.2.3
-        
-    - name: Install GitBook plugins
+        npm install honkit --save-dev
+        npx honkit --version
+
+    - name: Install HonKit plugins
       run: |
-        gitbook install
-        
-    - name: Build GitBook
+        npx honkit install
+
+    - name: Build HonKit Book
       run: |
-        gitbook build . _book
-        
+        npx honkit build . _book
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/ukrainian-translation'
@@ -135,7 +109,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_book
         publish_branch: gh-pages
-        cname: your-domain.com  # Optional: replace with your domain
+        # cname: your-domain.com  # Uncomment if using custom domain
 EOF
 
 # Create quality assurance checklist
@@ -177,7 +151,7 @@ cat > translation_assets/qa_checklist.md << 'EOF'
 - [ ] Code syntax highlighting works
 - [ ] Cross-references functional
 
-## GitBook Specific
+## HonKit Specific
 - [ ] SUMMARY.md updated with Ukrainian titles
 - [ ] book.json configured for Ukrainian
 - [ ] Navigation menu works
@@ -383,9 +357,9 @@ echo "📚 Creating sample translation workflow..."
 cat > scripts/translation_workflow_example.sh << 'EOF'
 #!/bin/bash
 
-# Example workflow for translating the GitBook
+# Example workflow for translating the HonKit
 
-echo "🇺🇦 Ukrainian GitBook Translation Workflow"
+echo "🇺🇦 Ukrainian HonKit Translation Workflow"
 echo "=========================================="
 
 # Step 1: Backup original files
@@ -394,14 +368,14 @@ find . -name "*.md" -exec cp {} backups/ \;
 
 # Step 2: Translate specific chapters first (for testing)
 echo "2️⃣ Translating introduction..."
-python3 scripts/translate_gitbook.py --only "README.md"
+python3 translate_gitbook.py --only "README.md"
 
 # Step 3: Translate main content
 echo "3️⃣ Translating main content..."
-python3 scripts/translate_gitbook.py --skip "node_modules" ".git" "_book"
+python3 translate_gitbook.py --skip "node_modules" ".git" "_book"
 
 # Step 4: Review and build
-echo "4️⃣ Building GitBook..."
+echo "4️⃣ Building HonKit..."
 gitbook build
 
 # Step 5: Commit changes
@@ -418,7 +392,7 @@ echo "1. Update the GitHub repository URL in book.json"
 echo "2. Review and customize the translation terminology"
 echo "3. Run the translation script: python3 translate_gitbook.py"
 echo "4. Review translated content"
-echo "5. Test GitBook build: gitbook serve"
+echo "5. Test HonKit build: gitbook serve"
 echo "6. Commit and push your changes"
 echo ""
 echo "🔗 Useful commands:"

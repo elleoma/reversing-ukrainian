@@ -35,7 +35,7 @@
 - [ ] Code syntax highlighting works
 - [ ] Cross-references functional
 
-## GitBook Specific
+## HonKit Specific
 - [ ] SUMMARY.md updated with Ukrainian titles
 - [ ] book.json configured for Ukrainian
 - [ ] Navigation menu works

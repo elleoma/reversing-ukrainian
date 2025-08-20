@@ -1,4 +1,4 @@
-name: Build and Deploy Ukrainian GitBook
+name: Build and Deploy HonKit Book
 
 on:
   push:
@@ -11,30 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v3
       
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '18'
 
-    - name: Install dependencies
+    - name: Install HonKit
       run: |
-        npm ci
+        npm install honkit --save-dev
+        npx honkit --version
 
-    - name: Install GitBook CLI locally
+    - name: Install HonKit plugins
       run: |
-        npm install gitbook-cli@^2.3.2 gitbook@3.2.3
+        npx honkit install
 
-    - name: Install GitBook plugins
+    - name: Build HonKit Book
       run: |
-        npx gitbook install
+        npx honkit build . _book
 
-    - name: Build GitBook
-      run: |
-        npx gitbook build . _book
-        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/ukrainian-translation'
@@ -42,4 +39,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_book
         publish_branch: gh-pages
-        cname: your-domain.com  # Optional: replace with your domain
+        # cname: your-domain.com  # Uncomment if using custom domain
