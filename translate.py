@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-GitBook Markdown Translation Script for Ukrainian
+HonKit Markdown Translation Script for Ukrainian
 Preserves technical terms, code blocks, and formatting
-Usage: python translate_gitbook.py [directory]
+Usage: python translate.py [directory]
 """
 
 import os
@@ -14,7 +14,7 @@ import frontmatter
 from pathlib import Path
 from deep_translator import DeeplTranslator, GoogleTranslator
 
-class GitBookTranslator:
+class HonKitTranslator:
     def __init__(self, use_deepl=True):
         # Technical terms that should NOT be translated
         self.protected_terms = {
@@ -260,7 +260,7 @@ class GitBookTranslator:
     
     def create_placeholder(self, content):
         """Create a unique placeholder for protected content"""
-        placeholder = f"⟦PH_{self.placeholder_counter}⟧"
+        placeholder = f"__PLACEHOLDER_{self.placeholder_counter}__"
         self.placeholders[placeholder] = content
         self.placeholder_counter += 1
         return placeholder
@@ -268,59 +268,115 @@ class GitBookTranslator:
     def protect_markdown_elements(self, text):
         """Protect various markdown elements from translation"""
 
-        # Protect YAML/JSON frontmatter
-        text = re.sub(r'^---[\s\S]*?---', lambda m: self.create_placeholder(m.group(0)), text, flags=re.MULTILINE)
-
-        # Protect Markdown links (both text and URL)
-        def protect_link(match):
+        # Protect Markdown links by replacing only the URL part
+        # This allows the link text to be translated
+        def protect_link_url(match):
             link_text = match.group(1)
             link_url = match.group(2)
-            return self.create_placeholder(f"[{link_text}]({link_url})")
+            # Create a placeholder for the URL part only
+            url_placeholder = self.create_placeholder(link_url)
+            # Reconstruct the link with the placeholder URL
+            return f"[{link_text}]({url_placeholder})"
 
-        text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', protect_link, text)
+        text = re.sub(
+            r'\[([^\]]+)\]\(([^)]+)\)',
+            protect_link_url,
+            text
+        )
 
         # Protect fenced code blocks
-        text = re.sub(r'```[\s\S]*?```', lambda m: self.create_placeholder(m.group(0)), text)
+        text = re.sub(
+            r'```[\s\S]*?```',
+            lambda m: self.create_placeholder(m.group(0)),
+            text
+        )
 
         # Protect inline code
-        text = re.sub(r'`[^`\n]+`', lambda m: self.create_placeholder(m.group(0)), text)
+        text = re.sub(
+            r'`[^`\n]+`',
+            lambda m: self.create_placeholder(m.group(0)),
+            text
+        )
 
         # Protect HTML tags
-        text = re.sub(r'<[^>]+>', lambda m: self.create_placeholder(m.group(0)), text)
+        text = re.sub(
+            r'<[^>]+>',
+            lambda m: self.create_placeholder(m.group(0)),
+            text
+        )
 
-        # Protect images (full syntax)
-        text = re.sub(r'!\[[^\]]*\]\([^\)]+\)', lambda m: self.create_placeholder(m.group(0)), text)
+        # Protect images ![alt](url) - Keep this as is, alt text is often better untranslated
+        text = re.sub(
+            r'!\[[^\]]*\]\([^\)]+\)',
+            lambda m: self.create_placeholder(m.group(0)),
+            text
+        )
 
         # Protect standalone URLs
-        text = re.sub(r'https?://[^\s\)\]\}]+', lambda m: self.create_placeholder(m.group(0)), text)
+        text = re.sub(
+            r'https?://[^\s\ )\]\}]+',
+            lambda m: self.create_placeholder(m.group(0)),
+            text
+        )
 
         # Protect email addresses
-        text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', lambda m: self.create_placeholder(m.group(0)), text)
+        text = re.sub(
+            r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',
+            lambda m: self.create_placeholder(m.group(0)),
+            text
+        )
 
-        # Protect markdown headers (# only)
-        text = re.sub(r'^(#{1,6})\s*', lambda m: self.create_placeholder(m.group(0)) + ' ', text, flags=re.MULTILINE)
+        # Protect markdown headers (don't translate the # symbols)
+        text = re.sub(
+            r'^(#{1,6})\s*',
+            lambda m: self.create_placeholder(m.group(1)) + ' ',
+            text,
+            flags=re.MULTILINE
+        )
 
         # Protect numbered lists
-        text = re.sub(r'^(\d+\.)\s', lambda m: self.create_placeholder(m.group(1)) + ' ', text, flags=re.MULTILINE)
+        text = re.sub(
+            r'^(\d+\.)\s',
+            lambda m: self.create_placeholder(m.group(1)) + ' ',
+            text,
+            flags=re.MULTILINE
+        )
 
         # Protect bullet points
-        text = re.sub(r'^([-*+])\s', lambda m: self.create_placeholder(m.group(1)) + ' ', text, flags=re.MULTILINE)
+        text = re.sub(
+            r'^([-*+])\s',
+            lambda m: self.create_placeholder(m.group(1)) + ' ',
+            text,
+            flags=re.MULTILINE
+        )
 
         # Protect blockquotes
-        text = re.sub(r'^(>+)\s?', lambda m: self.create_placeholder(m.group(1)) + ' ', text, flags=re.MULTILINE)
+        text = re.sub(
+            r'^(>+)\s?',
+            lambda m: self.create_placeholder(m.group(1)) + ' ',
+            text,
+            flags=re.MULTILINE
+        )
 
         return text
     
     def protect_technical_terms(self, text):
         """Protect technical terms from translation"""
         for term in self.protected_terms:
+            # Use word boundaries to avoid partial matches
             pattern = r'\b' + re.escape(term) + r'\b'
-            text = re.sub(pattern, lambda m: self.create_placeholder(m.group(0)), text, flags=re.IGNORECASE)
+            text = re.sub(
+                pattern,
+                lambda m: self.create_placeholder(m.group(0)),
+                text,
+                flags=re.IGNORECASE
+            )
         return text
     
     def apply_terminology_mapping(self, text):
         """Apply custom Ukrainian terminology"""
         for english, ukrainian in self.terminology_map.items():
+            # Use word boundaries and case-insensitive matching
             pattern = r'\b' + re.escape(english) + r'\b'
             text = re.sub(pattern, ukrainian, text, flags=re.IGNORECASE)
         return text
@@ -465,13 +521,13 @@ class GitBookTranslator:
         except Exception as e:
             print(f"  ✗ Error processing {file_path}: {e}")
     
-    def translate_gitbook(self, root_dir=".", skip_files=None, only_files=None):
-        """Translate entire GitBook project"""
+    def translate_HonKit(self, root_dir=".", skip_files=None, only_files=None):
+        """Translate entire HonKit project"""
         root_path = Path(root_dir).resolve()
-        print(f"Starting translation of GitBook at: {root_path}")
+        print(f"Starting translation of HonKit at: {root_path}")
         
         skip_files = skip_files or []
-        skip_files.extend(['.backup', 'node_modules', '.git', '_book', '.gitbook'])
+        skip_files.extend(['.backup', 'node_modules', '.git', '_book', '.HonKit'])
         
         # Find all markdown files
         md_files = []
@@ -504,23 +560,53 @@ class GitBookTranslator:
         print("Don't forget to:")
         print("1. Review the translated content")
         print("2. Update book.json with Ukrainian settings")
-        print("3. Test the GitBook build")
+        print("3. Test the HonKit build")
         print("4. Commit your changes")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Translate GitBook markdown files to Ukrainian"
+        description="Translate HonKit markdown files to Ukrainian"
     )
-    parser.add_argument('directory', nargs='?', default='.', help='Directory containing the GitBook')
-    parser.add_argument('--use-google', action='store_true', help='Use Google Translate instead of Deepl')
-    parser.add_argument('--no-backup', action='store_true', help='Skip creating backup files')
-    parser.add_argument('--only', nargs='+', help='Only translate specified files (supports wildcards)')
-    parser.add_argument('--skip', nargs='+', default=[], help='Skip files/directories containing these patterns')
+    parser.add_argument(
+        'directory',
+        nargs='?',
+        default='.',
+        help='Directory containing the HonKit (default: current directory)'
+    )
+    parser.add_argument(
+        '--use-google',
+        action='store_true',
+        help='Use Google Translate instead of Deepl'
+    )
+    parser.add_argument(
+        '--no-backup',
+        action='store_true',
+        help='Skip creating backup files'
+    )
+    parser.add_argument(
+        '--only',
+        nargs='+',
+        help='Only translate specified files (supports wildcards)'
+    )
+    parser.add_argument(
+        '--skip',
+        nargs='+',
+        default=[],
+        help='Skip files/directories containing these patterns'
+    )
     
     args = parser.parse_args()
+    
+    # Initialize translator
     use_deepl = not args.use_google
-    translator = GitBookTranslator(use_deepl=use_deepl)
-    translator.translate_gitbook(root_dir=args.directory, skip_files=args.skip, only_files=args.only)
+    translator = HonKitTranslator(use_deepl=use_deepl)
+    
+    # Start translation
+    translator.translate_HonKit(
+        root_dir=args.directory,
+        skip_files=args.skip,
+        only_files=args.only
+    )
 
 if __name__ == "__main__":
     main()
