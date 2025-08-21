@@ -31,7 +31,7 @@ jobs:
     - name: Deploy into main site
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
         external_repository: elleoma/elleoma.github.io
         publish_dir: ./_book
         destination_dir: reversing
