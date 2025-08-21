@@ -35,4 +35,4 @@ jobs:
         external_repository: elleoma/elleoma.github.io
         publish_dir: ./_book
         destination_dir: reversing
-        publish_branch: ukrainian-translation
+        publish_branch: main
