@@ -1,8 +1,8 @@
-## PART 28 - Програма ASM 3 \ [Переміщення даних між пам'яттю And Регістри \]
+## PART 28 - Програма ASM 3 \ [Переміщення даних між пам'яттю та регістрами \]
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-У нашій третій програмі ми продемонструємо, як ми можемо переміщувати дані між пам'яттю and regicsters.&nbsp;
+У нашій третій програмі ми продемонструємо, як ми можемо переміщувати дані між пам'яттю та регістрами.&nbsp;
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520175192505.jpg"/></div>
 
@@ -14,6 +14,6 @@ __AS –32 -O Переміщення \ _data \ _between \ _memory \ _and \ _ре
 
 Щоб зв’язати об’єкт file, ми вводимо:
 
-__ld -m elf \ _i386 -o menkt \ _data \ _between \ _memory \ _and \ _registers, що переміщуються \ _data \ _between \ _memory \ _and \ _regisers.o __
+__ld -m elf \ _i386 -o menkt \ _data \ _between \ _memory \ _and \ _registers, що рухається \ _data \ _between \ _memory \ _and \ _regisers.o __
 
 Я з нетерпінням чекаю побачити вас на весь наступний тиждень, коли ми занурюємось у налагодження нашої програми третьої асамблеї!

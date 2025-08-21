@@ -32,16 +32,16 @@ int main()&nbsp;
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте прагнемо main.
+Давайте прагнемо до головного.
 
 <pre spellcheck="false">s main
 </pre>
 
-Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and thennbsp__p__nbsptwice, щоб дістатися до хорошого налагоджувач виду.
+Давайте перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого виду налагоджувача.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616704139039.jpg"/></div>
 
-Ми починаємо з встановлення нашого значення повернення main.
+Ми починаємо з налаштування нашого основного значення повернення.
 
 <pre spellcheck="false">push {r4, lr}
 </pre>
@@ -76,18 +76,18 @@ https://www.asciitable.com
 <pre spellcheck="false">movs r0, r4&nbsp;
 </pre>
 
-Потім ми розгалужуємось довго до обгортки printf and call it.
+Потім ми розгалужуємось довго до обгортки printf та call it.
 
 <pre spellcheck="false">bl sym.__wrap_printf
 
 </pre>
 
-Потім ми переміщуємо 250 десятків or 0xfa hex в _r0_.
+Потім ми переміщуємо 250 десяткових або 0xfa HEX в _R0_.
 
 <pre spellcheck="false">movs r0, 0xfa
 </pre>
 
-Потім ми переміщуємо 250 десяткових знаків, що знаємо, коли логічний зсув двічі буде 1000 десяткових знаків or 0xfa HEX в _R0_.
+Потім ми переміщуємо 250 десятків, що знаємо, коли логічний зсув двічі буде 1000 десяткових або 0xfa HEX у _R0_.
 
 <pre spellcheck="false">lsls r0, r0, 2
 </pre>
@@ -102,4 +102,4 @@ https://www.asciitable.com
 <pre spellcheck="false">b 0x328
 </pre>
 
-На нашому наступному уроці ми будемо hack тип даних char.
+На нашому наступному уроці ми зламаємо тип даних CHAR.

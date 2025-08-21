@@ -1,6 +1,6 @@
-## part 31 - Hacking float змінні
+## PART 31 - Змінні зламали плаваючі змінні
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;xyz9plh9cuk8
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте переглянемо наш код.
 
@@ -29,11 +29,11 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799097861.jpg"/></div>
 
-Давайте розірвемося на __ -мейн+20__ and, продовжуйте до цього моменту.
+Давайте розійдемося на __ -мейн+20__ і продовжимо до цього моменту.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799125882.jpg"/></div>
 
-Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;we чітко бачимо, що це __1337.09998__, що наближає наше значення в нашому первісному C ++ код.&nbsp;Keep __1337.1__ Тому, будь ласка, пам’ятайте про це, коли ми йдемо вперед.
+Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;WE чітко бачимо, що це __1337.09998__, що наближає наше значення в нашому первісному коді C ++.&nbsp;
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799166328.jpg"/></div>
 
@@ -41,11 +41,11 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799204709.jpg"/></div>
 
-Давайте розірвемося на __ -мейн+28__ and Продовжуйте.
+Давайте розлучимося на __ -мейн+28__ і продовжимо.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799242840.jpg"/></div>
 
-Ми бачимо нову інструкцію.&nbsp;we див. __Vldr__ and значення в межах __r11, \#8__ переміщується в __ s0 __. &nbsp;so, що таке __s0 __? &nbsp;we має математику. or плаваючі числа.&nbsp;here. AS__ S0__.
+We see a strange new instruction.&nbsp;We see __vldr__ and the value within __r11, \#8__ being moved into__ s0__.&nbsp;So what is __s0__?&nbsp;We have a math co-processor which has a series of additional registers that work with decimal or floating-point числа.&nbsp;here ми бачимо приклад такого, до якого значення __1337.09998 __ є переміщеним у __s0 __. &nbsp;the __vldr__ інструкція завантажує постійну цінність у кожен елемент одноточного або подвійного реєстрації, такого, такого, такого, такого S0__.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799279756.jpg"/></div>
 
@@ -57,11 +57,11 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799331767.jpg"/></div>
 
-Давайте hack!
+Давайте хакемо!
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799362535.jpg"/></div>
 
-Давайте тепер подивимось на реєстри and подивіться, що сталося.
+Давайте тепер подивимось на регістри і подивимось, що сталося.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799386349.jpg"/></div>
 

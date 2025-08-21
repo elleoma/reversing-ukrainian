@@ -2,7 +2,7 @@
 
 Сьогодні ми збираємось обробляти тип даних Float. У PICO немає коопроцесора, який би обробляв числа з плаваючою комою, оскільки це обробляється через ряд функціональності за допомогою програмного забезпечення в API.
 
-Давайте попрацюємо з простим прикладом.&nbsp;__0x05 \ _float.c__&nbsp;as.
+Давайте працюємо з простим прикладом.&nbsp;__0x05 \ _float.c__&nbsp;as.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
@@ -24,17 +24,17 @@ int main()&nbsp;
 }
 </pre>
 
-Дуже просто ми призначаємо поплавок _40.5_ в _x_ and надрукувати його з модифікатором _%f _format and, а потім спимо на _1_ секунду.
+Дуже просто ми призначаємо поплавок _40.5_ в _x_ і роздрукуємо його з модифікатором _%f _format, а потім спимо на _1_ секунду.
 
-Давайте зробимо новий dir&nbsp;__20x05 \ _float__&nbsp;and add ur&nbsp;__cmakelists.txt__&nbsp;file.
+Давайте зробимо новий dir&nbsp;__0x05 \ _float__&nbsp;and додайте ur&nbsp;__cmakelists.txt__&nbsp;file в ньому.
 
 <pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
 include(pico_sdk_import.cmake)
 
 project(test_project C CXX ASM)
-встановити(CMAKE_C_STANDARD 11)&nbsp;
-встановити(CMAKE_CXX_STANDARD 17)&nbsp;
+set(CMAKE_C_STANDARD 11)&nbsp;
+set(CMAKE_CXX_STANDARD 17)&nbsp;
 pico_sdk_init()
 
 add_executable(0x05_float
@@ -48,7 +48,7 @@ pico_add_extra_outputs(0x05_float)
 target_link_libraries(0x05_float pico_stdlib)
 </pre>
 
-Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;Installation to to the&nbsp;__0x05 \ _float__&nbsp;project.
+Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;installation tos the&nbsp;__0x05 \ _float__&nbsp;project.
 
 <pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
 </pre>
@@ -72,11 +72,12 @@ make
 <pre spellcheck="false">ls /dev/tty.
 </pre>
 
-Натисніть вкладку, щоб знайти привід and, тоді в моєму випадку я буду використовуватикси9plh68zuk8__screen__&nbsp;to connect.
+Натисніть вкладку, щоб знайти накопичувач, а потім у моєму випадку я буду використовувати&nbsp;__screen__&nbsp;to connect.
 
-nbsp
+<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>
 
-Ви повинні побачити Anchyz9plh70zuk8_40.5_&nbsp;being надруковано щосекунди.
+Ви повинні побачити Anchyz9plh29zuk8_40.5_&nbsp;being надруковано щосекунди.
 
 <pre spellcheck="false">40.500000
 40.500000

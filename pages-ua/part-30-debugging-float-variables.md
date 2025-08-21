@@ -1,6 +1,6 @@
-## part 30 - Змінні налагодження поплавців
+## part 30 - налагодження змінних поплавків
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте переглянемо наш код.
 
@@ -29,11 +29,11 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196099167.jpg"/></div>
 
-Давайте розійдемося на __ -мейн+20__ and, продовжуйте до цього моменту.
+Давайте розійдемося на __ -мейн+20__ і продовжимо до цього моменту.
 
-nbsp
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196123405.jpg"/></div>
 
-Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;WE чітко бачимо, що це __13337.09998__, що наближає наше значення в нашому первісному C ++ код.&nbsp;keep __1337.1__ Тому, будь ласка, пам’ятайте, що ми рухаємось вперед.&nbsp;
+Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;we чітко бачимо, що це __13337.09998__, що наближає наше значення в нашому первісному c ++ code.&nbsp;, що ми не маємо, що ми не бачимо, що ми не пам’ятаємо. Forward.&nbsp;
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196151522.jpg"/></div>
 
@@ -41,11 +41,11 @@ nbsp
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196178255.jpg"/></div>
 
-Давайте розірвемося на __main+28__ and.
+Давайте розлучимося на __ -мейн+28__ і продовжимо.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196203419.jpg"/></div>
 
-We see a strange new інструкція.&nbsp;We see __vldr__ and the value within __r11, \#8__ being moved into__ s0__.&nbsp;So what is __s0__?&nbsp;We have a math co-processor which has a series of additional registers that work with decimal or з плаваючою коімом &nbsp;here ми бачимо приклад такого, до якого значення __1337.09998 __is переміщується в __s0 __. &nbsp; __vldr__ regindric reginism reginisc8 AS__ S0__.
+Ми бачимо нову інструкцію.&nbsp;we див. __Vldr__ та значення в межах __r11, \#8__ переміщується в __ s0 __. &nbsp;so Що таке __s0 __? &nbsp;we, що має математику, який має серію додаткових регістерів, які працюють з математикою, або флотуючим, що має низку. числа.&nbsp;here ми бачимо приклад такого, до якого значення __1337.09998 __ є переміщеним у __s0 __. &nbsp;.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196373197.jpg"/></div>
 
@@ -57,4 +57,4 @@ We see a strange new інструкція.&nbsp;We see __vldr__ and the value wi
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521196439893.jpg"/></div>
 
-На наступному тижні ми зануримось у змінні FLOAT Hacking.
+Наступного тижня ми зануримось у зламати змінні поплавця.

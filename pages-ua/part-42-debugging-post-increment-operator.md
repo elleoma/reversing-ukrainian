@@ -1,6 +1,6 @@
 ## PART 42-Налагодження оператора після інвентації
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте переглянемо наш код.
 
@@ -16,7 +16,7 @@ int main(void) {
 }
 </pre>
 
-We create a variable __myNumber = 16__ to which we create another variable __myNewNumber__ which post-increments the value of __myNumber__.&nbsp;We see that when we виконувати our код it shows __16__ as the value of __myNewNumber__ and __17__ as the value of __myNumber__ as __myNewNumber__ Чи збільшується not, оскільки лише __mynumber__ збільшується, оскільки він є пост -оператором.
+Ми створюємо змінну __mynumber = 16__, на яку ми створюємо ще одну змінну __mynewnumber__, що після інкрементів значення __mynumber __. &nbsp;we бачимо, що коли ми виконуємо наш код, він показує __16__ як цінність __mynewnumber__ і __17__ як цінність __mynumber__ as __mmynumbumbumbumbumbumbumbumbumbrum __, як не ґрунтується як __mynumber__ as __mmynumbumbumbumbumbumbumbumbumbumbumbumbru__, як не ґрунтується __s __mynumber__ збільшується, оскільки це пост -оператор.
 
 Коли ми після запровадження значення змінної збільшується після призначення її іншій змінній.&nbsp; для прикладу __mynumber__ __16__, тому він збільшується після того, як його призначають __mynewnumbum__, тому ми отримуємо __17__.
 
@@ -28,7 +28,7 @@ We create a variable __myNumber = 16__ to which we create another variable __myN
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1528458131421.jpg"/></div>
 
-Як ми бачимо значення в __r3 __is 16 and Значення в __r2 __is 17. Ми можемо бачити, що вони завантажені з пам'яті в регістри в __ \*main+12__ безпосередньо __ -mov__ and __ \*xyz9plh20 \ 24. add 1 в __r3__ and, а потім поставте це значення в __r2__.
+Як ми бачимо значення в __R3 __ен 16 і значення в __R2 __ен 17. Ми можемо бачити, що, як вони завантажені з пам'яті в регістри в __ \*основному+12__ безпосередньо за допомогою __mov__ інструкції та __ \*основного+24__, ми додаємо 1 в __r3__, а потім вкладаємо це значення в __r2__.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1528458142344.jpg"/></div>
 
@@ -36,4 +36,4 @@ We create a variable __myNumber = 16__ to which we create another variable __myN
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1528458154804.jpg"/></div>
 
-На наступному тижні ми зануримось у оператор після інвентації Hacking.
+Наступного тижня ми занурюємось у хакерський оператор після інвентації.

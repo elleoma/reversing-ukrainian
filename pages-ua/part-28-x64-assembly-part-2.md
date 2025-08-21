@@ -1,16 +1,16 @@
 ## part 28 - x64 Асамблея \ [Частина 2 \]
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте продовжимо інший приклад:
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829629337.jpg"/></div>
 
-Як ми бачимо, ми переміщаємо __0x10__ в __rax__ and, додаючи __0x05__ в __rax__.
+Як ми бачимо, ми переміщаємо __0x10__ в __rax__ і додаємо __0x05__ в __rax__.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829671542.jpg"/></div>
 
-Ми складаємо and давайте disassemble.
+Ми складаємо і давайте розбираємося.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829696687.jpg"/></div>
 
@@ -18,7 +18,7 @@
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829787663.jpg"/></div>
 
-Ми стукаємо двічі and тоді ...
+Ми крокуємо двічі, а потім ...
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829821644.jpg"/></div>
 

@@ -1,6 +1,6 @@
-## part 16 - Hacking подвійний
+## part 16 - хакерський подвійний
 
-Давайте переглянемо,
+Давайте переглянемо, що випливає, що випливає, що випливає
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
@@ -22,7 +22,7 @@ int main()&nbsp;
 }
 </pre>
 
-Давайте розберемося в нашому налагоджувач.
+Давайте розберемося в нашому налагоджувачі.
 
 <pre spellcheck="false">radare2 -w arm -b 16 0x06_double.elf
 </pre>
@@ -32,12 +32,12 @@ int main()&nbsp;
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте прагнемо main.
+Давайте прагнемо до головного.
 
 <pre spellcheck="false">s main
 </pre>
 
-Перейдемо у візуальний режим, typingnbsp__v__&nbsp;and thenxyz9plh5cuk8__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач виду.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp; і then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого виду налагоджувача.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1620377345934.jpg"/></div>
 
@@ -56,14 +56,15 @@ int main()&nbsp;
 <pre spellcheck="false">wx 0x0000f03f @ 0x00000344
 </pre>
 
-Все, що нам потрібно зробити зараз, це exit and перетворити ur&nbsp; __. elf&nbsp;__to&nbsp; __. Uf2__!
+Все, що нам потрібно зробити зараз, - це вийти та перетворити Ur&nbsp; __. elf&nbsp;__to&nbsp; __. Uf2__!
 
 <pre spellcheck="false">./elf2uf2/elf2uf2 0x06_double.elf 0x06_double.uf2
 </pre>
 
-Підключіть Pico and, переконайтеся, що ви тримаєте завантаження or, використовуйте налаштування, яку я надав у частині 2.
+Підключіть PICO і переконайтеся, що ви тримаєте завантаження або використовуєте налаштування, яку я надав у частині 2.
 
-nbsp
+<pre spellcheck="false">cp 0x06_double.uf2 /Volumes/RPI-RP2
+</pre>
 
 Давайте екранимо це!
 

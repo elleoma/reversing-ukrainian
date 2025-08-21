@@ -1,6 +1,6 @@
-## part 37 - Hacking sizeof оператор
+## PART 37 - Оператор Hacking Sizeof
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте переглянемо наш код.
 
@@ -27,9 +27,9 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429032559.jpg"/></div>
 
-Пам'ятайте, що ми створюємо змінну __mynumber = 16__, до якої ми створюємо ще одну змінну __mynumbersize__, яка містить значення розміру __mynumber __. &nbsp;we бачимо, що коли ми виконуємо наш код, він показує 4, тому ми бачимо, що оператор Sizeof вказує на ціле байдужне 4 байт.
+Пам'ятайте, що ми створюємо змінну __mynumber = 16__, до якої ми створюємо іншу змінну __mynumbersize__, яка містить значення розміру __mynumber __. &nbsp;we бачимо, що коли ми виконуємо наш код, він показує 4, тому ми бачимо, що оператор Sizeof вказує на ціле двобайки широко.
 
-Давайте переглянемо код минулого тижня, коли ми починаємо з налагодження and, що розбивається на main.
+Давайте розглянемо код минулого тижня, коли ми починаємо з налагодження та розриву на Main.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429072643.jpg"/></div>
 
@@ -37,21 +37,21 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429109049.jpg"/></div>
 
-Давайте розглянемо, що відбувається в __main+16__, як ми бачимо, що ми зберігаємо значення __ $ r11-8__ того, що існує в __r3__, що в нашому випадку __16 __. &nbsp;this має сенс, коли ми вивчаємо наш оригінальний код. __16 __. &nbsp;WE бачимо це тут, коли ми вивчаємо значення всередині __ $ r11-8__.
+Давайте розглянемо, що відбувається в __main+16__, як ми бачимо, що ми зберігаємо значення __ $ r11-8__ того, що існує в __r3__, що в нашому випадку __16 __. &nbsp;. __16 __. &nbsp;WE бачимо це тут, коли ми вивчаємо значення всередині __ $ r11-8__.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429200465.jpg"/></div>
 
-Як ми бачимо вище значення всередині __ $ r11-12__ IS__ 4__, оскільки це представляє значення, яке __SizeOf__ повертається як ціле число __16 __, насправді 4 байти шириною.
+Як ми бачимо вище значення всередині __ $ r11-12__ IS__ 4__, оскільки це представляє значення, яке __SizeOf__ повертається як ціле число __16 __, насправді 4 байти широко.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429249458.jpg"/></div>
 
 Нарешті, коли ми продовжуємо виконання, ми насправді бачимо значення __4__ перегукується з терміналом.
 
-Давайте hack!
+Давайте хакемо!
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429287002.jpg"/></div>
 
-Ми запускаємо and перерви на __main+28__.
+Ми біжимо і розриваємося на __main+28__.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429310244.jpg"/></div>
 
@@ -63,11 +63,11 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429367083.jpg"/></div>
 
-Ми бачимо, що значення в __R1__ є __4__, що повинно мати логічний сенс, оскільки значення зберігалося з __R3__ в __R11-12__ and, а потім назад до __R1__.
+Ми бачимо, що значення в __R1__ є __4__, що повинно мати логічний сенс, оскільки цінність зберігалася з __R3__ в __R11-12__, а потім назад до __R1__.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429391206.jpg"/></div>
 
-Давайте hack значення в __r1__!
+Давайте зламаємо значення в __R1__!
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429414806.jpg"/></div>
 

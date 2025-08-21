@@ -1,6 +1,6 @@
-## part 4 - Hacking Hello World
+## part 4 - хакерство Hello World
 
-На останньому уроці ми розглянули, як правильно налагодити наш дуже простий бінар у __radare2__. Сьогодні ми їдемо на hack, що статичний __. elf __Binary and перетворює його на __. UF2__ Формат and до нашого Pico and Див. Magic трапляється.
+На останньому уроці ми розглянули, як правильно налагодити наш дуже простий бінар у __radare2__. Сьогодні ми збираємося зламати цю статичну __. elf __Binary та перетворити його на формат __. UF2__ Format і спалахуємо до нашого Піко і бачимо, що магія трапляється.
 
 Давайте ще раз розглянемо нашу дуже просту програму.
 
@@ -32,12 +32,12 @@ int main()&nbsp;
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте прагнемо main.
+Давайте прагнемо до головного.
 
 <pre spellcheck="false">s main
 </pre>
 
-Давайте використовуємо Visual Mode and Натисніть двічі, щоб отримати наш улюблений перегляд налагоджувач.
+Давайте використовуємо візуальний режим і натиснемо двічі, щоб отримати наш улюблений вигляд налагоджувача.
 
 <pre spellcheck="false">V
 </pre>
@@ -46,13 +46,13 @@ int main()&nbsp;
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616443718242.jpg"/></div>
 
-Я б hack це двійкове двома способами. Як ми обговорювали на останньому уроці, ми бачимо вміст всередині місця пам'яті _0x00000338_, що містить значення нашого рядка. Давайте натиснемо на товсту кишку: and натисніть Enter.
+Я б зламав цей двійковий двома способами. Як ми обговорювали на останньому уроці, ми бачимо вміст всередині місця пам'яті _0x00000338_, що містить значення нашого рядка. Давайте натиснемо на товсту кишку: і натисніть Enter.
 
 <pre spellcheck="false">:&gt; psz @ [0x00000338]
 Hello world!
 </pre>
 
-Давайте розглянемо наш strings. Я хочу, щоб ви звернули увагу на "Hello world!" як ви побачите дві адреси. Ліворуч - це фізична адреса and, що безпосередньо праворуч - віртуальна адреса. Ми будемо стурбовані віртуальною адресою. Щоб краще зрозуміти, давайте зробимо наступне.
+Давайте розглянемо наш strings. Я хочу, щоб ви звернули увагу на "привіт світ!" як ви побачите дві адреси. Ліворуч - це фізична адреса, а одна прямо праворуч - віртуальна адреса. Ми будемо стурбовані віртуальною адресою. Щоб краще зрозуміти, давайте зробимо наступне.
 
 <pre spellcheck="false">:&gt; iz~ | less
 </pre>
@@ -84,7 +84,7 @@ nth paddr&nbsp; &nbsp; &nbsp; vaddr&nbsp; &nbsp; &nbsp; len size section type&nb
 19&nbsp; 0x00014ec4 0x00004ec4 19&nbsp; 20&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Unhandled IRQ 0x%x\n
 20&nbsp; 0x00014ed8 0x00004ed8 39&nbsp; 40&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Isochronous wMaxPacketSize %d too large
 21&nbsp; 0x00014f00 0x00004f00 30&nbsp; 31&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;ep %d %s was already available
-22&nbsp; 0x00014f20 0x00004f20 40&nbsp; 41&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Can't продовжити xfer on inactive ep %d %s
+22&nbsp; 0x00014f20 0x00004f20 40&nbsp; 41&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Can't continue xfer on inactive ep %d %s
 23&nbsp; 0x00014f4c 0x00004f4c 35&nbsp; 36&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Transferred more data than expected
 0&nbsp; &nbsp;0x00020135 0x10000135 5&nbsp; &nbsp;6&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;V\n`\eh
 1&nbsp; &nbsp;0x0002018b 0x1000018b 5&nbsp; &nbsp;6&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;&amp;CF\eh
@@ -105,7 +105,7 @@ nth paddr&nbsp; &nbsp; &nbsp; vaddr&nbsp; &nbsp; &nbsp; len size section type&nb
 Hello world!
 </pre>
 
-Давайте hack це.
+Давайте зламаємо це.
 
 <pre spellcheck="false">:&gt; w Hacked World! @ [0x00000338]
 </pre>
@@ -116,12 +116,12 @@ Hello world!
 Hacked World!
 </pre>
 
-Інша річ, яку я хотів би зробити hack, - це сон \ _ms, який наразі встановлюється на 1000. Пам'ятайте, що він показує 250 десятків or 0xfa hex and. Перший логічний зсув ліворуч помножиться на 2, що призведе до 500 and 2 -й логічний зсув ліворуч помножиться на 2, що піднімає нас до 1000.
+Інша річ, яку я хотів би зламати, - це сон \ _ms, який наразі встановлюється на 1000. Пам'ятайте, що він показує 250 десятків або 0xfa Hex, і ми логічний зсув двічі пішов, як ми обговорюємо на останньому уроці. Перший логічний зсув ліворуч помножиться на 2, що призведе до 500, а 2 -й логічний зсув ліворуч помножити на 2, що піднімає нас до 1000.
 
 <pre spellcheck="false">lsls r0, r0, 2&nbsp;
 </pre>
 
-Давайте hack це, змінивши 2 на 1. Це зробить затримку 500 мс or півсекунди.
+Давайте зламаємо це, змінивши 2 на 1. Це зробить затримку 500 мс або півсекунди.
 
 <pre spellcheck="false">:&gt; wa lsls r0, r0, 1 @ 0x00000330
 Written 2 byte(s) (lsls r0, r0, 1) = wx 4000
@@ -135,12 +135,12 @@ Written 2 byte(s) (lsls r0, r0, 1) = wx 4000
 
 Ми чітко бачимо, що це змінилося.
 
-Все, що нам потрібно зробити зараз, це exit and перетворити наш __. elf __to __. Uf2__!
+Все, що нам потрібно зробити зараз, - це вихід і перетворити наш __. elf __to __. UF2__!
 
 <pre spellcheck="false">./elf2uf2/elf2uf2 0x02_hello_world.elf 0x02_hello_world.uf2
 </pre>
 
-Підключіть Pico and, переконайтеся, що ви тримаєте завантаження or, використовуйте налаштування, яку я надав на останньому уроці.
+Підключіть PICO і переконайтеся, що ви тримаєте завантаження або використовуєте налаштування, яку я надав на останньому уроці.
 
 <pre spellcheck="false">cp 0x02_hello_world.uf2 /Volumes/RPI-RP2
 </pre>

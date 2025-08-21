@@ -24,17 +24,17 @@ int main()&nbsp;
 }
 </pre>
 
-Дуже просто ми призначаємо поплавок of&nbsp;_40.5_&nbsp;into&nbsp;_x_&nbsp;and друкувати його за допомогою the&nbsp;_%f&nbsp;_formatiifior modifior and потім сплять for&nbsp;_1_&nbsp;second.
+Дуже просто ми призначаємо поплавок Of&nbsp;_40.5_&nbsp;into&nbsp;_x_&nbsp;and надрукувати його за допомогою модифікатора The&nbsp;_%f&nbsp;_ for&nbsp;_1_&nbsp;second.
 
-Давайте зробимо новий dir&nbsp;__0x06 \ _double__&nbsp;and add ur&nbsp;__cmakelists.txt__&nbsp;file.
+Давайте зробимо новий dir&nbsp;__0x06 \ _double__&nbsp; і додайте ur&nbsp;__cmakelists.txt__&nbsp;file в ньому.
 
 <pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
 include(pico_sdk_import.cmake)
 
 project(test_project C CXX ASM)
-встановити(CMAKE_C_STANDARD 11)&nbsp;
-встановити(CMAKE_CXX_STANDARD 17)&nbsp;
+set(CMAKE_C_STANDARD 11)&nbsp;
+set(CMAKE_CXX_STANDARD 17)&nbsp;
 pico_sdk_init()
 
 add_executable(0x06_double
@@ -48,7 +48,7 @@ pico_add_extra_outputs(0x056_double)
 target_link_libraries(0x06_double pico_stdlib)
 </pre>
 
-Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__nbspfile із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;Installation to the&nbsp;__0x06 \ _double__&nbsp;project.
+Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;installation tos the&nbsp;__0x06 \ _double__&nbsp;project.
 
 <pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
 </pre>
@@ -72,12 +72,12 @@ make
 <pre spellcheck="false">ls /dev/tty.
 </pre>
 
-Натисніть вкладку, щоб знайти привід and, а потім у моєму випадку я буду use&nbsp;__screen__&nbsp;to connect.
+Натисніть на вкладку, щоб знайти накопичувач, а потім у моєму випадку я буду використовуватикси9plh35zuk8__screen__&nbsp;to Connect.
 
 <pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
 </pre>
 
-Ви повинні побачити Anchyz9plh86zuk8_40.5_&nbsp;being надруковано щосекунди.
+Ви повинні побачити Anchyz9plh37zuk8_40.5_&nbsp;being надруковано щосекунди.
 
 <pre spellcheck="false">40.500000
 40.500000

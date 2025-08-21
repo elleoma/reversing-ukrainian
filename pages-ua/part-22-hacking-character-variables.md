@@ -1,12 +1,12 @@
-## part 22 - Hacking змінні символи
+## PART 22 - Змінні символи хакерства
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте розглянемо наш код.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520232430320.jpg"/></div>
 
-Давайте hack!
+Давайте хакемо!
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520194771044.jpg"/></div>
 
@@ -14,14 +14,14 @@
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520195499705.jpg"/></div>
 
-Після вступу в 4 рази and перевірте значення в __r3__, яке ми чітко бачимо як "__n__".
+Після вступу в 4 рази і перевірте значення в __R3__, яке ми чітко бачимо як "__n__".
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520233196032.jpg"/></div>
 
-Давайте hack Значення в __R3__ до "__Y__" and, а потім переглянути значення в __R3 __. &nbsp;WE тепер чітко бачимо, що він змінився на "__Y__".
+Давайте зламаємо значення в __R3__ до "__Y__", а потім перегляньте значення в __R3 __. &nbsp;WE тепер чітко бачимо, що він був змінений на "__Y__".
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520232999022.jpg"/></div>
 
-Коли ми продовжуємо, ми успішно бачимо, що наш hack працював! &nbsp;WE бачимо значення друку "__Y__" до стандартного виходу.
+Коли ми продовжуємо, ми успішно бачимо, як наш хак працював! &nbsp; Ми бачимо значення друку "__Y__" до стандартного виходу.
 
 Наступного тижня ми зануримося в булеві змінні.

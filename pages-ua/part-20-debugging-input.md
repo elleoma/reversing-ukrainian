@@ -2,7 +2,7 @@
 
 Сьогодні ми будемо налагодити нашу функцію введення. Давайте розглянемо наш код.
 
-Review&nbsp;__input.c__&nbsp;as наступає.
+Review&nbsp;__input.c__&nbsp;as випливає.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
@@ -130,7 +130,7 @@ int main()
 }
 </pre>
 
-Давайте розберемося в нашому налагоджувач.
+Давайте розберемося в нашому налагоджувачі.
 
 <pre spellcheck="false">radare2 -w arm -b 16 main.elf
 </pre>
@@ -140,26 +140,26 @@ int main()
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте прагнемо main.
+Давайте прагнемо до головного.
 
 <pre spellcheck="false">s main
 </pre>
 
-Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого налагоджувач.
+Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого виду налагоджувача.
 
 Спочатку ми оглядаємо _main_.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622836839312.jpg"/></div>
 
-Ми бачимо наш _stdio \ _init \ _all_ call, який налаштовує io and, ми бачимо a _0x64_ в _r3_, що є нашим кроком 100 десятків, щоб встановити _usb \ _string \ _ -_siz and init to _0_ and нарешті _usb \ _string_ and init to _0_.
+Ми бачимо _stdio \ _init \ _all_ call, який налаштовує io, і ми бачимо _0x64_ в _r3_, що є нашим переміщенням 100 десятків, щоб встановити _USB \ _String \ _Size _and ми встановлюємо наш _USB \ _Char_ raue _0_, і ми встановимо _USB \ _Char_ ralue _0_0 _0 _0 _0_0 _ і init to _0_.
 
 Давайте подивимось на нашу функцію _print \ _proc_.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837104639.jpg"/></div>
 
-Спочатку перевіряємо, чи наш вказівник на USB \ _Char or _P \ _USB \ _Char_ дорівнює _Return_ Key or _0XD_ and, якщо це гілка.
+Спочатку ми перевіряємо, чи наш вказівник на USB \ _Char або _P \ _USB \ _Char_ дорівнює клавіші _return_ або _0xd_ і якщо так.
 
-Потім ми повторюємо _p \ _USB \ _string_, поки не натиснемо Null Terminator and, тоді call Наш _Printf _Function, який, як ми бачимо тут, є обгорткою для функції C printf.
+Потім ми повторюємо _p \ _USB \ _string_, поки не натиснемо на Null Terminator, а потім call наш _printf _function, який, як ми бачимо тут, є обгорткою для функції c printf.
 
 Нарешті _flush \ _input_.
 
@@ -167,15 +167,15 @@ int main()
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837449377.jpg"/></div>
 
-Тут ми використовуємо G_ETCHAR \ _TimeOut \ _US_ Функція and Ручка _BackSpace_ and _delete_ клавіш.
+Тут ми використовуємо функцію g_etchar \ _timeout \ _us_ і обробляємо клавіші _backspace_ та _delete_.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837675957.jpg"/></div>
 
-Тоді ми call наш _putchar _wrapper проти_ 0_ and _9_ and перевіряйте _strlen_ and належним чином побудуємо нашу рядок з _strncat_.
+Тоді ми call наш _putchar _wrapper проти_ 0_ та _9_ і перевіряємо _strlen_ і правильно створюємо наш рядок за допомогою _strncat_.
 
-nbsp
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837760991.jpg"/></div>
 
-Потім ми правильно обробляємо нашу логіку _period_, щоб забезпечити лише один _period _IS, введений як номер плаваючої точки, може NOT ручки 2 періоди.
+Потім ми правильно обробляємо нашу логіку _period_, щоб переконатися, що лише один _period _IS, введений як номер плаваючої точки, не може обробляти 2 періоди.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837842045.jpg"/></div>
 
@@ -187,8 +187,8 @@ nbsp
 
 Тут ми просто промиваємо вхідний буфер, встановивши _p \ _USB \ _string_ на нульовий char.
 
-Це була більша сесія налагодження, тому, будь ласка, знайдіть свій час and Порівняйте збірку з джерелом, щоб ви могли дійсно зрозуміти кожен абзац, коли я його тут висвітлюю.
+Це була більша сесія налагодження, тому, будь ласка, знайдіть свій час і порівняйте Асамблею з джерелом, щоб ви могли дійсно зрозуміти кожен абзац, коли я його тут висвітлюю.
 
-Це підводить нас до кінця нашої початкової навчальної подорожі. У цій подорожі ми зробили 197 кроків разом через кілька різних архітектур. Настав ваша черга, щоб перенести цю підготовку на практиці and робити великі речі!
+Це підводить нас до кінця нашої початкової навчальної подорожі. У цій подорожі ми зробили 197 кроків разом через кілька різних архітектур. Настає ваша черга, щоб здійснити цю підготовку на практиці і робити чудові справи!
 
 Ця книга буде вашим довідником, коли ви стикаєтесь з викликами, проте немає нічого, що ви не можете досягти!

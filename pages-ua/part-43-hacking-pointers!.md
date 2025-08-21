@@ -1,6 +1,6 @@
-## part 43 - Hacking покажчики!
+## PART 43 - Хакерські покажчики!
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-підручник
+Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Ми в кінці дороги. Це остаточне відео в серії x64. Заключна тема - це покажчики.
 
@@ -12,7 +12,7 @@
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567286745307.jpg"/></div>
 
-Давайте add справжній вказівник на приклад:
+Додамо справжній вказівник до прикладу:
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567287725406.jpg"/></div>
 
@@ -26,7 +26,7 @@
 
 Ми бачимо вказівку вказівника на нову адресу:
 
-hack
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567288456995.jpg"/></div>
 
 Пам'ятайте покажчики - це адреси пам'яті інших змінних. Давайте подивимось на це іншим способом:
 
@@ -56,13 +56,13 @@ hack
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567290786481.jpg"/></div>
 
-Тоді ми disassemble:
+Тоді ми розбираємо:
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567290800965.jpg"/></div>
 
-Давайте hack!
+Давайте хакемо!
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567292294462.jpg"/></div>
+div
 
 Давайте переглянемо двійкове:
 
@@ -72,6 +72,6 @@ hack
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1567292376880.jpg"/></div>
 
-Ми можемо побачити, що ми зробили успішний hack.
+Ми можемо бачити, що ми зробили успішний хак.
 
-Я сподіваюся, що протягом багатьох років через буквальні сотні x86, ARM and x64 у вас є основні знання про те, як зробити добро, щоб захистити критичні інфраструктури від шкідливих рук, розуміючи, як ворог працює. Іди and Зробіть хорошу роботу!
+Я сподіваюся, що протягом багатьох років через буквальні сотні x86, ARM та x64 у вас є основні знання про те, як зробити добро, щоб захистити критичні інфраструктури від шкідливих рук, розуміючи, як ворог працює. Ідіть і зробіть гарну роботу!

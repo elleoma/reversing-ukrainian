@@ -2,7 +2,7 @@
 
 Останні два уроки, сподіваємось, демонстрували необхідність зрілого підходу до обробки введення будь -якого серйозного додатку.
 
-Сьогодні ми створимо належну вхідну архітектуру для PICO, пов’язаного зі stdin nbsp stdio.
+Сьогодні ми створимо належну вхідну архітектуру для PICO, пов’язаного зі stdin та stdio.
 
 Почнемо зі створення __input.h__ наступним чином.
 
@@ -10,14 +10,14 @@
 void flush_input(char* p_usb_string);
 </pre>
 
-Тут ми налаштували наш заголовок введення file для вирішення параметрів, про які ми обговорювали на останньому уроці. Ми також встановлюємо нашу функцію _flush \ _input_ для обробки очищення вхідного буфера після того, як він буде використаний для того, щоб він був чистим до отримання нового входу для іншого call до _input \ _proc_.
+Тут ми встановлюємо наш заголовок введення file для вирішення параметів, про які ми обговорювали на останньому уроці. Ми також встановлюємо нашу функцію _flush \ _input_ для обробки очищення вхідного буфера після того, як він буде використаний для того, щоб він був чистим до отримання нового входу для іншого call до _input \ _proc_.
 
 Далі ми створимо наш __print.h __as наступне.
 
 <pre spellcheck="false">void print_proc(char* p_usb_char, char* p_usb_string);
 </pre>
 
-Дуже просто ми збираємося пройти в масиві Char від абонента, щоб обробляти кожен Char and масив Char від абонента, щоб обробляти створення рядка.
+Дуже просто ми збираємося пройти в масиві Char від абонента, щоб обробляти кожен Char та Char Array від абонента, щоб обробляти створення рядка.
 
 Далі ми створимо наш __input.c__ наступним чином.
 
@@ -99,7 +99,7 @@ void flush_input(char* p_usb_string)
 }
 </pre>
 
-У цей момент все слід повністю зрозуміти з вищезазначеним. Якщо це not, перегляньте останні два уроки.
+У цей момент все слід повністю зрозуміти з вищезазначеним. Якщо це не будь ласка, перегляньте останні два уроки.
 
 Далі ми створимо наш __print.c__ наступним чином.
 
@@ -122,7 +122,7 @@ void print_proc(char* p_usb_char, char* p_usb_string)
 }
 </pre>
 
-Тут ми приносимо нашу дію char and string string and, якщо натиснута клавіша повернення надрукує вміст рядка and, тоді call _flush \ _input_, щоб очистити буфер, як обговорювалося.
+Тут ми пропонуємо нашу здатність до char та рядків, і якщо натиснута клавіша повернення надрукує вміст рядка, а потім call _flush \ _input_, щоб очистити буфер, як обговорюється.
 
 Нарешті ми створимо наш __main.c__ наступним чином.
 
@@ -153,17 +153,17 @@ int main()
 
 Тут ми просто встановлюємо нашу вхідну процедуру для обробки введення поплавця.
 
-Давайте зробимо новий dir&nbsp;____0x07 \ _input__&nbsp;and add ur&nbsp;__cmakelists.txt__&nbsp;xyz9zuk8
+Давайте зробимо новий dir&nbsp;__20x07 \ _input__&nbsp;and додайте ur&nbsp;__cmakelists.txt__&nbsp;file в ньому.
 
 <pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
 include(pico_sdk_import.cmake)
 
 project(test_project C CXX ASM)
-встановити(CMAKE_C_STANDARD 11)&nbsp;
-встановити(CMAKE_CXX_STANDARD 17)&nbsp;
-встановити(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-встановити(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+set(CMAKE_C_STANDARD 11)&nbsp;
+set(CMAKE_CXX_STANDARD 17)&nbsp;
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 pico_sdk_init()
 
 add_executable(main
@@ -184,7 +184,7 @@ add_custom_target(flash
 )
 </pre>
 
-Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в te&nbsp;__pico-sdk__&nbsp;__pico-sdk__&nbsp;ipation tO The&nbsp;__0x07 \ _input__&nbsp;project.
+Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;Installation to the&nbsp;__0x07 \ _input__&nbsp;project.
 
 <pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
 </pre>
@@ -206,12 +206,12 @@ make flash
 <pre spellcheck="false">ls /dev/tty.
 </pre>
 
-Натисніть вкладку, щоб знайти привід and, тоді в моєму випадку я буду use&nbsp;__screen__&nbsp;to connect.
+Натисніть вкладку, щоб знайти накопичувач, а потім у моєму випадку я буду використовувати&nbsp;__screen__&nbsp;to connect.
 
 <pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
 </pre>
 
-Бум! Тепер ви побачите, що зможете ввести числа and лише один десятковий пункт. Ми правильно обробляємо для зворотного розвору and, коли ви досягнете максимуму 100 chars, він буде not дозволить набирати далі. Нарешті він відручує те, що ви набрали.
+Бум! Тепер ви побачите, що зможете ввести лише в числах і лише один десятковий момент. Ми належним чином обробляємо зворотний простір, і коли ви досягнете максимуму 100 Chars, це не дозволить вам набрати далі. Нарешті він відручує те, що ви набрали.
 
 <pre spellcheck="false">32.3333
 32.3333
