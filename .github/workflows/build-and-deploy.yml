@@ -24,13 +24,13 @@ jobs:
         npm install honkit --save-dev
         npx honkit --version
 
-    - name: Install HonKit plugins
+    - name: Build HonKit book
       run: |
-        npx honkit install
+        npm run build
 
-    - name: Build HonKit Book
+    - name: Serve HonKit book
       run: |
-        npx honkit build . _book
+        npm run serve
 
     - name: Deploy into main site
       uses: peaceiris/actions-gh-pages@v3
