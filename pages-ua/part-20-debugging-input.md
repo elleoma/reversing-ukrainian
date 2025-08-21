@@ -1,8 +1,8 @@
-## part 20 - налагодження введення
+## Частина 20 - Дебагування Вхідних Даних
 
-Сьогодні ми будемо налагодити нашу функцію введення. Давайте розглянемо наш код.
+Сьогодні ми дебагуватимемо нашу функцію вхідних даних. Давайте переглянемо свій код.
 
-Review&nbsp;__input.c__&nbsp;as випливає.
+Перегляньте файл __input.c__ наступним чином.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
@@ -16,7 +16,7 @@ Review&nbsp;__input.c__&nbsp;as випливає.
 #define BACKSPACE 0x08
 #define DEL 0x7f
 
-void input_proc(char type, char* p_usb_char, char* p_usb_string, const int* p_USB_STRING_SIZE)
+void input_proc(char type, char* p_usb_char, char* p_usb_string, const XyZ9PlH14ZuK8* p_USB_STRING_SIZE)
 {
 &nbsp; *p_usb_char = '\0';
 &nbsp; *p_usb_char = getchar_timeout_us(0);
@@ -82,7 +82,7 @@ void flush_input(char* p_usb_string)
 }
 </pre>
 
-Перегляньте ur&nbsp;__print.c__&nbsp;as.
+Перегляньте файл __print.c__ наступним чином.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
@@ -103,18 +103,18 @@ void print_proc(char* p_usb_char, char* p_usb_string)
 }
 </pre>
 
-Перегляньте ur&nbsp;__main.c__&nbsp;as.
+Перегляньте файл __main.c__ наступним чином.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
 #include "print.h"
 #include "input.h"
 
-int main()
+XyZ9PlH15ZuK8 main()
 {
 &nbsp; stdio_init_all();
 
-&nbsp; const int USB_STRING_SIZE = 100;
+&nbsp; const XyZ9PlH16ZuK8 USB_STRING_SIZE = 100;
 &nbsp; char usb_char;
 &nbsp; usb_char = '\0';
 &nbsp; char usb_string[USB_STRING_SIZE];
@@ -130,65 +130,65 @@ int main()
 }
 </pre>
 
-Давайте розберемося в нашому налагоджувачі.
+Давайте запустимо наш дебагер.
 
-<pre spellcheck="false">radare2 -w arm -b 16 main.elf
+<pre spellcheck="false">radare2 -w XyZ9PlH17ZuK8 -b 16 main.XyZ9PlH32ZuK8
 </pre>
 
-Давайте автоматично проаналізуємо.
+Давайте зробимо аналіз автоматично.
 
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте прагнемо до головного.
+Давайте спробуємо потрапити до головної частини програми.
 
 <pre spellcheck="false">s main
 </pre>
 
-Перейдемо у візуальний режим, typing&nbsp;__v__&nbsp;and then&nbsp;__p__&nbsp;twice, щоб дістатися до хорошого виду налагоджувача.
+Давайте перейдемо до візуального режиму, натиснувши __V__ і потім __p__ двічі, щоб потрапити до хорошого режиму дебагування.
 
-Спочатку ми оглядаємо _main_.
+Спочатку ми переглядаємо _main_.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622836839312.jpg"/></div>
+<XyZ9PlH18ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622836839312.jpg"/></XyZ9PlH19ZuK8>
 
-Ми бачимо _stdio \ _init \ _all_ call, який налаштовує io, і ми бачимо _0x64_ в _r3_, що є нашим переміщенням 100 десятків, щоб встановити _USB \ _String \ _Size _and ми встановлюємо наш _USB \ _Char_ raue _0_, і ми встановимо _USB \ _Char_ ralue _0_0 _0 _0 _0_0 _ і init to _0_.
+Ми бачимо наш _stdio\_init\_all_ call, який встановлює IO, і бачимо _0x64_ в _r3_, який є нашим кроком 100 десятичним, щоб встановити _USB\_STRING\_SIZE _, і встановлюємо наш _usb\_char_ значення і ініціалізуємо його _0_ і, нарешті, _usb\_string_ і ініціалізуємо його _0_.
 
-Давайте подивимось на нашу функцію _print \ _proc_.
+Давайте переглянемо нашу функцію _print\_proc_.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837104639.jpg"/></div>
+<XyZ9PlH20ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837104639.jpg"/></XyZ9PlH21ZuK8>
 
-Спочатку ми перевіряємо, чи наш вказівник на USB \ _Char або _P \ _USB \ _Char_ дорівнює клавіші _return_ або _0xd_ і якщо так.
+Спочатку ми перевіримо, чи наш вказівник на usb\_char або _p\_usb\_char_ рівний клавіші _RETURN_ або _0xd_ і якщо так, то здійснюємо стрибок.
 
-Потім ми повторюємо _p \ _USB \ _string_, поки не натиснемо на Null Terminator, а потім call наш _printf _function, який, як ми бачимо тут, є обгорткою для функції c printf.
+Далі ми ітеруємося по _p\_usb\_string_, поки не досягнемо кінця рядка, і потім викликаємо нашу функцію _printf _як ми бачимо тут, це обгортка навколо функції c printf.
 
-Нарешті _flush \ _input_.
+Нарешті, ми _flush\_input_.
 
-Наша функція _input \ _proc_ трохи складніша.
+Наша функція _input\_proc_ трохи складніша.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837449377.jpg"/></div>
+<XyZ9PlH22ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837449377.jpg"/></XyZ9PlH23ZuK8>
 
-Тут ми використовуємо функцію g_etchar \ _timeout \ _us_ і обробляємо клавіші _backspace_ та _delete_.
+У цьому випадку ми використовуємо функцію g_etchar\_timeout\_us_ і обробляємо клавіші _BACKSPACE_ і _DELETE_.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837675957.jpg"/></div>
+<XyZ9PlH24ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837675957.jpg"/></XyZ9PlH25ZuK8>
 
-Тоді ми call наш _putchar _wrapper проти_ 0_ та _9_ і перевіряємо _strlen_ і правильно створюємо наш рядок за допомогою _strncat_.
+Далі ми викликаємо нашу функцію _putchar _обгортку навколо _0_ і _9_ і перевіряємо _strlen_ і належним чином будуємо наш рядок з _strncat_.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837760991.jpg"/></div>
+<XyZ9PlH26ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837760991.jpg"/></XyZ9PlH27ZuK8>
 
-Потім ми правильно обробляємо нашу логіку _period_, щоб переконатися, що лише один _period _IS, введений як номер плаваючої точки, не може обробляти 2 періоди.
+Далі ми належним чином обробляємо нашу логіку _PERIOD_ щоб забезпечити, що тільки один _PERIOD _введений, оскільки десяткова частина не може обробляти 2 періоди.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837842045.jpg"/></div>
+<XyZ9PlH28ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837842045.jpg"/></XyZ9PlH29ZuK8>
 
-Потім ми правильно обробляємо свою петлю.
+Далі ми належним чином обробляємо наш цикл.
 
-Нарешті, у нас є функція _flush \ _input_.
+Нарешті, ми маємо нашу функцію _flush\_input_.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837919869.jpg"/></div>
+<XyZ9PlH30ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837919869.jpg"/></XyZ9PlH31ZuK8>
 
-Тут ми просто промиваємо вхідний буфер, встановивши _p \ _USB \ _string_ на нульовий char.
+У цьому випадку ми просто очищаємо буфер вхідних даних, встановлюючи _p\_usb\_string_ на null-значення.
 
-Це була більша сесія налагодження, тому, будь ласка, знайдіть свій час і порівняйте Асамблею з джерелом, щоб ви могли дійсно зрозуміти кожен абзац, коли я його тут висвітлюю.
+Це була більша сесія дебагування, тому будь ласка, візьміть свій час і порівняйте збірку з джерелом, щоб глибше зрозуміти кожен абзац, як я його тут описую.
 
-Це підводить нас до кінця нашої початкової навчальної подорожі. У цій подорожі ми зробили 197 кроків разом через кілька різних архітектур. Настає ваша черга, щоб здійснити цю підготовку на практиці і робити чудові справи!
+Це закінчує нашу початкову навчальну подорож. У цій подорожі ми здійснили 197 кроків разом через кілька різних архітектур. Тепер ваш черга взяти цю навчальну матеріал на практику і зробити щось велике!
 
-Ця книга буде вашим довідником, коли ви стикаєтесь з викликами, проте немає нічого, що ви не можете досягти!
+Цей книга буде вашою посилкою, коли ви зустрінете виклики, але немає нічого, чого ви не зможете досягти!

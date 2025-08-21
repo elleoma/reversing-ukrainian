@@ -1,13 +1,13 @@
-## part 11 - float
+## Частина 11 - плавання
 
-Сьогодні ми збираємось обробляти тип даних Float. У PICO немає коопроцесора, який би обробляв числа з плаваючою комою, оскільки це обробляється через ряд функціональності за допомогою програмного забезпечення в API.
+Сьогодні ми обробимо тип даних плавання. У Піко немає співпроцесора для обробки чисел з плаваючою точкою, оскільки це обробляється через серію функцій через програмне забезпечення в API.
 
-Давайте працюємо з простим прикладом.&nbsp;__0x05 \ _float.c__&nbsp;as.
+Давайте працюємо зі простим прикладом.&nbsp;__0x05\_float.c__&nbsp;as слідує.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
 
-int main()&nbsp;
+XyZ9PlH4ZuK8 main()&nbsp;
 {
 &nbsp; stdio_init_all();
 
@@ -15,7 +15,7 @@ int main()&nbsp;
 &nbsp; {
 &nbsp; &nbsp; float x = 40.5;
 
-&nbsp; &nbsp; printf("%f\n", x);&nbsp;
+&nbsp; &nbsp; XyZ9PlH0ZuK8("%f\n", x);&nbsp;
 
 &nbsp; &nbsp; sleep_ms(1000);
 &nbsp; }
@@ -24,9 +24,9 @@ int main()&nbsp;
 }
 </pre>
 
-Дуже просто ми призначаємо поплавок _40.5_ в _x_ і роздрукуємо його з модифікатором _%f _format, а потім спимо на _1_ секунду.
+Дуже просто ми призначаємо плавання _40.5_ в _x_ і друкуємо його з форматним модифікатором _%f_ і потім спимося на _1_ секунду.
 
-Давайте зробимо новий dir&nbsp;__0x05 \ _float__&nbsp;and додайте ur&nbsp;__cmakelists.txt__&nbsp;file в ньому.
+Давайте створимо нову папку&nbsp;__0x05\_float__&nbsp;and додамо нашу&nbsp;__CMakeLists.txt__&nbsp;file в неї.
 
 <pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
@@ -48,7 +48,7 @@ pico_add_extra_outputs(0x05_float)
 target_link_libraries(0x05_float pico_stdlib)
 </pre>
 
-Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;installation tos the&nbsp;__0x05 \ _float__&nbsp;project.
+Далі нам потрібно скопіювати&nbsp;__pico\_sdk\_import.cmake__&nbsp;file з зовнішньої папки в папці&nbsp;__pico-sdk__ встановлення в папку&nbsp;__0x05\_float__&nbsp;project.
 
 <pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
 </pre>
@@ -62,22 +62,22 @@ cmake ..
 make
 </pre>
 
-Потім просто скопіюйте the&nbsp; __. Uf2__&nbsp;file на привід.
+Далі просто скопіюйте&nbsp;__.uf2__&nbsp;file в диск.
 
 <pre spellcheck="false">cp 0x05_float.uf2 /Volumes/RPI-RP2
 </pre>
 
-Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
+Далі нам потрібно знайти зовнішній диск, щоб ви могли виконати наступні дії.
 
 <pre spellcheck="false">ls /dev/tty.
 </pre>
 
-Натисніть вкладку, щоб знайти накопичувач, а потім у моєму випадку я буду використовувати&nbsp;__screen__&nbsp;to connect.
+Натисніть табуляцію, щоб знайти диск, а потім у моїй ситуації я використовую&nbsp;__screen__&nbsp;для підключення.
 
 <pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
 </pre>
 
-Ви повинні побачити Anchyz9plh29zuk8_40.5_&nbsp;being надруковано щосекунди.
+Ви повинні побачити, що _40.5_ друкується кожну секунду.
 
 <pre spellcheck="false">40.500000
 40.500000
@@ -104,4 +104,4 @@ make
 40.500000
 </pre>
 
-На нашому наступному уроці ми будемо налагодити.
+У наступному урокі ми навчимося відлагоджувати.

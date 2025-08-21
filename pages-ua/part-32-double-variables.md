@@ -1,18 +1,12 @@
-## part 32 - подвійні змінні
+## Частина 32 – Двійні змінні
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Наступний етап нашої подорожі-це змінні з плаваючою точкою з подвійною точністю.&nbsp;
-
-Змінна з плаваючою комою з двома точними відрізняється від змінної з плаваючою комою, оскільки вона шириною 64-ти та 15-17 значущих цифр точності.
-
-Давайте розглянемо наш код.
-
-<pre spellcheck="false">#include &lt;iostream&gt;
+Наступний етап нашої подорожі – це подвійної точності змінних з плаваючою комою. <pre spellcheck="false">#include &lt;iostream&gt;
 
 &nbsp;
 
-int main(void) {
+XyZ9PlH0ZuK8 main(void) {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double myNumber = 1337.77;
 
@@ -27,20 +21,18 @@ int main(void) {
 }
 </pre>
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403579256.jpg"/></div>
+Двійної точності змінна з плаваючою комою відрізняється від змінної з плаваючою комою тим, що вона має ширину 64 біта і 15-17 значущих цифр точності. <XyZ9PlH1ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403579256.jpg"/></XyZ9PlH2ZuK8>
 
-Щоб скласти це, ми просто вводимо:
+Давайте розглянемо наш код. <XyZ9PlH3ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403604790.jpg"/></XyZ9PlH4ZuK8>
 
-G ++ example7.cpp -o example7
+Для компіляції цього ми просто набираємо: g++ example7.cpp -o example7. ./example7
 
-./example7
+Успіх! https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403604790.jpg"/></div>
+Ми бачимо 1337.77 виведене на стандартний вивід або термінал!
 
-Успіх! &nbsp;we дивись 1337.77 надруковано на стандартний вихід або термінал!
+Давайте розберемо це:
 
-Давайте розберемо його:
+Ми призначаємо змінну з плаваючою комою __ __ безпосередньо в змінну __myNumber __, а потім друкуємо її на термінал з допомогою функції c++ __cout__.
 
-Ми присвоюємо змінну з плаваючою комою __ __ безпосередньо у змінну __mynumber __ і потім роздрукуємо її до терміналу за допомогою функції C ++ __cout__.
-
-Наступного тижня ми зануримося в налагодження подвійних змінних.
+Наступна неділя ми вийдемо на тему Дебагування Двійних Змінних.

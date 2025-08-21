@@ -1,19 +1,19 @@
-## PART 28 - Програма ASM 3 \ [Переміщення даних між пам'яттю та регістрами \]
+## Частина 28 - Програма ASM 3 \[Moving Дані між пам'яттю та регістрами\]
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-У нашій третій програмі ми продемонструємо, як ми можемо переміщувати дані між пам'яттю та регістрами.&nbsp;
+У нашій третьій програмі ми продемонструємо, як можна перемістити дані між пам'яттю та регістрами. <XyZ9PlH2ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520175192505.jpg"/></XyZ9PlH3ZuK8>
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520175192505.jpg"/></div>
+У конкретному випадку ми перемістимо значення внутрішнього цілого числа 10 десятичне в ECX.
 
-Зокрема, ми перемістимо значення всередині постійного цілого числа 10 -десяткових у ECX.
+Увага! Для збірки ми пишемо:
 
-Майте на увазі, щоб зібрати ми вводимо:
+__as –32 -o moving\_data\_between\_memory\_and\_registers.o moving\_data\_between\_memory\_and\_registers.s__
 
-__AS –32 -O Переміщення \ _data \ _between \ _memory \ _and \ _регістери
+Для зв'язування об'єкта file ми пишемо:
 
-Щоб зв’язати об’єкт file, ми вводимо:
+__ld -m elf\_i386 -o moving\_data\_between\_memory\_and\_registers moving\_data\_between\_memory\_and\_registers.o __
 
-__ld -m elf \ _i386 -o menkt \ _data \ _between \ _memory \ _and \ _registers, що рухається \ _data \ _between \ _memory \ _and \ _regisers.o __
+Чекаю на всіх наступної тижня, коли ми вийдемо на етап відлагодження нашої третьої програми збірки!
 
-Я з нетерпінням чекаю побачити вас на весь наступний тиждень, коли ми занурюємось у налагодження нашої програми третьої асамблеї!
+Дякую за увагу!

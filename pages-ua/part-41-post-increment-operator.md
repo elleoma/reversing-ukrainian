@@ -1,14 +1,14 @@
-## PART 41-Оператор після інвентації
+Частина 41 – Оператор післяінкременту
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте зануримось у наш код.
+Давайте підійдемо до нашого коду.
 
 <pre spellcheck="false">#include &lt;iostream&gt;
 
-int main(void) {
-&nbsp;&nbsp; &nbsp;int myNumber = 16;
-&nbsp;&nbsp; &nbsp;int myNewNumber = ++myNumber;
+XyZ9PlH0ZuK8 main(void) {
+&nbsp;&nbsp; &nbsp;XyZ9PlH1ZuK8 myNumber = 16;
+&nbsp;&nbsp; &nbsp;XyZ9PlH2ZuK8 myNewNumber = ++myNumber;
 
 &nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
 
@@ -16,22 +16,22 @@ int main(void) {
 }
 </pre>
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1527849027049.jpg"/></div>
+<XyZ9PlH3ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1527849027049.jpg"/></XyZ9PlH4ZuK8>
 
-Щоб скласти це, ми просто вводимо:
+Щоб скомпільувати цей код, ми просто набираємо:
 
-g ++ example10.cpp -o example10
+g++ example10.cpp -o example10
 
 ./example10
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1527849063244.jpg"/></div>
+<XyZ9PlH5ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1527849063244.jpg"/></XyZ9PlH6ZuK8>
 
-Ми бачимо 16 та 17 надрукованих на екран.
+Ми бачимо 16 і 17 виведені на екран.
 
-Давайте розберемо його:
+Давайте розберемо це:
 
-We create a variable __myNumber = 16__ to which we create another variable __myNewNumber__ which post-increments the value of __myNumber__.&nbsp;We see that when we execute our code it shows __16__ as the value of __myNewNumber__ and __17__ as the value of __myNumber __as __myNewNumber__ does not get incremented as only __mynumber__ збільшується, оскільки це пост -оператор.
+Ми створюємо змінну __myNumber = 16__ до якої створюємо ще одну змінну __myNewNumber__ яка післяінкрементує значення змінної __myNumber__.  Бачимо, що коли ми виконуватимемо наш код, воно показуватиме __16__ як значення змінної __myNewNumber__ і __17__ як значення змінної __myNumber__ оскільки змінна __myNewNumber__ не збільшується, оскільки тільки змінна __myNumber__ збільшується, оскільки вона є післяоператором.
 
-Коли ми після запровадження значення змінної збільшується після призначення її іншій змінній.&nbsp; для прикладу __mynumber__ є __16__, тому він збільшується після того, як його призначають __mynewnumbum__, тому ми отримуємо __17__.
+Коли ми післяінкрементуємо значення змінної, воно збільшується після призначення йому іншої змінної.  Наприклад, змінна __myNumber__ має значення __16__, тому вона збільшується після призначення їй змінної __myNewNumber__, тому ми отримуємо __17__.
 
-Наступного тижня ми зануримося в налагодження оператора після інвентації.
+Наступна неділя ми підійдемо до Розробки Оператора післяінкременту.

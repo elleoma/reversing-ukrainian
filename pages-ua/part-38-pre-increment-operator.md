@@ -1,8 +1,8 @@
-## PART 38-Оператор попереднього інкрементації
+## Частина 38 – Пропрефіксний оператор інкременту
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Наступний етап нашої подорожі-це оператор попереднього інкрементації.&nbsp;
+Наступний етап нашої подорожі – це пропрефіксний оператор інкременту. 
 
 Давайте розглянемо наш код.
 
@@ -10,11 +10,11 @@
 
 &nbsp;
 
-int main(void) {
+XyZ9PlH0ZuK8 main(void) {
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNumber = 16;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XyZ9PlH1ZuK8 myNumber = 16;
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int myNewNumber = ++myNumber;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XyZ9PlH2ZuK8 myNewNumber = ++myNumber;
 
 &nbsp;
 
@@ -27,22 +27,22 @@ int main(void) {
 }
 </pre>
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1526036616866.jpg"/></div>
+<XyZ9PlH3ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1526036616866.jpg"/></XyZ9PlH4ZuK8>
 
-Щоб скласти це, ми просто вводимо:
+Щоб скомпільувати цей код, ми просто набираємо:
 
-g ++ example9.cpp -o example9
+g++ example9.cpp -o example9
 
 ./example9
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1526036640627.jpg"/></div>
+<XyZ9PlH5ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1526036640627.jpg"/></XyZ9PlH6ZuK8>
 
-Ми бачимо 17 надрукованих на екран.
+Ми бачимо 17 виведене на екран.
 
-Давайте розберемо його:
+Давайте розберемо це:
 
-Ми створюємо змінну __mynumber = 16__, до якої ми створюємо іншу змінну __mynewnumber__, що попередньо запроваджує значення __mynumber __. &nbsp;we це бачимо, коли виконуємо наш код, він показує 17.
+Ми створюємо змінну __myNumber = 16__ до якої створюємо ще одну змінну __myNewNumber__ яка пропрефіксно збільшує значення __myNumber__.  Ми бачимо, що коли ми виконуватимемо наш код, воно показуватиме 17.
 
-Коли ми заздалегідь запроваджуємо, значення змінної збільшується перед тим, як призначити її іншій змінній.&nbsp; для прикладу __mynumber__ є __16__, тому він збільшується перед тим, як бути призначеним до __mynewnumbum__, тому ми отримуємо __17__.
+Коли ми пропрефіксно збільшуваємо значення змінної, вона збільшується перед тим, як бути присвоєна іншій змінній.  Наприклад, __myNumber__ є __16__, тому воно збільшується перед тим, як бути присвоєне __myNewNumber__, тому тому ми отримуємо __17__.
 
-Наступного тижня ми занурюємось у налагодження оператора попереднього інтекції.
+Наступного тижня ми вийдемо на глибину Дебагування Пропрефіксного оператора інкременту.

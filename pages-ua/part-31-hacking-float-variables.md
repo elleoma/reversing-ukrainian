@@ -1,8 +1,8 @@
-## PART 31 - Змінні зламали плаваючі змінні
+## Частина 31 – Хакінг змінних Float
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть обговорені. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте переглянемо наш код.
+Давайте знову переглянемо наш код.
 
 <pre spellcheck="false">#include &lt;iostream&gt;
 
@@ -25,52 +25,52 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799049547.jpg"/></div>
 
-Давайте розглянемо підручник минулого тижня.
+Давайте переглянемо попередній урок.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799097861.jpg"/></div>
 
-Давайте розійдемося на __ -мейн+20__ і продовжимо до цього моменту.
+Давайте зупинимося на __main+20__ і продовжимо на цьому місці.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799125882.jpg"/></div>
 
-Давайте вивчимо, яка цінність знаходиться всередині __R11-8 __. &nbsp;WE чітко бачимо, що це __1337.09998__, що наближає наше значення в нашому первісному коді C ++.&nbsp;
+Давайте побачимо, яку вартість знаходиться всередині __r11-8__.  Вже дуже добре бачимо, що це __1337.09998__, яка наближається до нашої вартості в нашому оригінальному коді C++.  Увага: плаваючий має близько 7 цифр десятичної точності, тому ми не бачимо __1337.1__.  Будьте пам'ятні цьому, оскільки ми йдемо далі.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799166328.jpg"/></div>
 
-Ми також можемо побачити це значення у високій пам'яті.
+Ми також бачимо цю вартість в високій пам'яті.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799204709.jpg"/></div>
+<XyZ9PlH10ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799204709.jpg"/></XyZ9PlH11ZuK8>
 
-Давайте розлучимося на __ -мейн+28__ і продовжимо.
+Давайте зупинимося на __main+28__ і продовжимо.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799242840.jpg"/></div>
+<XyZ9PlH12ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799242840.jpg"/></XyZ9PlH13ZuK8>
 
-We see a strange new instruction.&nbsp;We see __vldr__ and the value within __r11, \#8__ being moved into__ s0__.&nbsp;So what is __s0__?&nbsp;We have a math co-processor which has a series of additional registers that work with decimal or floating-point числа.&nbsp;here ми бачимо приклад такого, до якого значення __1337.09998 __ є переміщеним у __s0 __. &nbsp;the __vldr__ інструкція завантажує постійну цінність у кожен елемент одноточного або подвійного реєстрації, такого, такого, такого, такого S0__.
+Ми бачимо дивну нову інструкцію.  Ми бачимо __vldr__ і значення всередині __r11, \#8__ переміщується в__ s0__.  А що таке __s0__?  Ми маємо математичний процесор, який має серію додаткових регістрів, які працюють з десятковими або плаваючими-цілочисельними числами.  Тут ми бачимо приклад такого, до якого значення __1337.09998 __переміщується в __s0__.  Інструкція __vldr__ завантажує константне значення в кожний елемент однобайтової або подвійної точності регістра, наприклад __s0__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799279756.jpg"/></div>
+<XyZ9PlH14ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799279756.jpg"/></XyZ9PlH15ZuK8>
 
-Ми можемо бачити ці спеціальні регістри лише в тому випадку, якщо ми робимо інформацію про те, як ми виконуємо всі, як ми робимо нижче.
+Ми можемо побачити ці спеціальні регістри тільки якщо ми зробимо команду info registers all, як ми робимо нижче.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799307421.jpg"/></div>
+<XyZ9PlH16ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799307421.jpg"/></XyZ9PlH17ZuK8>
 
-Нижче ми бачимо, що значення зараз переміщується в __S0__.
+Нижче ми бачимо значення, яке тепер переміщується в __s0__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799331767.jpg"/></div>
+<XyZ9PlH18ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799331767.jpg"/></XyZ9PlH19ZuK8>
 
-Давайте хакемо!
+Давайте хакнемо!
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799362535.jpg"/></div>
+<XyZ9PlH20ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799362535.jpg"/></XyZ9PlH21ZuK8>
 
-Давайте тепер подивимось на регістри і подивимось, що сталося.
+Давайте тепер подивимося на регістри і побачимо, що відбулося.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799386349.jpg"/></div>
+<XyZ9PlH22ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799386349.jpg"/></XyZ9PlH23ZuK8>
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799407513.jpg"/></div>
+<XyZ9PlH24ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799407513.jpg"/></XyZ9PlH25ZuK8>
 
-Як ви бачите, ми зламали значення (менше точній проблемі змінної Float точні до 6 десяткових місць)!
+Як бачите, ми вже хакнули значення (з урахуванням проблеми точності змінної float, яка відповідає 6 десятичним місцям).
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799441419.jpg"/></div>
+<XyZ9PlH26ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1521799441419.jpg"/></XyZ9PlH27ZuK8>
 
-Нарешті, коли ми продовжуємо, ми бачимо, що наше зламане значення перегукується з терміналом, коли виконується C ++ __cout __function.
+Нарешті, продовжуючи, ми бачимо наш хакований вміст відбитий знову на терміналі, коли функція C++ __cout __ виконує.
 
-Наступного тижня ми зануримося у подвійні змінні.
+Наступна неділя ми вийдемо на подвійні змінні.

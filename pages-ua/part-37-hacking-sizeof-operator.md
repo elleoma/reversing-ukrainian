@@ -1,8 +1,8 @@
-## PART 37 - Оператор Hacking Sizeof
+Частина 37 – Хакінг оператора SizeOf
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків, будь ласка, натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті.
 
-Давайте переглянемо наш код.
+Давайте знову розглянемо наш код.
 
 <pre spellcheck="false">#include &lt;iostream&gt;
 
@@ -27,50 +27,50 @@ int main(void) {
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429032559.jpg"/></div>
 
-Пам'ятайте, що ми створюємо змінну __mynumber = 16__, до якої ми створюємо іншу змінну __mynumbersize__, яка містить значення розміру __mynumber __. &nbsp;we бачимо, що коли ми виконуємо наш код, він показує 4, тому ми бачимо, що оператор Sizeof вказує на ціле двобайки широко.
+Пам'ятайте, що ми створюємо змінну __myNumber = 16__ до якої створюємо ще одну змінну __myNumberSize__ яка зберігає значення розміру __myNumber__.  Ми бачимо, що коли ми виконуємо наш код, воно показує 4, тому ми бачимо, що оператор SizeOf вказує, що ціле число має ширину 4 байти.
 
-Давайте розглянемо код минулого тижня, коли ми починаємо з налагодження та розриву на Main.
+Давайте переглянемо код попередньої тижневої роботи, оскільки починаємо з відлагодження та зупинки на головній.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429072643.jpg"/></div>
 
-Давайте розірвемося на __main+20__, як ми бачимо, що значення __4__ переміщується в __r3__.
+Давайте зупинимося на __main+20__ оскільки ми бачимо значення __4__ яке переміщується в __r3__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429109049.jpg"/></div>
+<XyZ9PlH10ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429109049.jpg"/></XyZ9PlH11ZuK8>
 
-Давайте розглянемо, що відбувається в __main+16__, як ми бачимо, що ми зберігаємо значення __ $ r11-8__ того, що існує в __r3__, що в нашому випадку __16 __. &nbsp;. __16 __. &nbsp;WE бачимо це тут, коли ми вивчаємо значення всередині __ $ r11-8__.
+Давайте розглянемо, що відбувається на __main+16__ оскільки ми бачимо, що зберігаємо значення в __$r11-8__ те, що існує в __r3__ яке в нашому випадку є __16__.  Це має сенс, оскільки коли ми розглядаємо нашу початкову код, значення __myNumber__ насправді було __16__.  Ми бачимо це тут, коли ми розглядаємо значення всередині __$r11-8__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429200465.jpg"/></div>
+<XyZ9PlH12ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429200465.jpg"/></XyZ9PlH13ZuK8>
 
-Як ми бачимо вище значення всередині __ $ r11-12__ IS__ 4__, оскільки це представляє значення, яке __SizeOf__ повертається як ціле число __16 __, насправді 4 байти широко.
+Як ми бачимо вище, значення всередині __$r11-12__ є __4__ оскільки воно представляє значення, яке повертає __SizeOf__ як ціле число __16__ насправді має ширину 4 байти.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429249458.jpg"/></div>
+<XyZ9PlH14ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429249458.jpg"/></XyZ9PlH15ZuK8>
 
-Нарешті, коли ми продовжуємо виконання, ми насправді бачимо значення __4__ перегукується з терміналом.
+Нарешті, коли ми продовжимо виконання, насправді побачимо значення __4__ відображене в терміналі.
 
-Давайте хакемо!
+Давайте хакнемо!
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429287002.jpg"/></div>
+<XyZ9PlH16ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429287002.jpg"/></XyZ9PlH17ZuK8>
 
-Ми біжимо і розриваємося на __main+28__.
+Ми запускаємо і зупиняємося на __main+28__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429310244.jpg"/></div>
+<XyZ9PlH18ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429310244.jpg"/></XyZ9PlH19ZuK8>
 
-Ми бачимо, що цінність у __R3__ - __4__, що очікується.
+Ми бачимо значення в __r3__ є __4__ яке очікується.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429336631.jpg"/></div>
+<XyZ9PlH20ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429336631.jpg"/></XyZ9PlH21ZuK8>
 
-Ми ламаємося на __main+36__.
+Ми зупиняємося на __main+36__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429367083.jpg"/></div>
+<XyZ9PlH22ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429367083.jpg"/></XyZ9PlH23ZuK8>
 
-Ми бачимо, що значення в __R1__ є __4__, що повинно мати логічний сенс, оскільки цінність зберігалася з __R3__ в __R11-12__, а потім назад до __R1__.
+Ми бачимо значення в __r1__ є __4__ яке повинно мати логічне значення, оскільки значення було збережено з __r3__ в __r11-12__ і потім знову в __r1__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429391206.jpg"/></div>
+<XyZ9PlH24ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429391206.jpg"/></XyZ9PlH25ZuK8>
 
-Давайте зламаємо значення в __R1__!
+Давайте хакнемо значення в __r1__!
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429414806.jpg"/></div>
+<XyZ9PlH26ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1525429414806.jpg"/></XyZ9PlH27ZuK8>
 
-Успіх! &nbsp;we зламали машину!
+Успіх!  Ми здійснили хакінг машини!
 
-Наступного тижня ми зануримося в оператор попереднього інкрементації.
+Наступна неділя ми вийдемо в оператор Pre-Increment.

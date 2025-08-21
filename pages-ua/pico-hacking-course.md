@@ -1,6 +1,2 @@
-<h2 align="center">
-    Pico Hacking Course
-</h2>
-<p align="center">
-    Let's dive in rightaway!
-</p>
+ХиЗ9ПлГ0ЗуК8
+ХиЗ9ПлГ1ЗуК8

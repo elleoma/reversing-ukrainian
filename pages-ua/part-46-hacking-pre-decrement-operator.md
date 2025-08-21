@@ -1,8 +1,8 @@
-## PART 46-Хакерство оператора попередньої декреції
+## Частина 46 – Хакінг попередньо-декрементного оператора
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте переглянемо наш код.
+Давайте знову розглянемо наш код.
 
 <pre spellcheck="false">#include &lt;iostream&gt;
 
@@ -17,40 +17,40 @@ int main(void) {
 }
 </pre>
 
-Ми пам’ятаємо, коли компілюємо, отримуємо 15.
+Пам'ятаємо, коли ми компілюємо, отримуємо 15.
 
-Давайте налагоджуємо.
+Давайте відлагодимо.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875391750.jpg"/></div>
 
-Давайте розірвемося.
+Давайте розб'ємо.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875474311.jpg"/></div>
 
-Давайте розглянемо, що знаходиться всередині __R3 __ і зламаємо його.
+Давайте переглянемо вміст __r3 __і хакнемо його.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875492398.jpg"/></div>
 
-Тепер, як ми продовжуємо, ми бачимо, що це не успішно зламало, чому це?
+Тепер, продовжуючи, бачимо, що він не зміг успішно хакнути, чому це?
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875528881.jpg"/></div>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875528881.jpg"/></XyZ9PlH10ZuK8>
 
-Ми повторно запускаємо двійкову та розриваємо і бачимо цінність тут за адресою __r1 __hold __15__.
+Ми знову запускаємо бінарник і розбиваємо і бачимо значення тут в __r1 __держить __15__.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875553276.jpg"/></div>
+<XyZ9PlH11ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875553276.jpg"/></XyZ9PlH12ZuK8>
 
-Коли ми продовжуємо, ми бачимо 15, яких ми не хочемо.
+Поки продовжується, бачимо 15, який ми не хочемо.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875636786.jpg"/></div>
+<XyZ9PlH13ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875636786.jpg"/></XyZ9PlH14ZuK8>
 
-Тепер ми знову ламаємося і роздрукуємо значення.
+Тепер знову розбиваємо і друкуємо значення.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875661356.jpg"/></div>
+<XyZ9PlH15ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875661356.jpg"/></XyZ9PlH16ZuK8>
 
-Цього разу ми встановили __R1__, і ми можемо побачити, що ми успішно зламали!
+Цього разу ми встановлюємо __r1__ і бачимо, що ми успішно хакнули!
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875673374.jpg"/></div>
+<XyZ9PlH17ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1530875673374.jpg"/></XyZ9PlH18ZuK8>
 
-Це ваш перший досвід, коли вони дійсно розбивають регістри та бачення, де зберігаються речі та як це може вплинути на результат. Знайдіть час і запустіть це самостійно, щоб ви справді мали міцну ручку з цього приводу.
+Це ваш перший досвід з глибоким розбіром регістрів і баченням, де вони зберігаються, і як це може впливати на результат. Вдієте час і виконайте це самостійно, щоб мати міцну основу цього.
 
-Наступного тижня ми зануримося в оператор після декреції.
+Наступна неділя ми вийдемо на оператор після-декрементний.

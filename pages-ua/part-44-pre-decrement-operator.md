@@ -1,16 +1,16 @@
-## PART 44-Оператор попереднього декресу
+Частина 44 – Пропрефіксний операційний декремент
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте подивимось на наш приклад попереднього оператора. Оператор попереднього декларації зменшує задане значення до призначення дії.
+Давайте розглянемо наш приклад попереднього операційного декременту. Пропрефіксний операційний декремент зменшує задану вартість до виконання дії.
 
 Давайте розглянемо наш код.
 
 <pre spellcheck="false">#include &lt;iostream&gt;
 
-int main(void) {
-&nbsp;&nbsp; &nbsp;int myNumber = 16;
-&nbsp;&nbsp; &nbsp;int myNewNumber = --myNumber;
+XyZ9PlH0ZuK8 main(void) {
+&nbsp;&nbsp; &nbsp;XyZ9PlH1ZuK8 myNumber = 16;
+&nbsp;&nbsp; &nbsp;XyZ9PlH2ZuK8 myNewNumber = --myNumber;
 
 &nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
     std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
@@ -19,12 +19,12 @@ int main(void) {
 }
 </pre>
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529666614196.jpg"/></div>
+<XyZ9PlH3ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529666614196.jpg"/></XyZ9PlH4ZuK8>
 
-Коли ми компілюємо і запускаємо, ми бачимо, що 15 перегукуються до терміналу.
+Під час компіляції та виконання ми бачимо 15 виведене в термінал.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529666685691.jpg"/></div>
+<XyZ9PlH5ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1529666685691.jpg"/></XyZ9PlH6ZuK8>
 
-Значення __mynumber __ було __16 __ та коли воно призначено оператору попередньої декларації, ми бачимо, що нове значення становить __15__, оскільки воно присвоюється __mynewnumber__.
+Значення __myNumber __було __16 __і коли воно присвоюється з попереднім операційним декрементом, ми бачимо, що нове значення є __15__ оскільки воно присвоюється до __myNewNumber__.
 
-Наступного тижня ми зануримося в оператор попередньої декларації налагодження.
+Наступна неділя ми вийдемо на глибокий аналіз операційного декременту.

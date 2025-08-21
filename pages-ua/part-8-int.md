@@ -1,21 +1,21 @@
-## part 8 - int
+## Частина 8 - int
 
-Сьогодні ми будемо працювати з типом даних int, який є не що інше, як цілі цифри. Вони також можуть бути підписані або непідписані.
+Сьогодні ми працюємо з типом даних int, які нічим не відрізняються від цілочисельних значень. Вони можуть бути підписаними або несписаними.
 
-Давайте попрацюємо з простим прикладом. __0x04 \ _int.c__ наступним чином.
+Давайте розглянемо простий приклад. __0x04\_int.c__ виглядає так.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
 
-int main()&nbsp;
+XyZ9PlH6ZuK8 main()&nbsp;
 {
 &nbsp; stdio_init_all();
 
 &nbsp; while(1)&nbsp;
 &nbsp; {
-&nbsp; &nbsp; int x = 40;&nbsp;
+&nbsp; &nbsp; XyZ9PlH7ZuK8 x = 40;&nbsp;
 
-&nbsp; &nbsp; printf("%d\n", x);&nbsp;
+&nbsp; &nbsp; XyZ9PlH0ZuK8("%d\n", x);&nbsp;
 
 &nbsp; &nbsp; sleep_ms(1000);
 &nbsp; }
@@ -24,9 +24,9 @@ int main()&nbsp;
 }
 </pre>
 
-Тут ми просто маємо нашу стандартну функцію IO, а потім наша нескінченна петля. Ми просто призначаємо _40_ типу даних int _X_ та роздрукуємо його за допомогою модифікатора формату _%D_ і спите для _1_ секунди.
+У цьому випадку ми просто використовуємо наш стандартний функціонал IO, який слідує за нашою нескінченною петлею. Ми просто присвоюємо _40_ типу даних int змінній _x_ і друкуємо її за допомогою формату _%d_ і спляємо протягом _1_ секунди.
 
-Давайте зробимо новий dir&nbsp;__0x04 \ _int__&nbsp;and додайте ur&nbsp;__cmakelists.txt__&nbsp;file в ньому.
+Давайте створимо новий каталог __0x04\_int__&nbsp;and і додамо наш __CMakeLists.txt__ file в нього.
 
 <pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
@@ -48,12 +48,12 @@ pico_add_extra_outputs(0x04_int)
 target_link_libraries(0x04_int pico_stdlib)
 </pre>
 
-Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;installation tot to the&nbsp;__0x04 \ _int__&nbsp;project.
+Далі нам потрібно скопіювати __pico\_sdk\_import.cmake__&nbsp;file з зовнішнього каталогу в інсталяцію __pico-sdk__ в каталог __0x04\_int__&nbsp;project.
 
 <pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
 </pre>
 
-Нарешті ми готові до будівництва.
+Нарешті, ми готові до будівництва.
 
 <pre spellcheck="false">mkdir build
 cd build
@@ -62,22 +62,22 @@ cmake ..
 make
 </pre>
 
-Потім просто скопіюйте the&nbsp; __. Uf2__&nbsp;file на привід.
+Далі просто скопіюйте файл _.uf2__ file в диск.
 
 <pre spellcheck="false">cp 0x04_int.uf2 /Volumes/RPI-RP2
 </pre>
 
-Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
+Далі нам потрібно знайти зовнішній диск, щоб ви могли виконати наступні дії.
 
 <pre spellcheck="false">ls /dev/tty.
 </pre>
 
-Натисніть вкладку, щоб знайти накопичувач, а потім у моєму випадку я буду використовуватикси9plh29zuk8__screen__&nbsp;to Connect.
+Натисніть табуляцію, щоб знайти диск, а потім у моїй ситуації я використовую __screen__ для підключення.
 
 <pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
 </pre>
 
-Ви повинні бачити, як _40_ надрукується щосекунди.
+Ви повинні побачити, що _40_ друкується кожну секунду.
 
 <pre spellcheck="false">40
 40
@@ -93,4 +93,4 @@ make
 40
 </pre>
 
-На нашому наступному уроці ми будемо налагодити.
+У наступній лекції ми навчимося відлагоджувати.

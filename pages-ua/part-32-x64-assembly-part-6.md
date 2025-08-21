@@ -1,23 +1,23 @@
-## part 32 - x64 Асамблея \ [Частина 6 \]
+## Частина 32 - x64 Збірка \[Part 6\]
 
-Для повного змісту всіх уроків, будь ласка, натисніть нижче, оскільки він дасть короткий короткий урок на додаток до тем, які він висвітлює.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте розглянемо наш код.
+Давайте переглянемо наш код.
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248751760.jpg"/></div>
+<XyZ9PlH1ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248751760.jpg"/></XyZ9PlH2ZuK8>
 
-Компілювати ...
+Компілюємо...
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248766003.jpg"/></div>
 
-Налагодження ...
+Дебагуємо...
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248783477.jpg"/></div>
 
-Давайте оцінимо, що знаходиться всередині адреси пам'яті 0x6000d8.
+Давайте оцінюємо вміст адреси пам'яті 0x6000d8.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248844375.jpg"/></div>
 
-Як ми бачимо, "__Hello World__" з персонажем повернення потім буде переведено в наш реєстр __RSI__.
+Як ми бачимо, "__Hello World__" з поверненням символу буде потім переміщено в наш __RSI__ регістр.
 
-Наступного тижня ми розглянемо це трохи ближче.
+Наступна неділя ми розглянемо це трохи ближче.

@@ -1,13 +1,13 @@
-## part 14 - подвійний
+Частина 14 - подвійний
 
-Сьогодні ми збираємось обробляти подвійний тип даних. Як ми обговорювали, у Піко не існує коопроцесор, який би обробляв числа з плаваючою комою, оскільки це обробляється через ряд функціональних можливостей за допомогою програмного забезпечення в API. Це те ж саме з подвійною точністю.
+Сьогодні ми будемо працювати з подвійним типом даних. Як ми вже обговорювали, в Піко немає співпроцесора для обробки чисел з плаваючою точкою, оскільки це обробляється через серію функцій через програмне забезпечення в API. Це те саме стосується подвійної точності.
 
-Давайте попрацюємо з простим прикладом.&nbsp;__0x06 \ _double.c__&nbsp;as.
+Давайте працюємо зі простим прикладом. __0x06\_double.c__&nbsp;as слідує.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
 
-int main()&nbsp;
+XyZ9PlH4ZuK8 main()&nbsp;
 {
 &nbsp; stdio_init_all();
 
@@ -15,7 +15,7 @@ int main()&nbsp;
 &nbsp; {
 &nbsp; &nbsp; double x = 40.5;
 
-&nbsp; &nbsp; printf("%f\n", x);&nbsp;
+&nbsp; &nbsp; XyZ9PlH0ZuK8("%f\n", x);&nbsp;
 
 &nbsp; &nbsp; sleep_ms(1000);
 &nbsp; }
@@ -24,9 +24,9 @@ int main()&nbsp;
 }
 </pre>
 
-Дуже просто ми призначаємо поплавок Of&nbsp;_40.5_&nbsp;into&nbsp;_x_&nbsp;and надрукувати його за допомогою модифікатора The&nbsp;_%f&nbsp;_ for&nbsp;_1_&nbsp;second.
+Дуже просто ми присвоюємо float _40.5_ змінній _x_ і друкуємо її з форматним модифікатором _%f_ і потім спимося на _1_ секунду.
 
-Давайте зробимо новий dir&nbsp;__0x06 \ _double__&nbsp; і додайте ur&nbsp;__cmakelists.txt__&nbsp;file в ньому.
+Давайте створимо нову папку __0x06\_double__&nbsp;and і додамо наш __CMakeLists.txt__ file в неї.
 
 <pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
@@ -48,7 +48,7 @@ pico_add_extra_outputs(0x056_double)
 target_link_libraries(0x06_double pico_stdlib)
 </pre>
 
-Далі нам потрібно скопіювати the&nbsp;__pico \ _sdk \ _import.cmake__&nbsp;file із зовнішньої папки в the&nbsp;__pico-sdk__&nbsp;installation tos the&nbsp;__0x06 \ _double__&nbsp;project.
+Далі нам потрібно скопіювати __pico\_sdk\_import.cmake__&nbsp;file з зовнішньої папки в папці __pico-sdk__ встановлення в папку __0x06\_double__&nbsp;project.
 
 <pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
 </pre>
@@ -62,22 +62,22 @@ cmake ..
 make
 </pre>
 
-Потім просто скопіюйте the&nbsp; __. Uf2__&nbsp;file на привід.
+Далі просто скопіюйте __.uf2__ file в диск.
 
 <pre spellcheck="false">cp 0x06_double.uf2 /Volumes/RPI-RP2
 </pre>
 
-Тоді нам потрібно знайти USB -накопичувач, щоб ви могли зробити наступне.
+Далі нам потрібно знайти зовнішній диск, щоб ви могли виконати наступні дії.
 
 <pre spellcheck="false">ls /dev/tty.
 </pre>
 
-Натисніть на вкладку, щоб знайти накопичувач, а потім у моєму випадку я буду використовуватикси9plh35zuk8__screen__&nbsp;to Connect.
+Натисніть таб, щоб знайти диск, а потім у моїй ситуації я використовую __screen__ для підключення.
 
 <pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
 </pre>
 
-Ви повинні побачити Anchyz9plh37zuk8_40.5_&nbsp;being надруковано щосекунди.
+Ви повинні побачити, що _40.5_ друкується кожну секунду.
 
 <pre spellcheck="false">40.500000
 40.500000
@@ -104,4 +104,4 @@ make
 40.500000
 </pre>
 
-На нашому наступному уроці ми будемо налагодити.
+У наступному урокі ми навчимося відлагоджувати.
