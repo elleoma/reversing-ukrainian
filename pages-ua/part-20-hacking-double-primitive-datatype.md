@@ -6,20 +6,20 @@
 
 Давайте запустимо radare2 у режимі запису.
 
-<pre spellcheck="false">XyZ9PlH1ZuK8 -w ./0x06_asm64_double_primitive_datatype
+<pre spellcheck="false">radare2 -w./0x06_asm64_double_primitive_datatype
 </pre>
 
-Давайте зробимо автоматичну аналітику.
+Давайте зробимо автоматичний аналіз.
 
 <pre spellcheck="false">aaa
 </pre>
 
-Пошук до головної частини.
+Перейдіть до головної частини.
 
 <pre spellcheck="false">s main
 </pre>
 
-Перегляд розбору.
+Перегляньте розборку.
 
 <pre spellcheck="false">v
 </pre>
@@ -29,18 +29,18 @@
 <pre spellcheck="false">q
 </pre>
 
-Усі, чого ми тепер маємо зробити, це написати нове значення d0 у регістр, де знаходиться інструкція fmov, і вийти.
+Усі, чого ми зараз маємо зробити, це написати нове значення d0 у регістр, де знаходиться інструкція fmov, і вийти.
 
-<pre spellcheck="false">wa XyZ9PlH3ZuK8 x0, 0x6666666666666666 @0x000009bc
+<pre spellcheck="false">wa mov x0, 0x6666666666666666 @0x000009bc
 q
 </pre>
 
-Далі ми запустимо наш новий байновий файл.
+Далі ми запустимо наш новий байнері.
 
-<pre spellcheck="false">kali@kali:~/Documents/0x06_double_primitive_datatype$ ./0x06_asm64_double_primitive_datatype
+<pre spellcheck="false">kali@kali:~/Documents/0x06_double_primitive_datatype$./0x06_asm64_double_primitive_datatype
 </pre>
 
 <pre spellcheck="false">10.2
 </pre>
 
-Я сподіваюся, що ви насолодилися цією серією і маєте міцну ґрунтовну базу знань про ARM64 RE!
+Я сподіваюся, ви насолодилися цією серією і маєте міцну ґрунтовну базу знань ARM64 RE!

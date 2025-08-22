@@ -53,6 +53,8 @@
         <a href="https://twitter.com/0xInfection">
             @0xInfection
         </a>
+    </sub>
+    <sub>
         Переклад зроблено з ♡ від
         <a href="https://elleoma.github.io/">
             @elleoma

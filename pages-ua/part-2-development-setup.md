@@ -15,7 +15,7 @@ How To Install VIM
 Git Clone &amp; Build Radare2 Software
 </pre>
 
-<XyZ9PlH10ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1606060809296.jpg"/></XyZ9PlH11ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1606060809296.jpg"/></div>
 
 __Распberry Pi 4__
 
@@ -25,13 +25,11 @@ __64ГБ MicroSD картка__
 
 https://www.sparkfun.com/products/16498
 
-__Мікро SD картка читач__
-
-r/Writer__
+__Micro SD картка читачаr/Writer__
 
 https://www.walmart.com/ip/Iogear-GFR204SD-SD-MicroSD-MMC-Card-Reader-and-Writer/15522266
 
-__Завантажте 64-бітну Kali Linux ARM образ__
+__Завантажте 64-бітну Kali Linux ARM зображення__
 
 Kali Linux RaspberryPi 2 (v1.2), 3 і 4 (64-Біт) (img.xz)__ __
 
@@ -41,9 +39,9 @@ __Завантажте balenaEtcher__
 
 https://www.balena.io/etcher
 
-__Схопіть Kali ARM образ__
+__Схопіть Kali ARM зображення__
 
-__ОПЦІОНАЛЬ: Відео \[Load Kali RPI 4\]__
+__ДОПОЛНИЛЬНО: відео \[Load Kali RPI 4\]__
 
 <a href="https://youtu.be/Jquf9BDm4iU" rel="nofollow noopener" target="_blank">https://youtu.be/Jquf9BDm4iU</a>
 
@@ -51,9 +49,9 @@ __Як встановити VIM__
 
 https://www.simplified.guide/ubuntu/install-vim 
 
-Після отримання всіх необхідних пристроїв та програмного забезпечення, будь ласка, перегляньте відео щодо встановлення середовища, оскільки Null Byte зробив чудову роботу зі створення крокової інструкції, яка допоможе вам встановити середовище за кілька хвилин.
+Після отримання всіх необхідних пристроїв та програмного забезпечення, будь ласка, перегляньте відео щодо встановлення середовища розробки, оскільки Null Byte зробив чудову роботу зі створення крокової інструкції, яка допоможе вам встановити середовище розробки протягом декількох хвилин.
 
-Наступний крок - git clone та побудувати Radare2 програмне забезпечення, оскільки цього потрібно для отримання останньої версії, оскільки стандартна версія, інтегрована в Kali, не буде достатньо для наших потреб.
+Наступний крок — git clone та побудувати Radare2 програмне забезпечення, оскільки ми бажаємо мати останню версію, оскільки стандартна версія, інтегрована в Kali, не буде достатньо для наших потреб.
 
 __Git Clone &amp; Build Radare2 Програмне забезпечення__
 
@@ -61,9 +59,9 @@ https://github.com/radareorg/radare2
 
 <pre spellcheck="false">cd Documents
 git clone https://github.com/radareorg/radare2.git
-sys/install.XyZ9PlH12ZuK8
+sys/install.sh
 </pre>
 
-Останнім кроком буде використання текстового редактора для створення нашого коду. Kali має обидва текстові редактори VIM та Nano, інтегровані в нього. Ми використовуватимемо VIM, але ви вільні використовувати будь-який, який вам зручно.
+Останнім кроком буде використання текстового редактора для створення нашого коду. Kali має як VIM, так і Nano текстові редактори, інтегровані в нього. Ми використовуватимемо VIM, але ви вільні використовувати будь-який, який вам комфортний.
 
-У наступному урокі ми напишемо свій перший програму на C++, яка буде "Hello World!".
+У наступному урокі ми напишемо свій перший програму на C++, яка буде "Привіт, світ!".

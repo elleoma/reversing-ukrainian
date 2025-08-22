@@ -2,11 +2,15 @@
 
 Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Наступний етап нашої подорожі – це подвійної точності змінних з плаваючою комою. <pre spellcheck="false">#include &lt;iostream&gt;
+Наступний етап нашої подорожі – це подвійної точності змінних з плаваючою комою. XMDX
+
+Двійної точності змінна з плаваючою комою відрізняється від змінної з плаваючою комою тим, що вона має ширину 64 біта і 15-17 значущих цифр точності. XMDX
+
+Давайте розглянемо наш код. <pre spellcheck="false">#include &lt;iostream&gt;
 
 &nbsp;
 
-XyZ9PlH0ZuK8 main(void) {
+int main(void) {
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double myNumber = 1337.77;
 
@@ -21,18 +25,18 @@ XyZ9PlH0ZuK8 main(void) {
 }
 </pre>
 
-Двійної точності змінна з плаваючою комою відрізняється від змінної з плаваючою комою тим, що вона має ширину 64 біта і 15-17 значущих цифр точності. <XyZ9PlH1ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403579256.jpg"/></XyZ9PlH2ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403579256.jpg"/></div>
 
-Давайте розглянемо наш код. <XyZ9PlH3ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403604790.jpg"/></XyZ9PlH4ZuK8>
+Аби скомпільувати цей код, ми просто набираємо:
 
-Для компіляції цього ми просто набираємо: g++ example7.cpp -o example7. ./example7
+g++ example7.cpp -o example7./example7
 
-Успіх! https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1522403604790.jpg"/></div>
 
-Ми бачимо 1337.77 виведене на стандартний вивід або термінал!
+УСПІШНО! 1337.77 виводиться на стандартний вивід або термінал!
 
 Давайте розберемо це:
 
-Ми призначаємо змінну з плаваючою комою __ __ безпосередньо в змінну __myNumber __, а потім друкуємо її на термінал з допомогою функції c++ __cout__.
+Ми призначаємо змінну з плаваючою комою __ __ безпосередньо в змінну __myNumber __ і потім виводимо її на термінал за допомогою функції c++ __cout__.
 
-Наступна неділя ми вийдемо на тему Дебагування Двійних Змінних.
+Наступного тижня ми вийдемо на тему Дебагування Двійних Змінних.

@@ -1,8 +1,8 @@
 Частина 4 - Хакінг Hello World
 
-У останньому урокі ми розглянули, як належно відлагодити наше дуже просте бінарне в __Radare2__. Сьогодні ми будемо хакнути цей статичний __.elf__ бінарний файл і переконвертувати його в __.uf2__ формат і підключити до нашого Pico і побачити чарівність.
+У останньому урокі ми розглянули, як належно відлагодити наші дуже прості бінарні файли в __Radare2__. Сьогодні ми будемо хакнути цей статичний __.elf__ бінарний файл і перетворити його на __.uf2__ формат і підключити його до нашого Pico і побачити чарівність.
 
-Давайте знову переглянемо наше дуже просте програмування.
+Давайте знову переглянемо наші дуже прості програми.
 
 <pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
@@ -22,22 +22,22 @@ int main()&nbsp;
 }
 </pre>
 
-Давайте завантажимо наш бінарний файл.
+Давайте завантажимо наші бінарні файли.
 
 <pre spellcheck="false">radare2 -w arm -b 16 0x02_hello_world.elf
 </pre>
 
-Давайте автоматично аналізувати.
+Давайте зробимо автоматичну аналітику.
 
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте звернемося до головної частини програми.
+Давайте підійдемо до головної частини програми.
 
 <pre spellcheck="false">s main
 </pre>
 
-Давайте використаємо візуальний режим і натисніть p двічі, щоб отримати нашу улюблену оглядову панель відладчика.
+Давайте використаємо візуальний режим і натисніть p двічі, щоб отримати нашу улюблену оглядову панель.
 
 <pre spellcheck="false">V
 </pre>
@@ -46,18 +46,18 @@ int main()&nbsp;
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1616443718242.jpg"/></div>
 
-Я б хакнув цей бінарний файл двома способами. Як ми обговорили в останньому урокі, ми бачимо вміст всередині пам'яті _0x00000338_ , який містить значення нашої стрічки. Давайте натисніть колонку : і натисніть Enter.
+Я б хакнув цей бінарний файл двома способами. Як ми обговорили в останньому урокі, ми бачимо вміст всередині пам'яті _0x00000338_ який містить значення нашої стрічки. Давайте натисніть колонку: і натисніть Enter.
 
 <pre spellcheck="false">:&gt; psz @ [0x00000338]
 Hello world!
 </pre>
 
-Давайте переглянемо strings. Я хочу, щоб ви звернули увагу на "Hello world!", оскільки ви побачите дві адреси. Адреса на лівому боці - фізична адреса, а адреса прямо на правому боці - віртуальна адреса. Ми будуть займатися віртуальною адресою. Для кращого розуміння давайте зробимо наступне.
+Давайте переглянемо strings. Я хочу, щоб ви звернули увагу на "Hello world!", оскільки ви побачите дві адреси. Адреса на лівому боці - фізична адреса, а адреса прямо справа - віртуальна адреса. Ми будуть займатися віртуальною адресою. Для кращого розуміння давайте зробимо наступне.
 
 <pre spellcheck="false">:&gt; iz~ | less
 </pre>
 
-Як бачите, наша стрічка знаходиться вгорі.
+Як ви бачите, наша стрічка знаходиться вгорі.
 
 <pre spellcheck="false">[Strings]
 nth paddr&nbsp; &nbsp; &nbsp; vaddr&nbsp; &nbsp; &nbsp; len size section type&nbsp; &nbsp; string
@@ -67,18 +67,18 @@ nth paddr&nbsp; &nbsp; &nbsp; vaddr&nbsp; &nbsp; &nbsp; len size section type&nb
 2&nbsp; &nbsp;0x00014d24 0x00004d24 33&nbsp; 34&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Hardware alarm %d already claimed
 3&nbsp; &nbsp;0x00014d48 0x00004d48 15&nbsp; 16&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;\n*** PANIC ***\n
 4&nbsp; &nbsp;0x00014d5c 0x00004d5c 11&nbsp; 12&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Hard assert
-5&nbsp; &nbsp;0x00014d68 0x00004d68 7&nbsp; &nbsp;8&nbsp; &nbsp; .rodata ascii&nbsp; &nbsp;Release
-6&nbsp; &nbsp;0x00014d70 0x00004d70 5&nbsp; &nbsp;6&nbsp; &nbsp; .rodata ascii&nbsp; &nbsp;1.0.0
-7&nbsp; &nbsp;0x00014d78 0x00004d78 4&nbsp; &nbsp;5&nbsp; &nbsp; .rodata ascii&nbsp; &nbsp;pico
+5&nbsp; &nbsp;0x00014d68 0x00004d68 7&nbsp; &nbsp;8&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Release
+6&nbsp; &nbsp;0x00014d70 0x00004d70 5&nbsp; &nbsp;6&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;1.0.0
+7&nbsp; &nbsp;0x00014d78 0x00004d78 4&nbsp; &nbsp;5&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;pico
 8&nbsp; &nbsp;0x00014d80 0x00004d80 16&nbsp; 17&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;0x02_hello_world
 9&nbsp; &nbsp;0x00014d94 0x00004d94 11&nbsp; 12&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Mar 21 2021
-10&nbsp; 0x00014db2 0x00004db2 4&nbsp; &nbsp;5&nbsp; &nbsp; .rodata ascii&nbsp; &nbsp;uBhM
+10&nbsp; 0x00014db2 0x00004db2 4&nbsp; &nbsp;5&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;uBhM
 11&nbsp; 0x00014dbc 0x00004dbc 10&nbsp; 11&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;UART stdin
 12&nbsp; 0x00014dc8 0x00004dc8 11&nbsp; 12&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;UART stdout
 13&nbsp; 0x00014dd4 0x00004dd4 19&nbsp; 20&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;UART stdin / stdout
 14&nbsp; 0x00014dfc 0x00004dfc 18&nbsp; 19&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;USB stdin / stdout
 15&nbsp; 0x00014e1c 0x00004e1c 12&nbsp; 13&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Raspberry Pi
-16&nbsp; 0x00014e2c 0x00004e2c 4&nbsp; &nbsp;5&nbsp; &nbsp; .rodata ascii&nbsp; &nbsp;Pico
+16&nbsp; 0x00014e2c 0x00004e2c 4&nbsp; &nbsp;5&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Pico
 17&nbsp; 0x00014e34 0x00004e34 12&nbsp; 13&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;000000000000
 18&nbsp; 0x00014e44 0x00004e44 9&nbsp; &nbsp;10&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Board CDC
 19&nbsp; 0x00014ec4 0x00004ec4 19&nbsp; 20&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Unhandled IRQ 0x%x\n
@@ -86,12 +86,12 @@ nth paddr&nbsp; &nbsp; &nbsp; vaddr&nbsp; &nbsp; &nbsp; len size section type&nb
 21&nbsp; 0x00014f00 0x00004f00 30&nbsp; 31&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;ep %d %s was already available
 22&nbsp; 0x00014f20 0x00004f20 40&nbsp; 41&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Can't continue xfer on inactive ep %d %s
 23&nbsp; 0x00014f4c 0x00004f4c 35&nbsp; 36&nbsp; &nbsp;.rodata ascii&nbsp; &nbsp;Transferred more data than expected
-0&nbsp; &nbsp;0x00020135 0x10000135 5&nbsp; &nbsp;6&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;V\n`\eh
-1&nbsp; &nbsp;0x0002018b 0x1000018b 5&nbsp; &nbsp;6&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;&amp;CF\eh
-2&nbsp; &nbsp;0x000201a0 0x100001a0 4&nbsp; &nbsp;5&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;CF\ey
-3&nbsp; &nbsp;0x000201a8 0x100001a8 4&nbsp; &nbsp;5&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;CF\eh
-4&nbsp; &nbsp;0x000201d0 0x100001d0 4&nbsp; &nbsp;5&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;\thAq
-5&nbsp; &nbsp;0x0002028d 0x1000028d 5&nbsp; &nbsp;6&nbsp; &nbsp; .data&nbsp; &nbsp;ascii&nbsp; &nbsp;GpF\t8
+0&nbsp; &nbsp;0x00020135 0x10000135 5&nbsp; &nbsp;6&nbsp; &nbsp;.data&nbsp; &nbsp;ascii&nbsp; &nbsp;V\n`\eh
+1&nbsp; &nbsp;0x0002018b 0x1000018b 5&nbsp; &nbsp;6&nbsp; &nbsp;.data&nbsp; &nbsp;ascii&nbsp; &nbsp;&amp;CF\eh
+2&nbsp; &nbsp;0x000201a0 0x100001a0 4&nbsp; &nbsp;5&nbsp; &nbsp;.data&nbsp; &nbsp;ascii&nbsp; &nbsp;CF\ey
+3&nbsp; &nbsp;0x000201a8 0x100001a8 4&nbsp; &nbsp;5&nbsp; &nbsp;.data&nbsp; &nbsp;ascii&nbsp; &nbsp;CF\eh
+4&nbsp; &nbsp;0x000201d0 0x100001d0 4&nbsp; &nbsp;5&nbsp; &nbsp;.data&nbsp; &nbsp;ascii&nbsp; &nbsp;\thAq
+5&nbsp; &nbsp;0x0002028d 0x1000028d 5&nbsp; &nbsp;6&nbsp; &nbsp;.data&nbsp; &nbsp;ascii&nbsp; &nbsp;GpF\t8
 6&nbsp; &nbsp;0x00020805 0x10000805 5&nbsp; &nbsp;11&nbsp; &nbsp;.data&nbsp; &nbsp;utf16le \a \b \b
 7&nbsp; &nbsp;0x00020905 0x10000905 5&nbsp; &nbsp;11&nbsp; &nbsp;.data&nbsp; &nbsp;utf16le \b \t \t
 8&nbsp; &nbsp;0x00020a05 0x10000a05 5&nbsp; &nbsp;11&nbsp; &nbsp;.data&nbsp; &nbsp;utf16le \t \n \n
@@ -99,7 +99,7 @@ nth paddr&nbsp; &nbsp; &nbsp; vaddr&nbsp; &nbsp; &nbsp; len size section type&nb
 (END)
 </pre>
 
-Ви бачите, що значення _0x00004cf8_ містить нашу стрічку, щоб підтвердити це, ми можемо зробити наступне.
+Ви можете побачити значення _0x00004cf8_ яке містить нашу стрічку, щоб підтвердити це ми можемо зробити наступне.
 
 <pre spellcheck="false">:&gt; psz @ 0x00004cf8
 Hello world!
@@ -116,7 +116,7 @@ Hello world!
 Hacked World!
 </pre>
 
-Іншою річчю, яку я хотів би хакнути, є sleep\_ms, яка зараз встановлена на 1000. Пам'ятайте, вона показує 250 у десятковій системі числення або 0xfa у шістнадцятковій системі числення, і ми логічно зміщуємо ліворуч двічі, як ми обговорили в останньому урокі. Перший логічний зміщення вліво збільшує на 2, привівши нас до 500, а другий логічний зміщення вліво збільшує на 2, привівши нас до 1000.
+Іншою річчю, яку я хотів би хакнути, є sleep\_ms яка зараз встановлена на 1000. Пам'ятайте, вона показує 250 десяткове або 0xfa шістнадцяткове і ми логічно зміщуємо ліворуч двічі, як ми обговорили в останньому урокі. Перший логічний зміщення ліворуч буде збільшувати на 2, привівши нас до 500, а другий логічний зміщення ліворуч буде збільшувати на 2, привівши нас до 1000.
 
 <pre spellcheck="false">lsls r0, r0, 2&nbsp;
 </pre>
@@ -133,24 +133,24 @@ Written 2 byte(s) (lsls r0, r0, 1) = wx 4000
 │ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0x00000330&nbsp; &nbsp; &nbsp; 4000 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lsls r0, r0, 1
 </pre>
 
-Ми можемо чітко побачити, що воно змінилося.
+Ми можемо побачити, що воно змінилося.
 
-Усі, чого ми повинні зробити зараз, це вийти і переконвертувати наш __.elf__ в __.uf2__!
+Тепер у нас нічого не залишається, як вийти і перетворити наші __.elf__ на __.uf2__!
 
-<pre spellcheck="false">./elf2uf2/elf2uf2 0x02_hello_world.XyZ9PlH11ZuK8 0x02_hello_world.uf2
+<pre spellcheck="false">./elf2uf2/elf2uf2 0x02_hello_world.elf 0x02_hello_world.uf2
 </pre>
 
-Підключіть Pico і переконайтеся, що ви тримаєте натиснутим BOOTSEL або використовуйте налаштування, які я надав у останньому урокі.
+Підключіть Pico і переконайтеся, що ви натискаєте BOOTSEL або використовуєте налаштування, які я надав у останньому урокі.
 
 <pre spellcheck="false">cp 0x02_hello_world.uf2 /Volumes/RPI-RP2
 </pre>
 
-Давайте його побачимо!
+Давайте побачимо!
 
 <pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
 </pre>
 
-АХА, так!
+АХА!
 
 <pre spellcheck="false">Hacked World!
 Hacked World!

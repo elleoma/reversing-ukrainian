@@ -1,10 +1,10 @@
 ## Частина 32 - x64 Збірка \[Part 6\]
 
-Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
 Давайте переглянемо наш код.
 
-<XyZ9PlH1ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248751760.jpg"/></XyZ9PlH2ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1553248751760.jpg"/></div>
 
 Компілюємо...
 

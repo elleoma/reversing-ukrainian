@@ -1,8 +1,8 @@
 ## Частина 28 - x64 Збірка \[Part 2\]
 
-Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті.&nbsp;https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Продовжимо з ще одним прикладом:
+Продовжимо з наступним прикладом:
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829629337.jpg"/></div>
 
@@ -14,12 +14,12 @@
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829696687.jpg"/></div>
 
-Як бачите, як очікували, ми бачимо наш код в режимі відладки.
+Як бачите, як очікували, ми бачимо наш код у режимі відладки.
 
 <div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829787663.jpg"/></div>
 
 Шагаємо двічі, а потім...
 
-<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829821644.jpg"/></XyZ9PlH10ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1550829821644.jpg"/></div>
 
 Бачимо __0x15 __або __21__ десяткове число переміщене в __RAX__. Вдірайтесь до цих дуже простих прикладів, коли ми рухаємося далі.

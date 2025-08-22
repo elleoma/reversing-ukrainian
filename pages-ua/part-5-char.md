@@ -1,17 +1,16 @@
 Частина 5 - char
 
-Сьогодні ми почнемо своє висвітлення даних типу C. Почнемо з char. Char є найменшим адресованим одиницею машини, яка може містити базовий набір символів. Це ціле тип і може бути підписаним або несписаним.
+Сьогодні ми почнемо нашу обробку даних типу C. Почнемо з char. Char є найменшим адресованим одиницею машини, яка може містити базовий набір символів. Це ціле число і може бути підписаним або несписаним.
 
-Давайте створимо новий каталог __0x03\_char__ і додамо наш __CMakeLists.txt__ file в нього.
+Давайте створимо новий каталог __0x03\_char____ і додамо наш __CMakeLists.txt__ __file__ в нього.
 
-<pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
+__<pre spellcheck="false">cmake_minimum_required(VERSION 3.13)
 
 include(pico_sdk_import.cmake)
 
 project(test_project C CXX ASM)
 set(CMAKE_C_STANDARD 11)&nbsp;
-set(CMAKE_CXX_STANDARD 17)&nbsp;
-pico_sdk_init()
+set(CMAKE_CXX_STANDARD 17)&nbsp; pico_sdk_init()
 
 add_executable(0x03_char
 &nbsp; 0x03_char.c
@@ -22,19 +21,19 @@ pico_enable_stdio_usb(0x03_char 1)
 pico_add_extra_outputs(0x03_char)
 
 target_link_libraries(0x03_char pico_stdlib)
-</pre>
+</pre>__
 
-Далі нам потрібно скопіювати __pico\_sdk\_import.cmake__&nbsp;file з зовнішнього каталогу в __pico-sdk__ встановлення в каталог __0x03\_char__&nbsp;project.
+Далі нам потрібно скопіювати __pic__ __o\_sdk\_import.cmake__&nbsp;file__ з зовнішнього каталогу в __pico-sdk__ встановлення в каталог __0x03\_char__&nbsp;project__.
 
-<pre spellcheck="false">cp ../pico-sdk/external/pico_sdk_import.cmake .
-</pre>
+__<pre spellcheck="false">cp../pico-sdk/external/pico_sdk_import.cmake.
+</pre>__
 
-Давайте створимо наш C file __0x03\_char.c__ і продовжимо...
+Давайте створимо наш C __file__ __0x03\_char.c____ і продовжимо...
 
-<pre spellcheck="false">#include &lt;stdio.h&gt;
+__<pre spellcheck="false">#include &lt;stdio.h&gt;
 #include "pico/stdlib.h"
 
-XyZ9PlH5ZuK8 main()&nbsp;
+int main()&nbsp;
 {
 &nbsp; stdio_init_all();
 
@@ -42,47 +41,47 @@ XyZ9PlH5ZuK8 main()&nbsp;
 &nbsp; {
 &nbsp; &nbsp; char x = 'x';
 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-&nbsp; &nbsp; XyZ9PlH0ZuK8("%c\n", x);
+&nbsp; &nbsp; printf("%c\n", x);
 
 &nbsp; &nbsp; sleep_ms(1000);
 &nbsp; }
 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
 &nbsp; return 0;
 }
-</pre>
+</pre>__
 
-Нарешті ми готові до будівництва.
+Нарешті, ми готові до будівництва.
 
-<pre spellcheck="false">mkdir build
+__<pre spellcheck="false">mkdir build
 cd build
 export PICO_SDK_PATH=../../pico-sdk
-cmake ..
+cmake..
 make
-</pre>
+</pre>__
 
-Далі просто скопіюйте _.uf2__ file в диск.
+Далі просто скопіюйте ____.uf2__ __file__ в диск.
 
-<pre spellcheck="false">cp 0x03_char.uf2 /Volumes/RPI-RP2
-</pre>
+__<pre spellcheck="false">cp 0x03_char.uf2 /Volumes/RPI-RP2
+</pre>__
 
 Далі нам потрібно знайти зовнішній диск, щоб ви могли виконати наступні дії.
 
-<pre spellcheck="false">ls /dev/tty.
-</pre>
+__<pre spellcheck="false">ls /dev/tty.
+</pre>__
 
-Натисніть табуляцію, щоб знайти диск, а потім у моїх випадках я використовую __screen__ для підключення.
+Натисніть tab, щоб знайти диск, а потім у моїй ситуації я використовую __screen__ для підключення.
 
-<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
-</pre>
+__<pre spellcheck="false">screen /dev/tty.usbmodem0000000000001
+</pre>__
 
-Ви повинні побачити "х" друкується кожну секунду.
+Ви повинні побачити "x", яке друкується кожну секунду.
 
-<pre spellcheck="false">x
+__<pre spellcheck="false">x
 x
 x
 x
 x
 x
-</pre>
+</pre>__
 
 У наступному урокі ми навчимося відлагоджувати char.

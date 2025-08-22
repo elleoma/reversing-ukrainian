@@ -1,19 +1,19 @@
-Частина 18 – Дебагування констант
+## Частина 18 – Дебагування констант
 
-Для повного змісту змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
+Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте переглянемо код попередньої тижня.
+Давайте переглянемо код попередньої неділі.
 
-<XyZ9PlH0ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520147783406.jpg"/></XyZ9PlH1ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520147783406.jpg"/></div>
 
 Давайте дебагуємо!
 
-<XyZ9PlH2ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520194203208.jpg"/></XyZ9PlH3ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520194203208.jpg"/></div>
 
 Як ми бачимо, значення в адресі пам'яті __0x10730__ дорівнює __2017__. Давайте продовжимо і спостерігайте, як значення друкується в стандартний вивід (термінал), як і попереднього тижня, коли ми його запустили.
 
-<XyZ9PlH4ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520152068447.jpg"/></XyZ9PlH5ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1520152068447.jpg"/></div>
 
-Ми бачимо дуже чітко, що ми переміщаємо значення з пам'яті в __r1__ і потім ми стрибаємо до нашої функції __cout__ для друку в терміналі. На цій стадії ви повинні почувати себе трохи більш комфортно, розуміючи, що відбувається в асемблері вище.
+Ми дуже чітко бачимо, як ми переміщаємо значення з пам'яті в __r1__ і потім ми стрибаємо до нашої функції __cout__ для друку в термінал. На цій стадії ви повинні почувати себе трохи більш комфортно, розуміючи, що відбувається в асемблері вище.
 
 Наступний тиждень ми вийдемо в Хакінг констант.

@@ -1,10 +1,10 @@
 ## Частина 1 - Чому, Як...
 
-2021 рік і знову ми починаємо новий курс зворотнього інжинірингу. Цей курс буде присвячений програмуванню на мові C, де ми статично зворотньо розіб'ємо скомпільований ARM 32 elf бінарний файл за допомогою Radare2 дебагера на мікроконтролері Raspberry Pi Pico.
+2021 рік і знову ми починаємо новий курс зворотнього інжинірингу. Цей курс буде присвячений програмуванню мовою C, яку ми статично зворотньо розшифруємо скомпільований ARM 32 elf бінарний файл за допомогою Radare2 дебагера на мікроконтролері Raspberry Pi Pico.
 
 Що таке мікроконтролери? Їх можна знайти в транспортних засобах, роботах, офісних машинах, медичних приладах, мобільних радіотрансиверах, автоматидах і домашніх приладах тощо. Вони призначені для управління малими функціями більшого компонента, без складної передньої частини операційної системи.
 
-Ми будемо писати дуже прості програми на мові C і потім зворотньо розіб'ємо їх один за одним на ARM 32 збірці.
+Ми будемо писати дуже прості програми мовою C і потім зворотньо розшифрувати їх один за одним мовою ARM 32 збірки.
 
 Я припущу, що ви працюєте з дистрибутивом Ubuntu Linux...
 
@@ -14,17 +14,17 @@
 
 <pre spellcheck="false">git clone https://github.com/radareorg/radare2.git
 cd radare2
-cd radare2&nbsp;sys/install.XyZ9PlH12ZuK8
+cd radare2&nbsp;sys/install.sh
 </pre>
 
-Ви ЗАКОНЧЕНО ЗБУДОВАТИ З ІСТОРІЇ! Версії, які упаковані в Ubuntu і Kali Linux, старіші і не мають необхідних функцій для нашого рівня зворотнього інжинірингу.
+Ви ЗАВЖДИ повинні будувати з джерела! Версії, що пакуються в Ubuntu і Kali Linux, старіші і не мають необхідних функцій для нашого рівня зворотнього інжинірингу.
 
 Вам потрібно мати VIM.
 
 <pre spellcheck="false">sudo apt install vim
 </pre>
 
-Вам потрібно оновити файл .vimrc file.
+Вам потрібно оновити файл.vimrc file.
 
 <pre spellcheck="false">vim ~/.vimrc
 </pre>
@@ -46,7 +46,7 @@ cd pico
 git clone -b master https://github.com/raspberrypi/pico-sdk.git
 cd pico-sdk
 git submodule update --init
-cd ..
+cd..
 git clone -b master https://github.com/raspberrypi/pico-examples.git
 sudo apt update
 sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential&nbsp;
@@ -58,13 +58,13 @@ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
 mkdir build
 cd build
 export PICO_SDK_PATH=../../pico-sdk
-cmake ..
+cmake..
 cd blink
 make
 </pre>
 
 Копіюйте файл __blink.uf2 __в свій Pico.
 
-Вітаємо! Ви створили блискучу програму на мові C!
+Вітаємо, ви got написали блискучу програму мовою C!
 
 У наступному урокі ми створимо просту програму "Привіт, Світ!".

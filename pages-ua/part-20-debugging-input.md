@@ -16,13 +16,13 @@
 #define BACKSPACE 0x08
 #define DEL 0x7f
 
-void input_proc(char type, char* p_usb_char, char* p_usb_string, const XyZ9PlH14ZuK8* p_USB_STRING_SIZE)
+void input_proc(char type, char* p_usb_char, char* p_usb_string, const int* p_USB_STRING_SIZE)
 {
 &nbsp; *p_usb_char = '\0';
 &nbsp; *p_usb_char = getchar_timeout_us(0);
 &nbsp; if(*p_usb_char == BACKSPACE || *p_usb_char == DEL)
 &nbsp; {
-&nbsp; &nbsp; if(p_usb_string[0] != '\0')
+&nbsp; &nbsp; if(p_usb_string[0]!= '\0')
 &nbsp; &nbsp; {
 &nbsp; &nbsp; &nbsp; printf("\b");
 &nbsp; &nbsp; &nbsp; printf(" ");
@@ -110,11 +110,11 @@ void print_proc(char* p_usb_char, char* p_usb_string)
 #include "print.h"
 #include "input.h"
 
-XyZ9PlH15ZuK8 main()
+int main()
 {
 &nbsp; stdio_init_all();
 
-&nbsp; const XyZ9PlH16ZuK8 USB_STRING_SIZE = 100;
+&nbsp; const int USB_STRING_SIZE = 100;
 &nbsp; char usb_char;
 &nbsp; usb_char = '\0';
 &nbsp; char usb_string[USB_STRING_SIZE];
@@ -132,7 +132,7 @@ XyZ9PlH15ZuK8 main()
 
 Давайте запустимо наш дебагер.
 
-<pre spellcheck="false">radare2 -w XyZ9PlH17ZuK8 -b 16 main.XyZ9PlH32ZuK8
+<pre spellcheck="false">radare2 -w arm -b 16 main.elf
 </pre>
 
 Давайте зробимо аналіз автоматично.
@@ -140,7 +140,7 @@ XyZ9PlH15ZuK8 main()
 <pre spellcheck="false">aaaa
 </pre>
 
-Давайте спробуємо потрапити до головної частини програми.
+Давайте перейдемо до головної частини програми.
 
 <pre spellcheck="false">s main
 </pre>
@@ -149,46 +149,46 @@ XyZ9PlH15ZuK8 main()
 
 Спочатку ми переглядаємо _main_.
 
-<XyZ9PlH18ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622836839312.jpg"/></XyZ9PlH19ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622836839312.jpg"/></div>
 
-Ми бачимо наш _stdio\_init\_all_ call, який встановлює IO, і бачимо _0x64_ в _r3_, який є нашим кроком 100 десятичним, щоб встановити _USB\_STRING\_SIZE _, і встановлюємо наш _usb\_char_ значення і ініціалізуємо його _0_ і, нарешті, _usb\_string_ і ініціалізуємо його _0_.
+Ми бачимо наш _stdio\_init\_all_ call, який встановлює IO, і бачимо _0x64_ в _r3_, який є нашим кроком 100 десятичним, щоб встановити _USB\_STRING\_SIZE, і встановлюємо наш _usb\_char_ значення і ініціалізуємо його до _0_, а потім _usb\_string_ і ініціалізуємо його до _0_.
 
 Давайте переглянемо нашу функцію _print\_proc_.
 
-<XyZ9PlH20ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837104639.jpg"/></XyZ9PlH21ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837104639.jpg"/></div>
 
-Спочатку ми перевіримо, чи наш вказівник на usb\_char або _p\_usb\_char_ рівний клавіші _RETURN_ або _0xd_ і якщо так, то здійснюємо стрибок.
+Спочатку ми перевіримо, чи наш вказівник на usb\_char або _p\_usb\_char_ рівний клавіші _RETURN_ або _0xd_, і якщо так, то здійснюємо перехід.
 
-Далі ми ітеруємося по _p\_usb\_string_, поки не досягнемо кінця рядка, і потім викликаємо нашу функцію _printf _як ми бачимо тут, це обгортка навколо функції c printf.
+Далі ми ітеруємося по _p\_usb\_string_, поки не досягнемо кінця рядка, і потім call нашу функцію _printf, яка, як ми бачимо тут, є обгорткою навколо функції c printf.
 
-Нарешті, ми _flush\_input_.
+Нарешті, ми _flush\_input_..
 
 Наша функція _input\_proc_ трохи складніша.
 
-<XyZ9PlH22ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837449377.jpg"/></XyZ9PlH23ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837449377.jpg"/></div>
 
 У цьому випадку ми використовуємо функцію g_etchar\_timeout\_us_ і обробляємо клавіші _BACKSPACE_ і _DELETE_.
 
-<XyZ9PlH24ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837675957.jpg"/></XyZ9PlH25ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837675957.jpg"/></div>
 
-Далі ми викликаємо нашу функцію _putchar _обгортку навколо _0_ і _9_ і перевіряємо _strlen_ і належним чином будуємо наш рядок з _strncat_.
+Далі ми call нашу функцію _putchar_ проти _0_ і _9_ і перевіряємо _strlen_ і належним чином будуємо наш рядок з _strncat_.
 
-<XyZ9PlH26ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837760991.jpg"/></XyZ9PlH27ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837760991.jpg"/></div>
 
-Далі ми належним чином обробляємо нашу логіку _PERIOD_ щоб забезпечити, що тільки один _PERIOD _введений, оскільки десяткова частина не може обробляти 2 періоди.
+Далі ми належним чином обробляємо нашу логіку _PERIOD_ щоб забезпечити, що тільки один _PERIOD_ вводиться, оскільки десяткова частина не може обробляти 2 періоди.
 
-<XyZ9PlH28ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837842045.jpg"/></XyZ9PlH29ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837842045.jpg"/></div>
 
 Далі ми належним чином обробляємо наш цикл.
 
 Нарешті, ми маємо нашу функцію _flush\_input_.
 
-<XyZ9PlH30ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837919869.jpg"/></XyZ9PlH31ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1622837919869.jpg"/></div>
 
-У цьому випадку ми просто очищаємо буфер вхідних даних, встановлюючи _p\_usb\_string_ на null-значення.
+У цьому випадку ми просто очищаємо буфер вхідних даних, встановлюючи _p\_usb\_string_ на нульовий символ.
 
-Це була більша сесія дебагування, тому будь ласка, візьміть свій час і порівняйте збірку з джерелом, щоб глибше зрозуміти кожен абзац, як я його тут описую.
+Це була більша сесія дебагування, тому будь ласка, візьміть свій час і порівняйте збірку з джерелом, щоб глибше зрозуміти кожен абзац, який я тут описую.
 
-Це закінчує нашу початкову навчальну подорож. У цій подорожі ми здійснили 197 кроків разом через кілька різних архітектур. Тепер ваш черга взяти цю навчальну матеріал на практику і зробити щось велике!
+Це закінчує нашу початкову навчальну подорож. У цій подорожі ми здійснили 197 кроків разом через кілька різних архітектур. Тепер ваш чергова черга взяти цю навчальну матеріал на практику і зробити великі речі!
 
-Цей книга буде вашою посилкою, коли ви зустрінете виклики, але немає нічого, чого ви не зможете досягти!
+Цей книга буде вашою посилкою, коли ви зустрінете виклики, але нічого не зупинить вас!

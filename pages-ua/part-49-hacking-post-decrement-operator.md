@@ -2,13 +2,13 @@
 
 Для повного змісту всіх уроків натисніть нижче, оскільки це надасть вам короткий зміст кожного уроку, а також теми, які будуть розглянуті. https://github.com/mytechnotalent/Reverse-Engineering-Tutorial
 
-Давайте знову переглянемо наш код.
+Давайте ще раз переглянемо наш код.
 
 <pre spellcheck="false">#include &lt;iostream&gt;
 
-XyZ9PlH0ZuK8 main(void) {
-&nbsp;&nbsp; &nbsp;XyZ9PlH1ZuK8 myNumber = 16;
-&nbsp;&nbsp; &nbsp;XyZ9PlH2ZuK8 myNewNumber = myNumber--;
+int main(void) {
+&nbsp;&nbsp; &nbsp;int myNumber = 16;
+&nbsp;&nbsp; &nbsp;int myNewNumber = myNumber--;
 
 &nbsp;&nbsp; &nbsp;std::cout &lt;&lt; myNewNumber &lt;&lt; std::endl;
     std::cout &lt;&lt; myNumber &lt;&lt; std::endl;
@@ -17,9 +17,9 @@ XyZ9PlH0ZuK8 main(void) {
 }
 </pre>
 
-Давайте переглянемо попередній тиждень відлагодження.
+Давайте переглянемо попередній тижневий дебаг.
 
-<XyZ9PlH4ZuK8 class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1532690049930.jpg"/></XyZ9PlH5ZuK8>
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"><img src="/imgs/1532690049930.jpg"/></div>
 
 Як ми бачимо тут, значення в __r1__ на __main+68__ становить __15__. Давайте хакнемо!
 
